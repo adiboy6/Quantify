@@ -1,13 +1,24 @@
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   console.log(message);
-  if (message.greeting === "tip") {
-    fetch("https://randomuser.me/api").then(async (response) => {
-      const data = await response.json();
-      sendResponse({ tip: data["results"][0]["name"]["last"] });
+  if (message.key === "FETCH_PROFILE_INFO") {
+    chrome.storage.session.get(["lastName"]).then((result) => {
+      if (result["lastName"] !== undefined) {
+        console.log("data cached... returning");
+        sendResponse({ last: result["lastName"] });
+      } else {
+        fetch("https://randomuser.me/api").then(async (response) => {
+          const data = await response.json();
+          const lastName = data["results"][0]["name"]["last"];
+
+          chrome.storage.session.set({ lastName }).then(() => {
+            console.log("Value was set");
+          });
+
+          sendResponse({ last: data["results"][0]["name"]["last"] });
+        });
+      }
     });
-    return true;
   }
-  if (message.greeting === "from pop up") {
-    console.log("got message from popup");
-  }
+
+  return true;
 });

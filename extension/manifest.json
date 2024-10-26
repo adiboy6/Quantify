@@ -1,22 +1,20 @@
 {
   "manifest_version": 3,
-  "name": "Hello Extensions",
-  "description": "Base Level Extension",
+  "name": "Quantify",
+  "description": "Job autofill assistant",
   "version": "1.0",
   "action": {
-    "default_popup": "hello.html",
+    "default_popup": "index.html",
     "default_icon": "hello_extensions.png"
   },
   "content_scripts": [
     {
       "js": ["scripts/main.js"],
-      "matches": [
-        "https://developer.chrome.com/docs/extensions/*",
-        "https://developer.chrome.com/docs/extensions/"
-      ]
+      "matches": ["<all_urls>"]
     }
   ],
   "background": {
     "service_worker": "scripts/service_worker.js"
-  }
+  },
+  "permissions": ["storage"]
 }
