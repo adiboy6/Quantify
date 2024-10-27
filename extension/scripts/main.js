@@ -22,6 +22,91 @@ async function startAutoFill() {
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   if (message.key === "START_AUTO_FILL") {
     startAutoFill();
+
+    const tabElements = Array.from(
+      document
+        // Get all elements that can be focusable
+        .querySelectorAll(
+          "a, button, input, textarea, select, details, [tabindex]"
+        )
+    )
+
+      // remove any that have a tabIndex of -1
+      .filter((element) => element.tabIndex > -1)
+
+      // reverse, then sort by tabIndex descending to put 0s last but maintain original order
+      .reverse()
+      .sort((a, b) => (a.tabIndex > b.tabIndex ? -1 : 1));
+
+    console.log(tabElements);
+    let count = 0;
+    tabElements.forEach((element) => {
+      if (element.getAttribute("id") === "s2id_autogen3") {
+        count += 1;
+        setTimeout(() => {
+          console.log("focusing on ", element);
+          const e = document.getElementById(
+            "s2id_job_application_answers_attributes_5_boolean_value"
+          );
+
+          const aElement = e.getElementsByTagName("a")[0];
+          const event = new MouseEvent("mousedown", {
+            bubbles: true,
+            cancelable: true,
+          });
+          aElement.dispatchEvent(event);
+
+          const path = `//div[@id="select2-drop" and not(contains(@style, "display: none"))]//ul[@class="select2-results" and @role="listbox"]//li[@role="option" and "Yes"]`;
+
+          setTimeout(() => {
+            const results = document.evaluate(
+              path,
+              document,
+              null,
+              XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE,
+              null
+            );
+            const yesEle = results.snapshotItem(1);
+            console.log(yesEle);
+            yesEle.dispatchEvent(new MouseEvent("mousemove"), {
+              bubbles: true,
+              cancelable: true,
+            });
+            yesEle.dispatchEvent(
+              new Event("click", {
+                bubbles: true,
+                cancelable: true,
+              })
+            );
+          }, 3e3);
+
+          // element.focus();
+          // element.click();
+          // element.dispatchEvent(
+          //   new KeyboardEvent("keydown", { key: "ArrowDown" })
+          // );
+          // element.dispatchEvent(
+          //   new KeyboardEvent("keyup", { key: "ArrowDown" })
+          // );
+
+          // document.getElementById("select2-drop").click();
+          // document
+          //   .getElementById("job_application_answers_attributes_5_priority")
+          //   .focus();
+          // document
+          //   .getElementById(
+          //     "s2id_job_application_answers_attributes_5_boolean_value"
+          //   )
+          //   .focus();
+          // document
+          //   .getElementById(
+          //     "job_application_answers_attributes_5_boolean_value"
+          //   )
+          //   .focus();
+          // document.getElementById("select2-chosen-3").focus();
+        }, 5000);
+      }
+    });
   }
 });
 
