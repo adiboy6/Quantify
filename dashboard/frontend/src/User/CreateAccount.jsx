@@ -1,6 +1,115 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-function CreateAccount() {
+const CreateAccount = () => {
+  const [formData, setFormData] = useState({
+    fullName: '',
+    email: '',
+    password: '',
+    confirmPassword: ''
+  });
+
+  const [touched, setTouched] = useState({
+    fullName: false,
+    email: false,
+    password: false,
+    confirmPassword: false
+  });
+
+  const [errors, setErrors] = useState({
+    password: '',
+    confirmPassword: ''
+  });
+
+  const validatePassword = (password) => {
+    if (password.length < 8) {
+      return 'Password must be at least 8 characters long';
+    }
+    if (!/(?=.*[a-zA-Z])(?=.*[0-9])/.test(password)) {
+      return 'Password must contain both letters and numbers';
+    }
+    if (!/[!@#$%^&*(),.?":{}|<>]/.test(password)) {
+      return 'Password must contain at least one special character';
+    }
+    return '';
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+
+    // Validate password
+    if (name === 'password') {
+      const passwordError = validatePassword(value);
+      setErrors(prev => ({
+        ...prev,
+        password: passwordError
+      }));
+    }
+
+    // Check password match
+    if (name === 'password' || name === 'confirmPassword') {
+      if (name === 'confirmPassword' && value !== formData.password) {
+        setErrors(prev => ({
+          ...prev,
+          confirmPassword: 'Passwords do not match'
+        }));
+      } else if (name === 'password' && value !== formData.confirmPassword && formData.confirmPassword) {
+        setErrors(prev => ({
+          ...prev,
+          confirmPassword: 'Passwords do not match'
+        }));
+      } else {
+        setErrors(prev => ({
+          ...prev,
+          confirmPassword: ''
+        }));
+      }
+    }
+  };
+
+  const handleBlur = (field) => {
+    setTouched(prev => ({
+      ...prev,
+      [field]: true
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Mark all fields as touched on submit attempt
+    setTouched({
+      fullName: true,
+      email: true,
+      password: true,
+      confirmPassword: true
+    });
+    
+    const passwordError = validatePassword(formData.password);
+    if (passwordError) {
+      setErrors(prev => ({
+        ...prev,
+        password: passwordError
+      }));
+      return;
+    }
+
+    if (formData.password !== formData.confirmPassword) {
+      setErrors(prev => ({
+        ...prev,
+        confirmPassword: 'Passwords do not match'
+      }));
+      return;
+    }
+    
+    if (formData.fullName && formData.email && formData.password && formData.confirmPassword && !errors.password && !errors.confirmPassword) {
+      // Proceed with account creation
+      console.log('Form submitted:', formData);
+    }
+  };
+
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100 px-4">
       <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
@@ -11,32 +120,94 @@ function CreateAccount() {
           Create an account to explore more opportunities.
         </p>
 
-        <form className="space-y-4">
+        <form className="space-y-4" onSubmit={handleSubmit}>
           <div>
-            <label className="block text-gray-700 text-sm font-semibold mb-2">Full Name</label>
+            <label className="block text-gray-700 text-sm font-semibold mb-2">
+              Full Name <span className="text-red-500">*</span>
+            </label>
             <input 
-              type="text" 
+              type="text"
+              name="fullName"
+              value={formData.fullName}
+              onChange={handleChange}
+              onBlur={() => handleBlur('fullName')}
               placeholder="Enter your full name" 
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+                touched.fullName && !formData.fullName ? 'border-red-500' : 'border-gray-300'
+              }`}
             />
+            {touched.fullName && !formData.fullName && (
+              <p className="text-red-500 text-sm mt-1">Please enter your full name</p>
+            )}
           </div>
 
           <div>
-            <label className="block text-gray-700 text-sm font-semibold mb-2">Email Address</label>
+            <label className="block text-gray-700 text-sm font-semibold mb-2">
+              Email Address <span className="text-red-500">*</span>
+            </label>
             <input 
-              type="email" 
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              onBlur={() => handleBlur('email')}
               placeholder="Enter your email" 
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+                touched.email && !formData.email ? 'border-red-500' : 'border-gray-300'
+              }`}
             />
+            {touched.email && !formData.email && (
+              <p className="text-red-500 text-sm mt-1">Please enter your email address</p>
+            )}
           </div>
 
           <div>
-            <label className="block text-gray-700 text-sm font-semibold mb-2">Password</label>
+            <label className="block text-gray-700 text-sm font-semibold mb-2">
+              Password <span className="text-red-500">*</span>
+            </label>
             <input 
-              type="password" 
+              type="password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+              onBlur={() => handleBlur('password')}
               placeholder="Enter your password" 
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+                (touched.password && !formData.password) || errors.password ? 'border-red-500' : 'border-gray-300'
+              }`}
             />
+            {touched.password && !formData.password && (
+              <p className="text-red-500 text-sm mt-1">Please enter your password</p>
+            )}
+            {touched.password && errors.password && (
+              <p className="text-red-500 text-sm mt-1">{errors.password}</p>
+            )}
+            <p className="text-gray-500 text-xs mt-1">
+              Password must be at least 8 characters long, contain letters and numbers, and include at least one special character.
+            </p>
+          </div>
+
+          <div>
+            <label className="block text-gray-700 text-sm font-semibold mb-2">
+              Confirm Password <span className="text-red-500">*</span>
+            </label>
+            <input 
+              type="password"
+              name="confirmPassword"
+              value={formData.confirmPassword}
+              onChange={handleChange}
+              onBlur={() => handleBlur('confirmPassword')}
+              placeholder="Re-enter your password" 
+              className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+                (touched.confirmPassword && !formData.confirmPassword) || errors.confirmPassword ? 'border-red-500' : 'border-gray-300'
+              }`}
+            />
+            {touched.confirmPassword && !formData.confirmPassword && (
+              <p className="text-red-500 text-sm mt-1">Please confirm your password</p>
+            )}
+            {touched.confirmPassword && errors.confirmPassword && (
+              <p className="text-red-500 text-sm mt-1">{errors.confirmPassword}</p>
+            )}
           </div>
 
           <button 
@@ -55,6 +226,6 @@ function CreateAccount() {
       </div>
     </div>
   );
-}
+};
 
 export default CreateAccount;
