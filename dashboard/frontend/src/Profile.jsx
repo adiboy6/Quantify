@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 export function Profile() {
   const keys = {
@@ -32,6 +32,7 @@ export function Profile() {
   };
 
   const [data, setData] = useState(initialData);
+
   function handleChange(e, k, addressKey = null) {
     const clone = structuredClone(data);
     if (addressKey != null) {
@@ -46,33 +47,30 @@ export function Profile() {
   for (let k in keys) {
     if (k === "linkedIn" || k === "portfolio") {
       fields.push(
-        <div key={k}>
-          <label htmlFor={k}>{keys[k]}:</label>
+        <div key={k} className="form-group">
+          <label htmlFor={k} className="form-label">{keys[k]}:</label>
           <input
             type="url"
             name={k}
             id={k}
             placeholder="https://example.com"
             pattern="https://.*"
-            size="30"
+            className="form-input"
             value={data[k]}
             onChange={(e) => handleChange(e, k)}
           />
         </div>
       );
-    } else if (k == "address") {
-      {
-        console.log(data);
-      }
+    } else if (k === "address") {
       for (let addressKey in keys[k]) {
         fields.push(
-          <div key={addressKey}>
-            <label htmlFor={addressKey}>{keys[k][addressKey]}:</label>
+          <div key={addressKey} className="form-group">
+            <label htmlFor={addressKey} className="form-label">{keys[k][addressKey]}:</label>
             <input
               type="text"
               name={addressKey}
               id={addressKey}
-              size="30"
+              className="form-input"
               value={data[k][addressKey]}
               onChange={(e) => handleChange(e, k, addressKey)}
             />
@@ -81,13 +79,13 @@ export function Profile() {
       }
     } else {
       fields.push(
-        <div key={k}>
-          <label htmlFor={k}>{keys[k]}:</label>
+        <div key={k} className="form-group">
+          <label htmlFor={k} className="form-label">{keys[k]}:</label>
           <input
             type="text"
             name={k}
             id={k}
-            size="30"
+            className="form-input"
             value={data[k]}
             onChange={(e) => handleChange(e, k)}
           />
@@ -96,5 +94,17 @@ export function Profile() {
     }
   }
 
-  return <div>{fields}</div>;
+  return (
+    <div className="profile-form">
+      <h2 className="form-title">Profile Information</h2>
+      <form className="form-container">
+        {fields}
+        <div className="form-group">
+          <button type="submit" className="submit-button">
+            Save Profile
+          </button>
+        </div>
+      </form>
+    </div>
+  );
 }
