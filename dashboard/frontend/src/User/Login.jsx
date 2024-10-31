@@ -1,11 +1,18 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 
 const Login = () => {
+  const navigate = useNavigate();
+  const auth = getAuth();
+
   const [formData, setFormData] = useState({
     email: '',
     password: ''
   });
 
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
   const [touched, setTouched] = useState({
     email: false,
     password: false
@@ -17,6 +24,7 @@ const Login = () => {
       ...prev,
       [name]: value
     }));
+    setError(''); // Clear error when user types
   };
 
   const handleBlur = (field) => {
@@ -26,17 +34,51 @@ const Login = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Mark all fields as touched on submit attempt
     setTouched({
       email: true,
       password: true
     });
     
-    if (formData.email && formData.password) {
-      // Proceed with login
-      console.log('Form submitted:', formData);
+    if (!formData.email || !formData.password) {
+      setError('Please fill in all fields');
+      return;
+    }
+
+    setLoading(true);
+    setError('');
+
+    try {
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        formData.email,
+        formData.password
+      );
+      
+      console.log('Login successful:', userCredential.user);
+      navigate('/'); // Redirect to home page after successful login
+      
+    } catch (error) {
+      console.error('Login error:', error);
+      switch (error.code) {
+        case 'auth/invalid-email':
+          setError('Invalid email address');
+          break;
+        case 'auth/user-disabled':
+          setError('This account has been disabled');
+          break;
+        case 'auth/user-not-found':
+          setError('No account found with this email');
+          break;
+        case 'auth/wrong-password':
+          setError('Incorrect password');
+          break;
+        default:
+          setError('Failed to log in. Please try again.');
+      }
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -49,6 +91,12 @@ const Login = () => {
         <p className="text-center text-gray-600 mb-6">
           Log in to your account to continue.
         </p>
+
+        {error && (
+          <div className="bg-red-50 border border-red-200 text-red-600 px-4 py-3 rounded-lg mb-4">
+            {error}
+          </div>
+        )}
 
         <form className="space-y-4" onSubmit={handleSubmit}>
           <div>
@@ -99,15 +147,21 @@ const Login = () => {
 
           <button 
             type="submit" 
-            className="w-full py-3 bg-blue-500 text-white font-bold text-lg rounded-lg shadow hover:bg-blue-600 transition duration-300"
+            disabled={loading}
+            className={`w-full py-3 bg-blue-500 text-white font-bold text-lg rounded-lg shadow
+              ${!loading ? 'hover:bg-blue-600' : 'opacity-70 cursor-not-allowed'} 
+              transition duration-300`}
           >
-            Log In
+            {loading ? 'Logging in...' : 'Log In'}
           </button>
         </form>
 
         <div className="text-center mt-4">
           <p className="text-sm text-gray-600">
-            Don't have an account? <a href="/create-account" className="text-blue-500 hover:underline">Sign up</a>
+            Don't have an account?{' '}
+            <a href="/create-account" className="text-blue-500 hover:underline">
+              Sign up
+            </a>
           </p>
         </div>
       </div>
