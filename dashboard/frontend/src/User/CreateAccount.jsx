@@ -1,7 +1,11 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { getAuth, createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
-import { getFirestore, doc, setDoc } from 'firebase/firestore';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  updateProfile,
+} from "firebase/auth";
+import { getFirestore, doc, setDoc } from "firebase/firestore";
 
 const CreateAccount = () => {
   const navigate = useNavigate();
@@ -9,27 +13,32 @@ const CreateAccount = () => {
   const db = getFirestore();
 
   const [formData, setFormData] = useState({
-    fullName: '',
-    email: '',
-    password: '',
-    confirmPassword: ''
+    fullName: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
   });
 
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError('');
+    setError("");
 
     // Validation
-    if (!formData.fullName || !formData.email || !formData.password || !formData.confirmPassword) {
-      setError('All fields are required');
+    if (
+      !formData.fullName ||
+      !formData.email ||
+      !formData.password ||
+      !formData.confirmPassword
+    ) {
+      setError("All fields are required");
       return;
     }
 
     if (formData.password !== formData.confirmPassword) {
-      setError('Passwords do not match');
+      setError("Passwords do not match");
       return;
     }
 
@@ -45,36 +54,35 @@ const CreateAccount = () => {
 
       // Update user profile with full name
       await updateProfile(userCredential.user, {
-        displayName: formData.fullName
+        displayName: formData.fullName,
       });
 
       // Store additional user data in Firestore
-      await setDoc(doc(db, 'users', userCredential.user.uid), {
+      await setDoc(doc(db, "users", userCredential.user.uid), {
         fullName: formData.fullName,
         email: formData.email,
-        createdAt: new Date().toISOString()
+        createdAt: new Date().toISOString(),
       });
 
       // Redirect to home page or dashboard
-      navigate('/');
-      
+      navigate("/");
     } catch (error) {
-      console.error('Error creating account:', error);
+      console.error("Error creating account:", error);
       switch (error.code) {
-        case 'auth/email-already-in-use':
-          setError('This email is already registered');
+        case "auth/email-already-in-use":
+          setError("This email is already registered");
           break;
-        case 'auth/invalid-email':
-          setError('Invalid email address');
+        case "auth/invalid-email":
+          setError("Invalid email address");
           break;
-        case 'auth/operation-not-allowed':
-          setError('Email/password accounts are not enabled');
+        case "auth/operation-not-allowed":
+          setError("Email/password accounts are not enabled");
           break;
-        case 'auth/weak-password':
-          setError('Password is too weak');
+        case "auth/weak-password":
+          setError("Password is too weak");
           break;
         default:
-          setError('Failed to create account. Please try again.');
+          setError("Failed to create account. Please try again.");
       }
     } finally {
       setLoading(false);
@@ -83,15 +91,15 @@ const CreateAccount = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
+    <div className="flex items-center justify-center">
+      <div className="bg-white p-8 rounded-lg w-full max-w-md">
         <h2 className="text-2xl font-bold text-gray-800 mb-2 text-center">
           Let's get you started.
         </h2>
@@ -149,9 +157,6 @@ const CreateAccount = () => {
               placeholder="Enter your password"
               required
             />
-            <p className="text-gray-500 text-xs mt-1">
-              Password must be at least 8 characters long, contain letters and numbers, and include at least one special character.
-            </p>
           </div>
 
           <div>
@@ -172,17 +177,15 @@ const CreateAccount = () => {
           <button
             type="submit"
             disabled={loading}
-            className={`w-full py-3 bg-blue-500 text-white font-bold text-lg rounded-lg shadow 
-              ${!loading ? 'hover:bg-blue-600' : 'opacity-70 cursor-not-allowed'} 
-              transition duration-300`}
+            className={`w-full py-3 bg-blue-500 text-white font-bold text-lg rounded-lg shadow`}
           >
-            {loading ? 'Creating Account...' : 'Create Account'}
+            {loading ? "Creating Account..." : "Create Account"}
           </button>
         </form>
 
         <div className="text-center mt-4">
           <p className="text-sm text-gray-600">
-            Already have an account?{' '}
+            Already have an account?{" "}
             <a href="/login" className="text-blue-500 hover:underline">
               Log in
             </a>

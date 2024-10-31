@@ -1,8 +1,8 @@
 // src/components/Header.jsx
-import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { getAuth, signOut } from 'firebase/auth';
-import { useAuth } from '../contexts/AuthContext';
+import React from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { getAuth, signOut } from "firebase/auth";
+import { useAuth } from "../contexts/AuthContext";
 
 const Header = () => {
   const { user } = useAuth();
@@ -12,9 +12,9 @@ const Header = () => {
   const handleLogout = async () => {
     try {
       await signOut(auth);
-      navigate('/');
+      navigate("/");
     } catch (error) {
-      console.error('Error signing out:', error);
+      console.error("Error signing out:", error);
     }
   };
 
@@ -31,13 +31,19 @@ const Header = () => {
 
           {/* Navigation */}
           <nav className="flex space-x-4">
-            <Link to="/" className="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md">
+            <Link
+              to="/"
+              className="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md"
+            >
               Home
             </Link>
-            
+
             {user ? (
               <>
-                <Link to="/profile" className="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md">
+                <Link
+                  to="/profile"
+                  className="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md"
+                >
                   Profile
                 </Link>
                 <button
@@ -52,15 +58,15 @@ const Header = () => {
               </>
             ) : (
               <>
-                <Link 
-                  to="/login" 
+                <Link
+                  to="/login"
                   className="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md"
                 >
                   Login
                 </Link>
-                <Link 
+                <Link
                   to="/create-account"
-                  className="bg-blue-600 text-white hover:bg-blue-700 px-4 py-2 rounded-md"
+                  className="bg-blue-600 text-white px-4 py-2 rounded-md"
                 >
                   Sign Up
                 </Link>
