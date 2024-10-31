@@ -1,42 +1,58 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    email: '',
-    password: ''
+    email: "",
+    password: "",
   });
 
   const [touched, setTouched] = useState({
     email: false,
-    password: false
+    password: false,
   });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
   const handleBlur = (field) => {
-    setTouched(prev => ({
+    setTouched((prev) => ({
       ...prev,
-      [field]: true
+      [field]: true,
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     // Mark all fields as touched on submit attempt
     setTouched({
       email: true,
-      password: true
+      password: true,
     });
-    
+
     if (formData.email && formData.password) {
-      // Proceed with login
-      console.log('Form submitted:', formData);
+      try {
+        const response = await fetch("http://localhost:5000/login", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        });
+        const result = await response.json();
+        if (response.ok) {
+          console.log("Login successful:", result);
+          navigate("/dashboard");
+        } else {
+          console.error(result.error);
+        }
+      } catch (error) {
+        console.error("Error:", error);
+      }
     }
   };
 
@@ -55,19 +71,23 @@ const Login = () => {
             <label className="block text-gray-700 text-sm font-semibold mb-2">
               Email Address <span className="text-red-500">*</span>
             </label>
-            <input 
-              type="email" 
+            <input
+              type="email"
               name="email"
               value={formData.email}
               onChange={handleChange}
-              onBlur={() => handleBlur('email')}
-              placeholder="Enter your email" 
+              onBlur={() => handleBlur("email")}
+              placeholder="Enter your email"
               className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                touched.email && !formData.email ? 'border-red-500' : 'border-gray-300'
+                touched.email && !formData.email
+                  ? "border-red-500"
+                  : "border-gray-300"
               }`}
             />
             {touched.email && !formData.email && (
-              <p className="text-red-500 text-sm mt-1">Please enter your email address</p>
+              <p className="text-red-500 text-sm mt-1">
+                Please enter your email address
+              </p>
             )}
           </div>
 
@@ -75,30 +95,37 @@ const Login = () => {
             <label className="block text-gray-700 text-sm font-semibold mb-2">
               Password <span className="text-red-500">*</span>
             </label>
-            <input 
+            <input
               type="password"
               name="password"
               value={formData.password}
               onChange={handleChange}
-              onBlur={() => handleBlur('password')}
-              placeholder="Enter your password" 
+              onBlur={() => handleBlur("password")}
+              placeholder="Enter your password"
               className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                touched.password && !formData.password ? 'border-red-500' : 'border-gray-300'
+                touched.password && !formData.password
+                  ? "border-red-500"
+                  : "border-gray-300"
               }`}
             />
             {touched.password && !formData.password && (
-              <p className="text-red-500 text-sm mt-1">Please enter your password</p>
+              <p className="text-red-500 text-sm mt-1">
+                Please enter your password
+              </p>
             )}
           </div>
 
           <div className="text-right">
-            <a href="/forgot-password" className="text-sm text-blue-500 hover:underline">
+            <a
+              href="/forgot-password"
+              className="text-sm text-blue-500 hover:underline"
+            >
               Forgot your password?
             </a>
           </div>
 
-          <button 
-            type="submit" 
+          <button
+            type="submit"
             className="w-full py-3 bg-blue-500 text-white font-bold text-lg rounded-lg shadow hover:bg-blue-600 transition duration-300"
           >
             Log In
@@ -107,7 +134,10 @@ const Login = () => {
 
         <div className="text-center mt-4">
           <p className="text-sm text-gray-600">
-            Don't have an account? <a href="/create-account" className="text-blue-500 hover:underline">Sign up</a>
+            Don't have an account?{" "}
+            <a href="/create-account" className="text-blue-500 hover:underline">
+              Sign up
+            </a>
           </p>
         </div>
       </div>
