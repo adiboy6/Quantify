@@ -15,6 +15,7 @@ const keys = {
   },
   linkedIn: "LinkedIn",
   portfolio: "Portfolio",
+  resume: "Your CV/Resume",
 };
 
 const initialEducationData = {
@@ -51,19 +52,52 @@ const initialData = {
   },
   linkedIn: "",
   portfolio: "",
+  resume: "",
 };
 
 export function Profile() {
   const [data, setData] = useState(initialData);
+  const [submitDisabled, setSubmitDisabled] = useState(false);
 
   function handleChange(e, k, addressKey = null) {
     const clone = structuredClone(data);
-    if (addressKey != null) {
+    if (k === "resume") {
+      clone[k] = e.target.files[0];
+    } else if (addressKey != null) {
       clone[k][addressKey] = e.target.value;
     } else {
       clone[k] = e.target.value;
     }
     setData(clone);
+  }
+
+  async function createProfile() {
+    const formData = new FormData();
+    setSubmitDisabled(true);
+
+    for (let key in data) {
+      if (key === "address") {
+        for (let addressKey in data[key]) {
+          formData.append(addressKey, data[key][addressKey]);
+        }
+      } else if (key === "education" || key === "experience") {
+        formData.append(key, JSON.stringify(data[key]));
+      } else {
+        formData.append(key, data[key]);
+      }
+    }
+
+    try {
+      const result = await fetch("http://localhost:8000/createProfile", {
+        method: "POST",
+        body: formData,
+      });
+
+      const data = await result.json();
+      console.log(data);
+    } catch (e) {
+      console.log(e);
+    }
   }
 
   const fields = [];
@@ -156,6 +190,19 @@ export function Profile() {
           </button>
         </Grid>
       );
+    } else if (k == "resume") {
+      fields.push(
+        <Grid key={k} columns="10rem 35rem">
+          <label htmlFor={k}>{keys[k]}:</label>
+          <input
+            key={k}
+            type="file"
+            onChange={(e) => {
+              handleChange(e, k);
+            }}
+          />
+        </Grid>
+      );
     } else {
       fields.push(
         <Grid key={k} columns="10rem 35rem">
@@ -190,8 +237,17 @@ export function Profile() {
       <Flex direction="column" gap="2">
         {fields}
         <Flex direction="row" justify="center" className="mt-8">
-          <button className="bg-blue-600 text-white px-8 py-4 rounded-full cursor-pointer inline-flex items-center gap-2">
-            Create Profile
+          <button
+            disabled={submitDisabled}
+            onClick={createProfile}
+            className={
+              (submitDisabled
+                ? "bg-gray-300 text-black"
+                : "bg-blue-600 text-white") +
+              ` px-8 py-4 rounded-full cursor-pointer inline-flex items-center gap-2`
+            }
+          >
+            {submitDisabled ? "Submitting ..." : "Create Profile"}
           </button>
         </Flex>
       </Flex>
