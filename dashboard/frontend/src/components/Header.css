@@ -1,0 +1,90 @@
+/* Header container */
+.header {
+    background-color: #e3f2fd; /* Light blue background */
+    color: #343a40; /* Charcoal text for strong contrast */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow for subtle depth */
+    padding: 20px 40px; /* Comfortable padding */
+    font-family: 'Helvetica Neue', Arial, sans-serif; /* Clean and modern font */
+    position: relative; /* Ensures absolute positioning within the header */
+}
+
+.header-container {
+    display: flex;
+    justify-content: center; /* Align items to the center horizontally */
+    align-items: center;
+    max-width: 1200px;
+    margin: auto; /* Centering header content */
+    width: 100%; /* Ensures it takes full width of its container */
+}
+
+/* Logo Styling */
+.logo {
+    position: absolute; /* Positioned absolutely to allow the title to be truly centered */
+    left: 40px; /* Position logo on the left */
+    top: 50%;
+    transform: translateY(-50%); /* Center logo vertically */
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #007bff; /* Bright blue for a vibrant logo color */
+}
+
+.logo-img {
+    height: 60px; /* Prominent logo size */
+    width: auto;
+}
+
+.header-title {
+    font-size: 2em; /* Noticeable font size for header title */
+    font-weight: bold;
+    color: #007bff; /* Vibrant blue color for the title */
+    text-align: center; /* Center-align the text */
+}
+
+/* Menu Button Styling */
+.menu-button {
+    position: absolute; /* Positioned absolutely to allow the title to be truly centered */
+    right: 40px; /* Position button on the right */
+    top: 50%;
+    transform: translateY(-50%); /* Center button vertically */
+    background-color: transparent;
+    border: none;
+    color: #6c757d; /* Soft grey for the icon */
+    font-size: 1.5em; /* Larger icon for usability */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.menu-button:hover {
+    color: #005cbf; /* Slightly darker blue for hover effect */
+}
+
+/* Dropdown Menu */
+.menu-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 40px;
+    background-color: #ffffff; /* Pure white for dropdown background */
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    width: 250px;
+    z-index: 10;
+    opacity: 0;
+    animation: fadeIn 0.3s forwards;
+}
+
+/* Menu Item Styling */
+.menu-item {
+    color: #6c757d;
+    padding: 10px 0;
+    font-size: 1.1em;
+}
+
+.menu-item:hover {
+    background-color: #007bff;
+    color: #ffffff;
+    padding-left: 15px;
+    border-radius: 3px;
+}
