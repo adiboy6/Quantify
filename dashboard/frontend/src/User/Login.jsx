@@ -1,13 +1,18 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
 const Login = () => {
   const navigate = useNavigate();
+  const auth = getAuth();
+
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
 
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
   const [touched, setTouched] = useState({
     email: false,
     password: false,
@@ -19,6 +24,7 @@ const Login = () => {
       ...prev,
       [name]: value,
     }));
+    setError(""); // Clear error when user types
   };
 
   const handleBlur = (field) => {
@@ -30,41 +36,66 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // Mark all fields as touched on submit attempt
     setTouched({
       email: true,
       password: true,
     });
 
-    if (formData.email && formData.password) {
-      try {
-        const response = await fetch("http://localhost:5000/login", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(formData),
-        });
-        const result = await response.json();
-        if (response.ok) {
-          console.log("Login successful:", result);
-          navigate("/dashboard");
-        } else {
-          console.error(result.error);
-        }
-      } catch (error) {
-        console.error("Error:", error);
+    if (!formData.email || !formData.password) {
+      setError("Please fill in all fields");
+      return;
+    }
+
+    setLoading(true);
+    setError("");
+
+    try {
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        formData.email,
+        formData.password
+      );
+
+      console.log("Login successful:", userCredential.user);
+      navigate("/"); // Redirect to home page after successful login
+    } catch (error) {
+      console.error("Login error:", error);
+      switch (error.code) {
+        case "auth/invalid-email":
+          setError("Invalid email address");
+          break;
+        case "auth/user-disabled":
+          setError("This account has been disabled");
+          break;
+        case "auth/user-not-found":
+          setError("No account found with this email");
+          break;
+        case "auth/wrong-password":
+          setError("Incorrect password");
+          break;
+        default:
+          setError("Failed to log in. Please try again.");
       }
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100 px-4">
-      <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
+    <div className="flex items-center justify-center">
+      <div className="bg-white p-8 rounded-lg w-full max-w-md">
         <h2 className="text-2xl font-bold text-gray-800 mb-2 text-center">
           Welcome Back!
         </h2>
         <p className="text-center text-gray-600 mb-6">
           Log in to your account to continue.
         </p>
+
+        {error && (
+          <div className="bg-red-50 border border-red-200 text-red-600 px-4 py-3 rounded-lg mb-4">
+            {error}
+          </div>
+        )}
 
         <form className="space-y-4" onSubmit={handleSubmit}>
           <div>
@@ -126,15 +157,16 @@ const Login = () => {
 
           <button
             type="submit"
-            className="w-full py-3 bg-blue-500 text-white font-bold text-lg rounded-lg shadow hover:bg-blue-600 transition duration-300"
+            disabled={loading}
+            className={`w-full py-3 bg-blue-500 text-white font-bold text-lg rounded-lg shadow`}
           >
-            Log In
+            {loading ? "Logging in..." : "Log In"}
           </button>
         </form>
 
         <div className="text-center mt-4">
           <p className="text-sm text-gray-600">
-            Don't have an account?{" "}
+            Don't have an account?&nbsp;
             <a href="/create-account" className="text-blue-500 hover:underline">
               Sign up
             </a>
