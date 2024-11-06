@@ -12,6 +12,9 @@ import "./styles/components.css";
 import "./App.css";
 import "@radix-ui/themes/styles.css";
 import { Theme } from "@radix-ui/themes";
+import SavedJobs from './Dashboard/savedJobs';
+import Dashboard from './Dashboard/Dashboard.jsx';
+
 
 // Protected Route Component
 const ProtectedRoute = ({ children }) => {
@@ -93,6 +96,9 @@ function App() {
                       </PublicRoute>
                     }
                   />
+                  <Route path="/dashboard" element={<Dashboard />}>
+                  <Route path="saved-jobs" element={<SavedJobs />} />
+                </Route>
                 </Routes>
               </div>
             </main>
