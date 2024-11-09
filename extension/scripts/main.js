@@ -57,54 +57,23 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
           aElement.dispatchEvent(event);
 
           const path = `//div[@id="select2-drop" and not(contains(@style, "display: none"))]//ul[@class="select2-results" and @role="listbox"]//li[@role="option" and "Yes"]`;
+          const results = document.evaluate(
+            path,
+            document,
+            null,
+            XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE,
+            null
+          );
 
-          setTimeout(() => {
-            const results = document.evaluate(
-              path,
-              document,
-              null,
-              XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE,
-              null
-            );
-            const yesEle = results.snapshotItem(1);
-            console.log(yesEle);
-            yesEle.dispatchEvent(new MouseEvent("mousemove"), {
+          const yesEle = results.snapshotItem(1);
+
+          yesEle.dispatchEvent(
+            new MouseEvent("mouseup", {
               bubbles: true,
               cancelable: true,
-            });
-            yesEle.dispatchEvent(
-              new Event("click", {
-                bubbles: true,
-                cancelable: true,
-              })
-            );
-          }, 3e3);
-
-          // element.focus();
-          // element.click();
-          // element.dispatchEvent(
-          //   new KeyboardEvent("keydown", { key: "ArrowDown" })
-          // );
-          // element.dispatchEvent(
-          //   new KeyboardEvent("keyup", { key: "ArrowDown" })
-          // );
-
-          // document.getElementById("select2-drop").click();
-          // document
-          //   .getElementById("job_application_answers_attributes_5_priority")
-          //   .focus();
-          // document
-          //   .getElementById(
-          //     "s2id_job_application_answers_attributes_5_boolean_value"
-          //   )
-          //   .focus();
-          // document
-          //   .getElementById(
-          //     "job_application_answers_attributes_5_boolean_value"
-          //   )
-          //   .focus();
-          // document.getElementById("select2-chosen-3").focus();
-        }, 5000);
+            })
+          );
+        }, 0);
       }
     });
   }
