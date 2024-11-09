@@ -30,17 +30,24 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
           "a, button, input, textarea, select, details, [tabindex]"
         )
     )
-
-      // remove any that have a tabIndex of -1
       .filter((element) => element.tabIndex > -1)
-
-      // reverse, then sort by tabIndex descending to put 0s last but maintain original order
       .reverse()
       .sort((a, b) => (a.tabIndex > b.tabIndex ? -1 : 1));
 
     console.log(tabElements);
     let count = 0;
     tabElements.forEach((element) => {
+      if (
+        element.getAttribute("role") === "button" ||
+        element.getAttribute("type") === "button"
+      ) {
+        console.log(element);
+        const labels = getLabels(element);
+
+        fillSelectField(element, labels);
+        console.log(labels);
+        console.log("button");
+      }
       if (element.getAttribute("id") === "s2id_autogen3") {
         count += 1;
         setTimeout(() => {
@@ -79,28 +86,48 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   }
 });
 
+function fillSelectField(element, labels) {
+  const matchedKey = getMatchingKey(labels);
+  if (matchedKey === null) return;
+
+  const toFill = data[matchedKey];
+  if (toFill === null) return;
+
+  const matchedSite = getMatchedSite();
+  console.log(matchedSite);
+  console.log(toFill);
+
+  greenhouseSelect(element, toFill);
+}
+
 function processForm(form) {
   // Process all the children of a form element
   Array.from(form.elements).forEach((element) => {
     // Skip processing if the element is hidden
     if (element.getAttribute("type") !== "hidden") {
       // Get Label of the element
-      const labelNodes = element.labels ?? [];
-      let labels = [];
-
-      labelNodes.forEach((label) => labels.push(label.innerText));
-
-      const ariaLabelledBy = element.getAttribute("aria-labelledby");
-      if (ariaLabelledBy !== null) {
-        labels.push(document.getElementById(ariaLabelledBy).innerText);
-      }
-      labels = labels
-        .map((label) => label.replaceAll("\n", "").replaceAll(/[\*]/g, ""))
-        .map((label) => label.trim());
+      const labels = getLabels(element);
 
       fillField(labels, element);
     }
   });
+}
+
+function getLabels(element) {
+  const labelNodes = element.labels ?? [];
+  let labels = [];
+
+  labelNodes.forEach((label) => labels.push(label.innerText));
+
+  const ariaLabelledBy = element.getAttribute("aria-labelledby");
+  if (ariaLabelledBy !== null) {
+    labels.push(document.getElementById(ariaLabelledBy).innerText);
+  }
+  labels = labels
+    .map((label) => label.replaceAll("\n", "").replaceAll(/[\*]/g, ""))
+    .map((label) => label.trim());
+
+  return labels;
 }
 
 function fillField(labels, element) {
@@ -137,6 +164,49 @@ function getMatchingKey(labels) {
   return null;
 }
 
+function getMatchedSite() {
+  const url = document.URL;
+  for (let key in siteMatch) {
+    for (let siteUrl of siteMatch[key]) {
+      if (url.indexOf(siteUrl) != -1) return key;
+    }
+  }
+
+  return null;
+}
+
+// Site specific functions
+// TODO - find a way to do partial match on ids
+function greenhouseSelect(element, value) {
+  // setTimeout(() => {
+  //   console.log("focusing on ", element);
+  //   const e = document.getElementById(
+  //     "s2id_job_application_answers_attributes_5_boolean_value"
+  //   );
+  //   const aElement = e.getElementsByTagName("a")[0];
+  //   const event = new MouseEvent("mousedown", {
+  //     bubbles: true,
+  //     cancelable: true,
+  //   });
+  //   aElement.dispatchEvent(event);
+  //   const path = `//div[@id="select2-drop" and not(contains(@style, "display: none"))]//ul[@class="select2-results" and @role="listbox"]//li[@role="option" and "Yes"]`;
+  //   const results = document.evaluate(
+  //     path,
+  //     document,
+  //     null,
+  //     XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE,
+  //     null
+  //   );
+  //   const yesEle = results.snapshotItem(1);
+  //   yesEle.dispatchEvent(
+  //     new MouseEvent("mouseup", {
+  //       bubbles: true,
+  //       cancelable: true,
+  //     })
+  //   );
+  // }, 0);
+}
+
 const fields = {
   firstName: { alias: ["first name"], match: "full" },
   lastName: { alias: ["last name"], match: "full" },
@@ -150,6 +220,10 @@ const fields = {
     alias: ["legal right to work in the united states"],
     match: "partial",
   },
+};
+
+const siteMatch = {
+  greenhouse: ["greenhouse.io"],
 };
 
 const data = {
