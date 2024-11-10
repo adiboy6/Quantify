@@ -5,9 +5,11 @@ import { useAuth } from "./contexts/AuthContext";
 import Footer from "./components/Footer.jsx";
 import Header from "./components/Header.jsx";
 import { Profile } from "./Profile.jsx";
+import { Dashboard } from "./Dashboard.jsx";
 import { Home } from "./Home.jsx";
 import CreateAccount from "./User/CreateAccount";
 import Login from "./User/Login";
+
 import "./styles/components.css";
 import "./App.css";
 import "@radix-ui/themes/styles.css";
@@ -93,6 +95,7 @@ function App() {
                       </PublicRoute>
                     }
                   />
+                  <Route path="/dashboard" element={<Dashboard />}></Route>
                 </Routes>
               </div>
             </main>
