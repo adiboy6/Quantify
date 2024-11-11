@@ -1,16 +1,18 @@
 import React from 'react';
-import { Building, MapPin, BookmarkPlus } from 'lucide-react';
+import { Outlet, Link, useLocation } from 'react-router-dom';
 
 const Dashboard = () => {
+  const location = useLocation();
+
   // Sample jobs data
   const jobs = [
     {
       id: 1,
-      title: "Summer 2025 Supply Chain Intern-Master's Degree",
-      company: "Applied Materials",
-      location: "Austin, TX, USA",
-      type: "Internship",
-      logo: "/api/placeholder/80/80"
+      title: 'Summer 2025 Supply Chain Intern-Master\'s Degree',
+      company: 'Applied Materials',
+      location: 'Austin, TX, USA',
+      type: 'Internship',
+      logo: '/api/placeholder/80/80'
     }
   ];
 
@@ -25,18 +27,24 @@ const Dashboard = () => {
         </p>
       </div>
 
-      {/* Main Content Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
         {/* Sidebar */}
         <div className="lg:col-span-3">
           <div className="bg-white p-6 rounded-lg shadow-sm">
             <h2 className="font-semibold text-gray-900 mb-4">Quick Links</h2>
             <nav className="space-y-2">
+              <Link
+                to="/dashboard/saved-jobs"
+                className={`block text-gray-600 hover:text-blue-600 ${
+                  location.pathname.includes('/saved-jobs')
+                    ? 'text-blue-600'
+                    : ''
+                }`}
+              >
+                Saved Jobs
+              </Link>
               <a href="#jobs" className="block text-gray-600 hover:text-blue-600">
                 Jobs
-              </a>
-              <a href="#saved-jobs" className="block text-gray-600 hover:text-blue-600">
-                Saved Jobs
               </a>
               <a href="#applications" className="block text-gray-600 hover:text-blue-600">
                 Applications
@@ -65,7 +73,7 @@ const Dashboard = () => {
 
           {/* Main Content Section */}
           <section id="main-content" className="bg-white rounded-lg shadow-sm">
-            {/* Content will be rendered by the router */}
+            <Outlet />
           </section>
         </div>
       </div>

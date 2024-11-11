@@ -16,6 +16,7 @@ import SavedJobs from './Dashboard/savedJobs';
 import Dashboard from './Dashboard/Dashboard.jsx';
 
 
+
 // Protected Route Component
 const ProtectedRoute = ({ children }) => {
   const { user, loading } = useAuth();
