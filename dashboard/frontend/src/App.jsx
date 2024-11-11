@@ -14,6 +14,8 @@ import "@radix-ui/themes/styles.css";
 import { Theme } from "@radix-ui/themes";
 import SavedJobs from './Dashboard/savedJobs';
 import Dashboard from './Dashboard/Dashboard.jsx';
+import Jobs from './Dashboard/jobs.jsx';
+
 
 
 
@@ -99,6 +101,7 @@ function App() {
                   />
                   <Route path="/dashboard" element={<Dashboard />}>
                   <Route path="saved-jobs" element={<SavedJobs />} />
+                  <Route path="Jobs" element={<Jobs />} />
                 </Route>
                 </Routes>
               </div>
