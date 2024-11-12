@@ -14,7 +14,7 @@ CORS(app, supports_credentials=True, resources={
     }
 })
 
-app.config["MONGO_URI"] = os.getenv("MONGO_URI", "mongodb+srv://jab-admin:<t3nM4nhzWu8f4kJ6>@devcluster.3ih32.mongodb.net/?retryWrites=true&w=majority&appName=DevCluster")
+app.config["MONGO_URI"] = os.getenv("MONGO_URI", "mongodb+srv://jab-admin:<db_password>@devcluster.3ih32.mongodb.net/?retryWrites=true&w=majority&appName=DevCluster")
 mongo = PyMongo(app)
 db = mongo.db  
 
