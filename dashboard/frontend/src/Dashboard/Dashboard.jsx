@@ -4,18 +4,6 @@ import { Outlet, Link, useLocation } from 'react-router-dom';
 const Dashboard = () => {
   const location = useLocation();
 
-  // Sample jobs data
-  const jobs = [
-    {
-      id: 1,
-      title: 'Summer 2025 Supply Chain Intern-Master\'s Degree',
-      company: 'Applied Materials',
-      location: 'Austin, TX, USA',
-      type: 'Internship',
-      logo: '/api/placeholder/80/80'
-    }
-  ];
-
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <div className="mb-8">
@@ -36,19 +24,25 @@ const Dashboard = () => {
               <Link
                 to="/dashboard/saved-jobs"
                 className={`block text-gray-600 hover:text-blue-600 ${
-                  location.pathname.includes('/saved-jobs')
-                    ? 'text-blue-600'
-                    : ''
+                  location.pathname.includes('/saved-jobs') ? 'text-blue-600' : ''
                 }`}
               >
                 Saved Jobs
               </Link>
-              <a href="#jobs" className="block text-gray-600 hover:text-blue-600">
+              <Link
+                to="/dashboard/jobs" // Update to use Link component
+                className={`block text-gray-600 hover:text-blue-600 ${
+                  location.pathname.includes('/jobs') ? 'text-blue-600' : ''
+                }`}
+              >
                 Jobs
-              </a>
-              <a href="#applications" className="block text-gray-600 hover:text-blue-600">
+              </Link>
+              <Link
+                to="#applications"
+                className="block text-gray-600 hover:text-blue-600"
+              >
                 Applications
-              </a>
+              </Link>
             </nav>
           </div>
         </div>
@@ -59,7 +53,7 @@ const Dashboard = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
             <div className="bg-white p-6 rounded-lg shadow-sm">
               <h3 className="text-lg font-medium text-gray-900">Jobs</h3>
-              <p className="text-3xl font-bold text-blue-600 mt-2">{jobs.length}</p>
+              <p className="text-3xl font-bold text-blue-600 mt-2">2</p>
             </div>
             <div className="bg-white p-6 rounded-lg shadow-sm">
               <h3 className="text-lg font-medium text-gray-900">Saved Jobs</h3>
@@ -73,7 +67,7 @@ const Dashboard = () => {
 
           {/* Main Content Section */}
           <section id="main-content" className="bg-white rounded-lg shadow-sm">
-            <Outlet />
+            <Outlet /> {/* This will render the nested routes */}
           </section>
         </div>
       </div>
