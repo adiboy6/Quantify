@@ -20,6 +20,7 @@ const data = [
   },
 ];
 
+
 export function JobsTable() {
   const [rowData, setRowData] = useState([]);
 
@@ -37,6 +38,27 @@ export function JobsTable() {
 
     setRowData(clone);
   }
+
+  const handleSaveJob = () => {
+    if (rowData.length === 0) {
+      alert('Please select at least one job to save');
+      return;
+    }
+
+    const savedJobs = JSON.parse(localStorage.getItem('savedJobs') || '[]');
+    const updatedSavedJobs = [...savedJobs];
+    let newJobsCount = 0;
+
+    rowData.forEach(job => {
+      if (!savedJobs.some(savedJob => savedJob.id === job.id)) {
+        updatedSavedJobs.push(job);
+        newJobsCount++;
+      }
+    });
+
+    localStorage.setItem('savedJobs', JSON.stringify(updatedSavedJobs));
+    alert(`${newJobsCount} job(s) saved successfully!`);
+  };
 
   console.log(rowData);
 
@@ -76,16 +98,25 @@ export function JobsTable() {
               <Table.Cell>{cellData.company}</Table.Cell>
               <Table.Cell>{cellData.location}</Table.Cell>
               <Table.Cell>{cellData.type}</Table.Cell>
+              
             </Table.Row>
           ))}
         </Table.Body>
       </Table.Root>
-      <button
-        className="bg-blue-600 text-white px-4 py-2 rounded-md mt-4"
-        onClick={console.log(rowData)}
-      >
-        Apply
-      </button>
+      <div className="flex gap-4 mt-4">  {/* Added flex container with gap-4 for spacing */}
+        <button
+          className="bg-blue-600 text-white px-4 py-2 rounded-md"
+          onClick={console.log(rowData)}
+        >
+          Apply
+        </button>
+        <button
+          className="bg-blue-600 text-white px-4 py-2 rounded-md"
+          onClick={handleSaveJob}
+        >
+          Save for Later
+        </button>
+      </div>
     </>
   );
 }

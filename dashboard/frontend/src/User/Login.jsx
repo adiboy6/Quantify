@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
+
 const Login = () => {
   const navigate = useNavigate();
   const auth = getAuth();
@@ -57,7 +58,7 @@ const Login = () => {
       );
 
       console.log("Login successful:", userCredential.user);
-      navigate("/"); // Redirect to home page after successful login
+      navigate("/dashboard"); 
     } catch (error) {
       console.error("Login error:", error);
       switch (error.code) {

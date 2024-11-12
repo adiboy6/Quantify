@@ -1,8 +1,40 @@
-import React from 'react';
+// Dashboard.jsx
+import React, { useState, useEffect } from 'react';
 import { Outlet, Link, useLocation } from 'react-router-dom';
 
 const Dashboard = () => {
   const location = useLocation();
+  const [jobCounts, setJobCounts] = useState({
+    totalJobs: 2, // Initial jobs count
+    savedJobs: 0,
+    applications: 0
+  });
+
+  // Update counts whenever localStorage changes
+  useEffect(() => {
+    const updateCounts = () => {
+      const savedJobs = JSON.parse(localStorage.getItem('savedJobs') || '[]');
+      setJobCounts(prev => ({
+        ...prev,
+        savedJobs: savedJobs.length
+      }));
+    };
+
+    // Initial count
+    updateCounts();
+
+    // Listen for storage changes
+    window.addEventListener('storage', updateCounts);
+
+    // Custom event listener for job saves
+    const handleJobSave = () => updateCounts();
+    window.addEventListener('jobSaved', handleJobSave);
+
+    return () => {
+      window.removeEventListener('storage', updateCounts);
+      window.removeEventListener('jobSaved', handleJobSave);
+    };
+  }, []);
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -27,21 +59,21 @@ const Dashboard = () => {
                   location.pathname.includes('/saved-jobs') ? 'text-blue-600' : ''
                 }`}
               >
-                Saved Jobs
+                Saved Jobs ({jobCounts.savedJobs})
               </Link>
               <Link
-                to="/dashboard/jobs" // Update to use Link component
+                to="/dashboard/jobs"
                 className={`block text-gray-600 hover:text-blue-600 ${
                   location.pathname.includes('/jobs') ? 'text-blue-600' : ''
                 }`}
               >
-                Jobs
+                Jobs ({jobCounts.totalJobs})
               </Link>
               <Link
                 to="#applications"
                 className="block text-gray-600 hover:text-blue-600"
               >
-                Applications
+                Applications ({jobCounts.applications})
               </Link>
             </nav>
           </div>
@@ -53,15 +85,15 @@ const Dashboard = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
             <div className="bg-white p-6 rounded-lg shadow-sm">
               <h3 className="text-lg font-medium text-gray-900">Jobs</h3>
-              <p className="text-3xl font-bold text-blue-600 mt-2">2</p>
+              <p className="text-3xl font-bold text-blue-600 mt-2">{jobCounts.totalJobs}</p>
             </div>
             <div className="bg-white p-6 rounded-lg shadow-sm">
               <h3 className="text-lg font-medium text-gray-900">Saved Jobs</h3>
-              <p className="text-3xl font-bold text-blue-600 mt-2">0</p>
+              <p className="text-3xl font-bold text-blue-600 mt-2">{jobCounts.savedJobs}</p>
             </div>
             <div className="bg-white p-6 rounded-lg shadow-sm">
               <h3 className="text-lg font-medium text-gray-900">Applications</h3>
-              <p className="text-3xl font-bold text-blue-600 mt-2">0</p>
+              <p className="text-3xl font-bold text-blue-600 mt-2">{jobCounts.applications}</p>
             </div>
           </div>
 

@@ -1,108 +1,125 @@
-import React, { useState } from 'react';
+// savedJobs.jsx
+import { useState, useEffect } from "react";
+import { Table, Checkbox } from "@radix-ui/themes";
 
-// Sample job data
-const jobData = [
-  {
-    id: 1,
-    title: 'Software Engineer',
-    company: 'Acme Inc.',
-    location: 'New York, NY',
-    isSaved: true
-  },
-  {
-    id: 2,
-    title: 'UI Designer',
-    company: 'Globex Corp.',
-    location: 'San Francisco, CA',
-    isSaved: false
-  },
-  {
-    id: 3,
-    title: 'Data Analyst',
-    company: 'Stark Industries',
-    location: 'Chicago, IL',
-    isSaved: true
-  },
-  {
-    id: 4,
-    title: 'DevOps Engineer',
-    company: 'Wayne Enterprises',
-    location: 'Seattle, WA',
-    isSaved: false
+export function SavedJobs() {
+  const [savedJobs, setSavedJobs] = useState([]);
+  const [selectedJobs, setSelectedJobs] = useState([]);
+
+  useEffect(() => {
+    // Load saved jobs from localStorage when component mounts
+    const jobs = JSON.parse(localStorage.getItem('savedJobs') || '[]');
+    setSavedJobs(jobs);
+  }, []);
+
+  function handleCheckBox(e, cellData) {
+    let clone = structuredClone(selectedJobs);
+
+    if (e) {
+      clone.push(cellData);
+    } else {
+      clone = clone.filter((job) => job.id !== cellData.id);
+    }
+
+    setSelectedJobs(clone);
   }
-];
 
-const SavedJobs = () => {
-  const [savedJobs, setSavedJobs] = useState(
-    jobData.filter(job => job.isSaved)
-  );
+  const handleDelete = () => {
+    if (selectedJobs.length === 0) {
+      alert('Please select at least one job to delete');
+      return;
+    }
 
-  const toggleSavedJob = (job) => {
-    const updatedJobs = jobData.map(j =>
-      j.id === job.id ? { ...j, isSaved: !j.isSaved } : j
+    // Remove selected jobs from savedJobs
+    const updatedJobs = savedJobs.filter(
+      job => !selectedJobs.some(selectedJob => selectedJob.id === job.id)
     );
-    setSavedJobs(updatedJobs.filter(j => j.isSaved));
+
+    // Update localStorage and state
+    localStorage.setItem('savedJobs', JSON.stringify(updatedJobs));
+    setSavedJobs(updatedJobs);
+    setSelectedJobs([]); // Clear selections
+    alert(`${selectedJobs.length} job(s) deleted successfully!`);
+  };
+
+  const handleApply = () => {
+    if (selectedJobs.length === 0) {
+      alert('Please select at least one job to apply');
+      return;
+    }
+    console.log('Applying for selected jobs:', selectedJobs);
+    // Add your apply logic here
   };
 
   return (
-    <div className="bg-white shadow rounded-md p-6">
-      <h2 className="text-lg font-medium mb-4">Saved Jobs</h2>
-      {savedJobs.length > 0 ? (
-        <ul className="space-y-4">
-          {savedJobs.map(job => (
-            <li
-              key={job.id}
-              className="flex items-center justify-between border-b pb-4"
-            >
-              <div className="flex items-center space-x-4">
-                <div className="flex-shrink-0">
-                  <svg
-                    className={`h-6 w-6 ${job.isSaved ? 'text-green-500' : 'text-gray-400'}`}
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M5 13l4 4L19 7"
-                    />
-                  </svg>
-                </div>
-                <div>
-                  <h3 className="font-medium">{job.title}</h3>
-                  <p className="text-gray-600">
-                    {job.company} - {job.location}
-                  </p>
-                </div>
-              </div>
-              <button
-                className="text-red-500 hover:text-red-700 focus:outline-none"
-                onClick={() => toggleSavedJob(job)}
-              >
-                <svg
-                  className="h-5 w-5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
-                  />
-                </svg>
-              </button>
-            </li>
+    <>
+      <Table.Root variant="surface">
+        <Table.Header>
+          <Table.Row className="text-blue-600">
+            <Table.ColumnHeaderCell className="text-blue-600">
+              Select
+            </Table.ColumnHeaderCell>
+            <Table.ColumnHeaderCell className="text-blue-600">
+              Title
+            </Table.ColumnHeaderCell>
+            <Table.ColumnHeaderCell className="text-blue-600">
+              Company
+            </Table.ColumnHeaderCell>
+            <Table.ColumnHeaderCell className="text-blue-600">
+              Location
+            </Table.ColumnHeaderCell>
+            <Table.ColumnHeaderCell className="text-blue-600">
+              Type
+            </Table.ColumnHeaderCell>
+          </Table.Row>
+        </Table.Header>
+
+        <Table.Body>
+          {savedJobs.map((cellData) => (
+            <Table.Row key={cellData.id}>
+              <Table.RowHeaderCell>
+                <Checkbox
+                  defaultChecked={false}
+                  onCheckedChange={(e) => handleCheckBox(e, cellData)}
+                />
+              </Table.RowHeaderCell>
+              <Table.Cell>{cellData.title}</Table.Cell>
+              <Table.Cell>{cellData.company}</Table.Cell>
+              <Table.Cell>{cellData.location}</Table.Cell>
+              <Table.Cell>{cellData.type}</Table.Cell>
+            </Table.Row>
           ))}
-        </ul>
-      ) : (
-        <p className="text-gray-500">No saved jobs.</p>
+        </Table.Body>
+      </Table.Root>
+
+      <div className="flex gap-4 mt-4">
+        <button
+          className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700"
+          onClick={handleApply}
+        >
+          Apply
+        </button>
+        <button
+          className="bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-700"
+          onClick={handleDelete}
+        >
+          Delete Selected
+        </button>
+      </div>
+
+      {selectedJobs.length > 0 && (
+        <div className="mt-2 text-sm text-gray-600">
+          {selectedJobs.length} job{selectedJobs.length > 1 ? 's' : ''} selected
+        </div>
       )}
-    </div>
+
+      {savedJobs.length === 0 && (
+        <div className="text-center py-8 text-gray-600">
+          No saved jobs found.
+        </div>
+      )}
+    </>
   );
-};
+}
 
 export default SavedJobs;
