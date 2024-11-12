@@ -8,7 +8,7 @@ import os
 app = Flask(__name__)
 CORS(app)
 
-app.config["MONGO_URI"] = os.getenv("MONGO_URI", "mongodb+srv://kdhulipalla13:2iBBYQt6VMKaq225@quantify.gc5ui.mongodb.net/sample_mflix?retryWrites=true&w=majority&appName=quantify")
+app.config["MONGO_URI"] = os.getenv("MONGO_URI", "MongoDB connection details :mongodb+srv://jab-admint3nM4nhzWu8f4kJ6@devcluster.3ih32.mongodb.net/?retryWrites=true&w=majority&appName=DevCluster")
 mongo = PyMongo(app)
 db = mongo.db  
 
