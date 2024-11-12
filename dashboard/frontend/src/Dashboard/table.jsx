@@ -74,6 +74,8 @@ const data = [
   },
 ];
 
+const ITEMS_PER_PAGE = 5;
+
 export function JobsTable() {
   const [rowData, setRowData] = useState([]);
   const [filters, setFilters] = useState({
@@ -82,6 +84,15 @@ export function JobsTable() {
     type: "",
   });
   const [filteredData, setFilteredData] = useState(data);
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const totalPages = Math.ceil(filteredData.length / ITEMS_PER_PAGE);
+
+  const getPaginatedData = () => {
+    const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+    const endIndex = startIndex + ITEMS_PER_PAGE;
+    return filteredData.slice(startIndex, endIndex);
+  };
 
   const applyFilters = () => {
     const filtered = data.filter((job) => {
@@ -92,6 +103,7 @@ export function JobsTable() {
       );
     });
     setFilteredData(filtered);
+    setCurrentPage(1);
   };
 
   function handleFilterChange(e) {
@@ -117,6 +129,17 @@ export function JobsTable() {
     setRowData(clone);
   }
 
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+  };
+
+  const handleNextPage = () => {
+    if (currentPage < totalPages) setCurrentPage(currentPage + 1);
+  };
+
+  const handlePrevPage = () => {
+    if (currentPage > 1) setCurrentPage(currentPage - 1);
+  };
   console.log(rowData);
 
   return (
@@ -190,8 +213,8 @@ export function JobsTable() {
         </Table.Header>
 
         <Table.Body>
-          {filteredData.length > 0 ? (
-            filteredData.map((cellData) => (
+          {getPaginatedData().length > 0 ? (
+            getPaginatedData().map((cellData) => (
               <Table.Row key={cellData.id}>
                 <Table.RowHeaderCell>
                   <Checkbox
@@ -214,10 +237,32 @@ export function JobsTable() {
           )}
         </Table.Body>
       </Table.Root>
-      <button
-        className="bg-blue-600 text-white px-4 py-2 rounded-md mt-4"
-        onClick={console.log(rowData)}
-      >
+
+      <div className="mt-4 flex justify-center items-center space-x-2">
+        <button onClick={handlePrevPage} disabled={currentPage === 1}>
+          ◀
+        </button>
+
+        {[...Array(totalPages)].map((_, index) => (
+          <button
+            key={index}
+            onClick={() => handlePageChange(index + 1)}
+            className={`px-2 py-1 rounded ${
+              currentPage === index + 1
+                ? "bg-blue-600 text-white"
+                : "bg-gray-200"
+            }`}
+          >
+            {index + 1}
+          </button>
+        ))}
+
+        <button onClick={handleNextPage} disabled={currentPage === totalPages}>
+          ▶
+        </button>
+      </div>
+
+      <button className="bg-blue-600 text-white px-4 py-2 rounded-md mt-4">
         Apply
       </button>
     </>
