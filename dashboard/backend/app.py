@@ -4,24 +4,56 @@ from flask_cors import CORS
 from bson import ObjectId
 import bcrypt
 import os
+import json
+from pymongo import MongoClient
+from pymongo.server_api import ServerApi
+from schema.job_schema import job_schema
+from datetime import datetime
 
 app = Flask(__name__)
 CORS(app)
 
-app.config["MONGO_URI"] = os.getenv("MONGO_URI", "MongoDB connection details :mongodb+srv://jab-admint3nM4nhzWu8f4kJ6@devcluster.3ih32.mongodb.net/?retryWrites=true&w=majority&appName=DevCluster")
-mongo = PyMongo(app)
-db = mongo.db  
-
-def convert_document(document):
-    return {**document, "_id": str(document["_id"])}
-
-
+uri = "mongodb+srv://jab-admin:t3nM4nhzWu8f4kJ6@devcluster.3ih32.mongodb.net/?retryWrites=true&w=majority&appName=DevCluster"
+# Create a new client and connect to the server
+client = MongoClient(uri, server_api=ServerApi('1'))
+# Send a ping to confirm a successful connection
 try:
-    db.list_collection_names()
-    print("Connected to MongoDB successfully!")
+    client.admin.command('ping')
+    print("Pinged your deployment. You successfully connected to MongoDB!")
 except Exception as e:
-    print("Failed to connect to MongoDB:", e)
+    print(e)
+
+db = client['jab-admin']
+collection = db['jobs']
+
+# with open('./schema/sample_data.json', 'r') as file:
+#     job_data = json.load(file)
+
+# for job in job_data:
+#     job['posted_on'] = datetime.strptime(job['posted_on'], "%Y-%m-%dT%H:%M:%SZ")
+#     job['last_availability_check'] = datetime.strptime(job['last_availability_check'], "%Y-%m-%dT%H:%M:%SZ")
     
+
+# try:
+#     collection.insert_many(job_data)
+#     print("Jobs inserted successfully.")
+# except Exception as e:
+#     print(f"Error inserting jobs: {e}")
+
+@app.route('/api/jobs', methods=['GET'])
+def get_jobs():
+    try:
+        jobs = list(collection.find({}, {
+            "job_title": 1,
+            "company": 1,
+            "location": 1,
+            "type": 1,
+            "posted_on": 1,
+            "_id": 0
+        }))
+        return jsonify(jobs), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
     
 @app.route('/register', methods=['POST'])
 def register():

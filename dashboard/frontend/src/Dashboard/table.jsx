@@ -1,114 +1,85 @@
 import { useState, useEffect } from "react";
 import { Table, Checkbox } from "@radix-ui/themes";
 
-const data = [
-  {
-    id: 1,
-    title: "Summer 2025 Supply Chain Intern-Master's Degree",
-    company: "Applied Materials",
-    location: "Austin, TX, USA",
-    type: "Internship",
-    posted: "2024-11-13T02:19:49.311Z",
-  },
-  {
-    id: 2,
-    title: "New grad software engineer",
-    company: "Amazon",
-    location: "Dallas, TX, USA",
-    type: "Full time",
-    posted: "2024-11-12T02:19:49.311Z",
-  },
-  {
-    id: 3,
-    title: "Software Developer Internship",
-    company: "Google",
-    location: "Mountain View, CA, USA",
-    type: "Internship",
-    posted: "2024-11-11T02:19:49.311Z",
-  },
-  {
-    id: 4,
-    title: "Data Analyst",
-    company: "Facebook",
-    location: "Austin, TX, USA",
-    type: "Full time",
-    posted: "2024-11-13T02:18:49.311Z",
-  },
-  {
-    id: 5,
-    title: "Backend Developer",
-    company: "Microsoft",
-    location: "Redmond, WA, USA",
-    type: "Full time",
-    posted: "2024-10-13T02:19:49.311Z",
-  },
-  {
-    id: 6,
-    title: "Frontend Developer",
-    company: "Apple",
-    location: "Cupertino, CA, USA",
-    type: "Internship",
-    posted: "2024-11-13T02:19:49.311Z",
-  },
-  {
-    id: 7,
-    title: "Data Scientist",
-    company: "Netflix",
-    location: "Los Gatos, CA, USA",
-    type: "Full time",
-    posted: "2024-11-13T02:19:49.311Z",
-  },
-  {
-    id: 8,
-    title: "Machine Learning Engineer",
-    company: "Tesla",
-    location: "Palo Alto, CA, USA",
-    type: "Full time",
-    posted: "2024-11-13T02:19:49.311Z",
-  },
-  {
-    id: 9,
-    title: "Cloud Engineer",
-    company: "IBM",
-    location: "Austin, TX, USA",
-    type: "Internship",
-    posted: "2024-11-13T02:19:49.311Z",
-  },
-  {
-    id: 10,
-    title: "Security Engineer",
-    company: "Cisco",
-    location: "San Jose, CA, USA",
-    type: "Full time",
-    posted: "2024-11-13T02:19:49.311Z",
-  },
-];
-
 const ITEMS_PER_PAGE = 5;
 
 export function JobsTable() {
   const [rowData, setRowData] = useState([]);
+  const [filteredData, setFilteredData] = useState([]);
   const [filters, setFilters] = useState({
     company: "",
     location: "",
     type: "",
   });
-  const [filteredData, setFilteredData] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
   const [sortConfig, setSortConfig] = useState({
-    key: "posted",
+    key: "posted_on",
     direction: "desc",
   });
+  const [currentPage, setCurrentPage] = useState(1);
 
   const totalPages = Math.ceil(filteredData.length / ITEMS_PER_PAGE);
 
+  // Fetch job data from the backend
   useEffect(() => {
-    // Sort by 'posted' date descending by default
-    const sortedData = [...data].sort(
-      (a, b) => new Date(b.posted) - new Date(a.posted)
+    async function fetchJobs() {
+      try {
+        const response = await fetch("http://localhost:5000/api/jobs");
+        if (response.ok) {
+          const data = await response.json();
+          setRowData(data);
+          setFilteredData(data);
+        } else {
+          console.error("Failed to fetch jobs:", response.statusText);
+        }
+      } catch (error) {
+        console.error("Error fetching jobs:", error);
+      }
+    }
+    fetchJobs();
+  }, []);
+
+  // Apply filters and sort
+  const applyFilters = () => {
+    let filtered = [...rowData];
+    if (filters.company) {
+      filtered = filtered.filter((job) => job.company === filters.company);
+    }
+    if (filters.location) {
+      filtered = filtered.filter((job) => job.location === filters.location);
+    }
+    if (filters.type) {
+      filtered = filtered.filter((job) => job.type === filters.type);
+    }
+
+    // Sort by posted date
+    filtered.sort((a, b) =>
+      sortConfig.direction === "asc"
+        ? new Date(a.posted_on) - new Date(b.posted_on)
+        : new Date(b.posted_on) - new Date(a.posted_on)
+    );
+
+    setFilteredData(filtered);
+    setCurrentPage(1);
+  };
+
+  const handleFilterChange = (e) => {
+    const { name, value } = e.target;
+    setFilters((prevFilters) => ({
+      ...prevFilters,
+      [name]: value,
+    }));
+  };
+
+  const handleSort = () => {
+    const direction = sortConfig.direction === "asc" ? "desc" : "asc";
+    setSortConfig({ key: "posted_on", direction });
+    const sortedData = [...filteredData].sort((a, b) =>
+      direction === "asc"
+        ? new Date(a.posted_on) - new Date(b.posted_on)
+        : new Date(b.posted_on) - new Date(a.posted_on)
     );
     setFilteredData(sortedData);
-  }, []);
+  };
 
   const getPaginatedData = () => {
     const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
@@ -116,63 +87,11 @@ export function JobsTable() {
     return filteredData.slice(startIndex, endIndex);
   };
 
-  const applyFilters = () => {
-    const filtered = data
-      .filter((job) => {
-        return (
-          (filters.company === "" || job.company === filters.company) &&
-          (filters.location === "" || job.location === filters.location) &&
-          (filters.type === "" || job.type === filters.type)
-        );
-      })
-      .sort((a, b) => new Date(b.posted) - new Date(a.posted)); // Maintain sorted order by 'posted'
-    setFilteredData(filtered);
-    setCurrentPage(1);
-  };
-
-  function handleFilterChange(e) {
-    const { name, value } = e.target;
-    setFilters((prevFilters) => ({
-      ...prevFilters,
-      [name]: value,
-    }));
-  }
-
-  function handleCheckBox(e, cellData) {
-    let clone = structuredClone(rowData);
-    if (e) {
-      clone.push(cellData);
-    } else {
-      clone = clone.filter((job) => job.id !== cellData.id);
-    }
-    setRowData(clone);
-  }
-
-  const handlePageChange = (page) => {
-    setCurrentPage(page);
-  };
-
-  const handleNextPage = () => {
-    if (currentPage < totalPages) setCurrentPage(currentPage + 1);
-  };
-
-  const handlePrevPage = () => {
-    if (currentPage > 1) setCurrentPage(currentPage - 1);
-  };
-
-  const handleSort = (key) => {
-    let direction = "asc";
-    if (sortConfig.key === key && sortConfig.direction === "asc") {
-      direction = "desc";
-    }
-    setSortConfig({ key, direction });
-    const sortedData = [...filteredData].sort((a, b) => {
-      if (a[key] < b[key]) return direction === "asc" ? -1 : 1;
-      if (a[key] > b[key]) return direction === "asc" ? 1 : -1;
-      return 0;
-    });
-    setFilteredData(sortedData);
-  };
+  const handlePageChange = (page) => setCurrentPage(page);
+  const handleNextPage = () =>
+    currentPage < totalPages && setCurrentPage(currentPage + 1);
+  const handlePrevPage = () =>
+    currentPage > 1 && setCurrentPage(currentPage - 1);
 
   const formatDate = (dateStr) => {
     const date = new Date(dateStr);
@@ -181,6 +100,7 @@ export function JobsTable() {
 
   return (
     <>
+      {/* Filter Section */}
       <div className="mb-4 flex space-x-4">
         <select
           name="company"
@@ -189,12 +109,13 @@ export function JobsTable() {
           className="border px-4 py-2 rounded"
         >
           <option value="">All Companies</option>
-          {[...new Set(data.map((job) => job.company))].map((company) => (
+          {[...new Set(rowData.map((job) => job.company))].map((company) => (
             <option key={company} value={company}>
               {company}
             </option>
           ))}
         </select>
+
         <select
           name="location"
           value={filters.location}
@@ -202,12 +123,13 @@ export function JobsTable() {
           className="border px-4 py-2 rounded"
         >
           <option value="">All Locations</option>
-          {[...new Set(data.map((job) => job.location))].map((location) => (
+          {[...new Set(rowData.map((job) => job.location))].map((location) => (
             <option key={location} value={location}>
               {location}
             </option>
           ))}
         </select>
+
         <select
           name="type"
           value={filters.type}
@@ -215,81 +137,48 @@ export function JobsTable() {
           className="border px-4 py-2 rounded"
         >
           <option value="">All Types</option>
-          {[...new Set(data.map((job) => job.type))].map((type) => (
+          {[...new Set(rowData.map((job) => job.type))].map((type) => (
             <option key={type} value={type}>
               {type}
             </option>
           ))}
         </select>
+
         <button
-          className="bg-blue-600 text-white px-4 py-2 rounded-md mt-2"
+          className="bg-blue-600 text-white px-4 py-2 rounded-md"
           onClick={applyFilters}
         >
           Apply Filters
         </button>
       </div>
+
+      {/* Table Section */}
       <Table.Root variant="surface">
         <Table.Header>
           <Table.Row className="text-blue-600">
             <Table.ColumnHeaderCell>Select</Table.ColumnHeaderCell>
-            <Table.ColumnHeaderCell onClick={() => handleSort("title")}>
-              Title{" "}
-              {sortConfig.key === "title"
-                ? sortConfig.direction === "asc"
-                  ? "▲"
-                  : "▼"
-                : ""}
-            </Table.ColumnHeaderCell>
-            <Table.ColumnHeaderCell onClick={() => handleSort("company")}>
-              Company{" "}
-              {sortConfig.key === "company"
-                ? sortConfig.direction === "asc"
-                  ? "▲"
-                  : "▼"
-                : ""}
-            </Table.ColumnHeaderCell>
-            <Table.ColumnHeaderCell onClick={() => handleSort("location")}>
-              Location{" "}
-              {sortConfig.key === "location"
-                ? sortConfig.direction === "asc"
-                  ? "▲"
-                  : "▼"
-                : ""}
-            </Table.ColumnHeaderCell>
-            <Table.ColumnHeaderCell onClick={() => handleSort("type")}>
-              Type{" "}
-              {sortConfig.key === "type"
-                ? sortConfig.direction === "asc"
-                  ? "▲"
-                  : "▼"
-                : ""}
-            </Table.ColumnHeaderCell>
-            <Table.ColumnHeaderCell onClick={() => handleSort("posted")}>
-              Posted{" "}
-              {sortConfig.key === "posted"
-                ? sortConfig.direction === "asc"
-                  ? "▲"
-                  : "▼"
-                : ""}
+            <Table.ColumnHeaderCell>Title</Table.ColumnHeaderCell>
+            <Table.ColumnHeaderCell>Company</Table.ColumnHeaderCell>
+            <Table.ColumnHeaderCell>Location</Table.ColumnHeaderCell>
+            <Table.ColumnHeaderCell>Type</Table.ColumnHeaderCell>
+            <Table.ColumnHeaderCell onClick={handleSort}>
+              Posted {sortConfig.direction === "asc" ? "▲" : "▼"}
             </Table.ColumnHeaderCell>
           </Table.Row>
         </Table.Header>
 
         <Table.Body>
           {getPaginatedData().length > 0 ? (
-            getPaginatedData().map((cellData) => (
-              <Table.Row key={cellData.id}>
+            getPaginatedData().map((job, index) => (
+              <Table.Row key={index}>
                 <Table.RowHeaderCell>
-                  <Checkbox
-                    defaultChecked={false}
-                    onCheckedChange={(e) => handleCheckBox(e, cellData)}
-                  />
+                  <Checkbox defaultChecked={false} />
                 </Table.RowHeaderCell>
-                <Table.Cell>{cellData.title}</Table.Cell>
-                <Table.Cell>{cellData.company}</Table.Cell>
-                <Table.Cell>{cellData.location}</Table.Cell>
-                <Table.Cell>{cellData.type}</Table.Cell>
-                <Table.Cell>{formatDate(cellData.posted)}</Table.Cell>
+                <Table.Cell>{job.job_title}</Table.Cell>
+                <Table.Cell>{job.company}</Table.Cell>
+                <Table.Cell>{job.location}</Table.Cell>
+                <Table.Cell>{job.type}</Table.Cell>
+                <Table.Cell>{formatDate(job.posted_on)}</Table.Cell>
               </Table.Row>
             ))
           ) : (
@@ -302,11 +191,11 @@ export function JobsTable() {
         </Table.Body>
       </Table.Root>
 
+      {/* Pagination Controls */}
       <div className="mt-4 flex justify-center items-center space-x-2">
         <button onClick={handlePrevPage} disabled={currentPage === 1}>
           ◀
         </button>
-
         {[...Array(totalPages)].map((_, index) => (
           <button
             key={index}
@@ -320,15 +209,10 @@ export function JobsTable() {
             {index + 1}
           </button>
         ))}
-
         <button onClick={handleNextPage} disabled={currentPage === totalPages}>
           ▶
         </button>
       </div>
-
-      <button className="bg-blue-600 text-white px-4 py-2 rounded-md mt-4">
-        Apply
-      </button>
     </>
   );
 }

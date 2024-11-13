@@ -1,0 +1,92 @@
+[
+  {
+    "job_title": "Cloud Engineer",
+    "company": "CloudWorks",
+    "location": "Denver, CO",
+    "type": "full-time",
+    "experience_level": ["Mid-level", "2-4 years"],
+    "category": ["Cloud Computing", "Full-time"],
+    "salary_range": [80000, 110000],
+    "posted_on": "2024-10-20T00:00:00Z",
+    "last_availability_check": "2024-11-07T00:00:00Z",
+    "status": "active",
+    "skills": ["AWS", "Azure", "Docker", "Kubernetes"],
+    "job_category": ["cloud"],
+    "job_description": {
+      "basic_req": "Experience with cloud platforms like AWS or Azure.",
+      "preferred_req": "Familiarity with Kubernetes and Docker."
+    }
+  },
+  {
+    "job_title": "DevOps Engineer",
+    "company": "TechOps Solutions",
+    "location": "Chicago, IL",
+    "type": "full-time",
+    "experience_level": ["Senior-level", "5+ years"],
+    "category": ["DevOps", "Engineering"],
+    "salary_range": [95000, 120000],
+    "posted_on": "2024-10-10T00:00:00Z",
+    "last_availability_check": "2024-11-03T00:00:00Z",
+    "status": "active",
+    "skills": ["CI/CD", "Jenkins", "Ansible", "Terraform"],
+    "job_category": ["devops"],
+    "job_description": {
+      "basic_req": "Strong understanding of CI/CD pipelines.",
+      "preferred_req": "Experience with Terraform and Ansible."
+    }
+  },
+  {
+    "job_title": "UI/UX Designer",
+    "company": "Creative Designs Co.",
+    "location": "Portland, OR",
+    "type": "part-time",
+    "experience_level": ["Mid-level", "3-5 years"],
+    "category": ["Design", "Part-time"],
+    "salary_range": [40000, 60000],
+    "posted_on": "2024-09-15T00:00:00Z",
+    "last_availability_check": "2024-11-02T00:00:00Z",
+    "status": "active",
+    "skills": ["Figma", "Sketch", "Adobe XD", "User Research"],
+    "job_category": ["design"],
+    "job_description": {
+      "basic_req": "Proficiency in design tools like Figma and Sketch.",
+      "preferred_req": "Experience in user research and usability testing."
+    }
+  },
+  {
+    "job_title": "Mobile App Developer",
+    "company": "AppDev Studios",
+    "location": "Miami, FL",
+    "type": "internship",
+    "experience_level": ["Intern", "0-1 year"],
+    "category": ["Mobile Development", "Internship"],
+    "salary_range": [20000, 30000],
+    "posted_on": "2024-11-05T00:00:00Z",
+    "last_availability_check": "2024-11-10T00:00:00Z",
+    "status": "active",
+    "skills": ["Flutter", "React Native", "iOS", "Android"],
+    "job_category": ["mobile"],
+    "job_description": {
+      "basic_req": "Knowledge of mobile app development frameworks.",
+      "preferred_req": "Experience with Flutter or React Native."
+    }
+  },
+  {
+    "job_title": "Cybersecurity Analyst",
+    "company": "SecureNet",
+    "location": "Washington, DC",
+    "type": "full-time",
+    "experience_level": ["Entry-level", "1-2 years"],
+    "category": ["Cybersecurity", "Full-time"],
+    "salary_range": [70000, 90000],
+    "posted_on": "2024-10-25T00:00:00Z",
+    "last_availability_check": "2024-11-06T00:00:00Z",
+    "status": "active",
+    "skills": ["Network Security", "Penetration Testing", "SIEM", "Python"],
+    "job_category": ["cybersecurity"],
+    "job_description": {
+      "basic_req": "Understanding of network security concepts.",
+      "preferred_req": "Experience with penetration testing and SIEM tools."
+    }
+  }
+]

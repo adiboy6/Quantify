@@ -1,0 +1,104 @@
+db.createCollection("userProfiles", 
+{
+    "validator": {
+      "$jsonSchema": {
+        "bsonType": "object",
+        "required": ["email", "username", "personals", "address", "contact"],
+        "properties": {
+          "email": { "bsonType": "string" },
+          "username": { "bsonType": "string" },
+          "personals": {
+            "bsonType": "object",
+            "required": ["first_name", "last_name", "dob"],
+            "properties": {
+              "first_name": { "bsonType": "string" },
+              "middle_name": { "bsonType": "string" },
+              "last_name": { "bsonType": "string" },
+              "dob": { "bsonType": "date" }
+            }
+          },
+          "address": {
+            "bsonType": "object",
+            "required": ["address_line_1", "city", "state", "postal_code", "country"],
+            "properties": {
+              "address_line_1": { "bsonType": "string" },
+              "address_line_2": { "bsonType": "string" },
+              "city": { "bsonType": "string" },
+              "state": { "bsonType": "string" },
+              "postal_code": { "bsonType": "string" },
+              "country": { "bsonType": "string" }
+            }
+          },
+          "contact": {
+            "bsonType": "object",
+            "required": ["email", "phone_number"],
+            "properties": {
+              "email": { "bsonType": "string" },
+              "extension": { "bsonType": "string" },
+              "phone_number": { "bsonType": "string" }
+            }
+          },
+          "work_experience": {
+            "bsonType": "array",
+            "items": {
+              "bsonType": "object",
+              "required": ["job_title", "company", "location", "from_date", "currently_working_here"],
+              "properties": {
+                "job_title": { "bsonType": "string" },
+                "company": { "bsonType": "string" },
+                "location": { "bsonType": "string" },
+                "currently_working_here": { "bsonType": "bool" },
+                "from_date": { "bsonType": "date" },
+                "to_date": { "bsonType": "date" },
+                "role_description": { "bsonType": "string" },
+                "skills_used": { "bsonType": "array", "items": { "bsonType": "string" } }
+              }
+            }
+          },
+          "education": {
+            "bsonType": "array",
+            "items": {
+              "bsonType": "object",
+              "required": ["school_or_university_name", "degree", "field_of_study", "from_date", "currently_studying_here"],
+              "properties": {
+                "school_or_university_name": { "bsonType": "string" },
+                "degree": { "bsonType": "string" },
+                "field_of_study": { "bsonType": "array", "items": { "bsonType": "string" } },
+                "GPA": { "bsonType": "string" },
+                "currently_studying_here": { "bsonType": "bool" },
+                "from_date": { "bsonType": "date" },
+                "to_date": { "bsonType": "date" }
+              }
+            }
+          },
+          "projects": {
+            "bsonType": "array",
+            "items": {
+              "bsonType": "object",
+              "required": ["project_name", "from_date", "currently_working_on_it"],
+              "properties": {
+                "project_name": { "bsonType": "string" },
+                "project_description": { "bsonType": "string" },
+                "skills_used": { "bsonType": "array", "items": { "bsonType": "string" } },
+                "currently_working_on_it": { "bsonType": "bool" },
+                "from_date": { "bsonType": "date" },
+                "to_date": { "bsonType": "date" }
+              }
+            }
+          },
+          "skills": {
+            "bsonType": "array",
+            "items": { "bsonType": "string" }
+          },
+          "certifications": {
+            "bsonType": "array",
+            "items": { "bsonType": "string" }
+          },
+          "resume": { "bsonType": "string" }
+        }
+      }
+    }
+  ,
+  "validationLevel": "strict",     // Enforces the schema strictly
+  "validationAction": "error"      // Causes an error if a document doesn't match
+});
