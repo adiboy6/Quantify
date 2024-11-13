@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Table, Checkbox } from "@radix-ui/themes";
 
 const data = [
@@ -8,6 +8,7 @@ const data = [
     company: "Applied Materials",
     location: "Austin, TX, USA",
     type: "Internship",
+    posted: "2024-11-13T02:19:49.311Z",
   },
   {
     id: 2,
@@ -15,6 +16,7 @@ const data = [
     company: "Amazon",
     location: "Dallas, TX, USA",
     type: "Full time",
+    posted: "2024-11-12T02:19:49.311Z",
   },
   {
     id: 3,
@@ -22,6 +24,7 @@ const data = [
     company: "Google",
     location: "Mountain View, CA, USA",
     type: "Internship",
+    posted: "2024-11-11T02:19:49.311Z",
   },
   {
     id: 4,
@@ -29,6 +32,7 @@ const data = [
     company: "Facebook",
     location: "Austin, TX, USA",
     type: "Full time",
+    posted: "2024-11-13T02:18:49.311Z",
   },
   {
     id: 5,
@@ -36,6 +40,7 @@ const data = [
     company: "Microsoft",
     location: "Redmond, WA, USA",
     type: "Full time",
+    posted: "2024-10-13T02:19:49.311Z",
   },
   {
     id: 6,
@@ -43,6 +48,7 @@ const data = [
     company: "Apple",
     location: "Cupertino, CA, USA",
     type: "Internship",
+    posted: "2024-11-13T02:19:49.311Z",
   },
   {
     id: 7,
@@ -50,6 +56,7 @@ const data = [
     company: "Netflix",
     location: "Los Gatos, CA, USA",
     type: "Full time",
+    posted: "2024-11-13T02:19:49.311Z",
   },
   {
     id: 8,
@@ -57,6 +64,7 @@ const data = [
     company: "Tesla",
     location: "Palo Alto, CA, USA",
     type: "Full time",
+    posted: "2024-11-13T02:19:49.311Z",
   },
   {
     id: 9,
@@ -64,6 +72,7 @@ const data = [
     company: "IBM",
     location: "Austin, TX, USA",
     type: "Internship",
+    posted: "2024-11-13T02:19:49.311Z",
   },
   {
     id: 10,
@@ -71,6 +80,7 @@ const data = [
     company: "Cisco",
     location: "San Jose, CA, USA",
     type: "Full time",
+    posted: "2024-11-13T02:19:49.311Z",
   },
 ];
 
@@ -83,10 +93,22 @@ export function JobsTable() {
     location: "",
     type: "",
   });
-  const [filteredData, setFilteredData] = useState(data);
+  const [filteredData, setFilteredData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
+  const [sortConfig, setSortConfig] = useState({
+    key: "posted",
+    direction: "desc",
+  });
 
   const totalPages = Math.ceil(filteredData.length / ITEMS_PER_PAGE);
+
+  useEffect(() => {
+    // Sort by 'posted' date descending by default
+    const sortedData = [...data].sort(
+      (a, b) => new Date(b.posted) - new Date(a.posted)
+    );
+    setFilteredData(sortedData);
+  }, []);
 
   const getPaginatedData = () => {
     const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
@@ -95,13 +117,15 @@ export function JobsTable() {
   };
 
   const applyFilters = () => {
-    const filtered = data.filter((job) => {
-      return (
-        (filters.company === "" || job.company === filters.company) &&
-        (filters.location === "" || job.location === filters.location) &&
-        (filters.type === "" || job.type === filters.type)
-      );
-    });
+    const filtered = data
+      .filter((job) => {
+        return (
+          (filters.company === "" || job.company === filters.company) &&
+          (filters.location === "" || job.location === filters.location) &&
+          (filters.type === "" || job.type === filters.type)
+        );
+      })
+      .sort((a, b) => new Date(b.posted) - new Date(a.posted)); // Maintain sorted order by 'posted'
     setFilteredData(filtered);
     setCurrentPage(1);
   };
@@ -115,17 +139,12 @@ export function JobsTable() {
   }
 
   function handleCheckBox(e, cellData) {
-    console.log(e);
     let clone = structuredClone(rowData);
-
     if (e) {
-      //add checked job id
       clone.push(cellData);
     } else {
-      // remove job id from clone
       clone = clone.filter((job) => job.id !== cellData.id);
     }
-
     setRowData(clone);
   }
 
@@ -140,7 +159,25 @@ export function JobsTable() {
   const handlePrevPage = () => {
     if (currentPage > 1) setCurrentPage(currentPage - 1);
   };
-  console.log(rowData);
+
+  const handleSort = (key) => {
+    let direction = "asc";
+    if (sortConfig.key === key && sortConfig.direction === "asc") {
+      direction = "desc";
+    }
+    setSortConfig({ key, direction });
+    const sortedData = [...filteredData].sort((a, b) => {
+      if (a[key] < b[key]) return direction === "asc" ? -1 : 1;
+      if (a[key] > b[key]) return direction === "asc" ? 1 : -1;
+      return 0;
+    });
+    setFilteredData(sortedData);
+  };
+
+  const formatDate = (dateStr) => {
+    const date = new Date(dateStr);
+    return date.toLocaleDateString("en-US");
+  };
 
   return (
     <>
@@ -194,20 +231,46 @@ export function JobsTable() {
       <Table.Root variant="surface">
         <Table.Header>
           <Table.Row className="text-blue-600">
-            <Table.ColumnHeaderCell className="text-blue-600">
-              Select
+            <Table.ColumnHeaderCell>Select</Table.ColumnHeaderCell>
+            <Table.ColumnHeaderCell onClick={() => handleSort("title")}>
+              Title{" "}
+              {sortConfig.key === "title"
+                ? sortConfig.direction === "asc"
+                  ? "▲"
+                  : "▼"
+                : ""}
             </Table.ColumnHeaderCell>
-            <Table.ColumnHeaderCell className="text-blue-600">
-              Title
+            <Table.ColumnHeaderCell onClick={() => handleSort("company")}>
+              Company{" "}
+              {sortConfig.key === "company"
+                ? sortConfig.direction === "asc"
+                  ? "▲"
+                  : "▼"
+                : ""}
             </Table.ColumnHeaderCell>
-            <Table.ColumnHeaderCell className="text-blue-600">
-              Company
+            <Table.ColumnHeaderCell onClick={() => handleSort("location")}>
+              Location{" "}
+              {sortConfig.key === "location"
+                ? sortConfig.direction === "asc"
+                  ? "▲"
+                  : "▼"
+                : ""}
             </Table.ColumnHeaderCell>
-            <Table.ColumnHeaderCell className="text-blue-600">
-              Location
+            <Table.ColumnHeaderCell onClick={() => handleSort("type")}>
+              Type{" "}
+              {sortConfig.key === "type"
+                ? sortConfig.direction === "asc"
+                  ? "▲"
+                  : "▼"
+                : ""}
             </Table.ColumnHeaderCell>
-            <Table.ColumnHeaderCell className="text-blue-600">
-              Type
+            <Table.ColumnHeaderCell onClick={() => handleSort("posted")}>
+              Posted{" "}
+              {sortConfig.key === "posted"
+                ? sortConfig.direction === "asc"
+                  ? "▲"
+                  : "▼"
+                : ""}
             </Table.ColumnHeaderCell>
           </Table.Row>
         </Table.Header>
@@ -226,11 +289,12 @@ export function JobsTable() {
                 <Table.Cell>{cellData.company}</Table.Cell>
                 <Table.Cell>{cellData.location}</Table.Cell>
                 <Table.Cell>{cellData.type}</Table.Cell>
+                <Table.Cell>{formatDate(cellData.posted)}</Table.Cell>
               </Table.Row>
             ))
           ) : (
             <Table.Row>
-              <Table.Cell colSpan={5} className="text-center text-gray-500">
+              <Table.Cell colSpan={6} className="text-center text-gray-500">
                 No jobs found
               </Table.Cell>
             </Table.Row>
