@@ -1,14 +1,21 @@
 from flask import Flask, request, jsonify
 from flask_pymongo import PyMongo
 from flask_cors import CORS
+from werkzeug.local import LocalProxy
+from pymongo.errors import DuplicateKeyError, OperationFailure
+from bson.objectid import ObjectId
+from bson.errors import InvalidId
 from bson import ObjectId
 import bcrypt
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 app = Flask(__name__)
 CORS(app)
 
-app.config["MONGO_URI"] = os.getenv("MONGO_URI", "mongodb+srv://kdhulipalla13:2iBBYQt6VMKaq225@quantify.gc5ui.mongodb.net/sample_mflix?retryWrites=true&w=majority&appName=quantify")
+app.config["MONGO_URI"] = os.getenv("MONGO_URI")
 mongo = PyMongo(app)
 db = mongo.db  
 
