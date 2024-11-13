@@ -15,6 +15,7 @@ job_schema = {
             "job_title": {"bsonType": "string"},
             "company": {"bsonType": "string"},
             "location": {"bsonType": "string"},
+            "job_apply_link": {"bsonType": "string"},
             "type": {"bsonType": "string"},
             "experience_level": {
                 "bsonType": "array",

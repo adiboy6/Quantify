@@ -23,8 +23,8 @@ try:
 except Exception as e:
     print(e)
 
-db = client['jab-admin']
-collection = db['jobs']
+db = client['JAB']
+collection = db['jobApplications']
 
 # with open('./schema/sample_data.json', 'r') as file:
 #     job_data = json.load(file)
@@ -46,6 +46,7 @@ def get_jobs():
         jobs = list(collection.find({}, {
             "job_title": 1,
             "company": 1,
+            "job_apply_link": 1,
             "location": 1,
             "type": 1,
             "posted_on": 1,
@@ -96,5 +97,5 @@ def login():
         return jsonify({"error": "Invalid password"}), 401
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(port=5000, debug=True)
 
