@@ -16,6 +16,7 @@ export function JobApplications() {
     direction: "desc",
   });
   const [currentPage, setCurrentPage] = useState(1);
+  const [selectedJobs, setSelectedJobs] = useState([]);
 
   const totalPages = Math.ceil(filteredData.length / ITEMS_PER_PAGE);
 
@@ -98,6 +99,31 @@ export function JobApplications() {
     return date.toLocaleDateString("en-US");
   };
 
+  // Track selected jobs for applying
+  const handleCheckboxChange = (job, isChecked) => {
+    setSelectedJobs((prevSelected) => {
+      if (isChecked) {
+        // Add job if not already in selectedJobs
+        return [...prevSelected, job];
+      } else {
+        // Remove job if it's unchecked
+        return prevSelected.filter(
+          (selectedJob) => selectedJob.job_apply_link !== job.job_apply_link
+        );
+      }
+    });
+  };
+
+  const handleApplySelectedJobs = () => {
+    if (selectedJobs.length === 0) {
+      alert("No jobs selected");
+      return;
+    }
+    selectedJobs.forEach((job) => {
+      window.open(job.job_apply_link, "_blank");
+    });
+  };
+
   return (
     <>
       {/* Filter Section */}
@@ -172,9 +198,16 @@ export function JobApplications() {
             getPaginatedData().map((job, index) => (
               <Table.Row key={index}>
                 <Table.RowHeaderCell>
-                  <Checkbox defaultChecked={false} />
+                  <Checkbox
+                    defaultChecked={false}
+                    onChange={(e) => handleCheckboxChange(job, e.target.checked)}
+                  />
                 </Table.RowHeaderCell>
-                <Table.Cell>{job.job_title}</Table.Cell>
+                <Table.Cell>
+                  <a href={job.job_apply_link} target="_blank" rel="noopener noreferrer">
+                    {job.job_title}
+                  </a>
+                </Table.Cell>
                 <Table.Cell>{job.company}</Table.Cell>
                 <Table.Cell>{job.location}</Table.Cell>
                 <Table.Cell>{job.type}</Table.Cell>
@@ -191,6 +224,16 @@ export function JobApplications() {
         </Table.Body>
       </Table.Root>
 
+      {/* Apply Selected Jobs Button */}
+      <div className="mt-4 flex justify-center">
+        <button
+          className="bg-green-600 text-white px-4 py-2 rounded-md"
+          onClick={handleApplySelectedJobs}
+        >
+          Apply to Selected Jobs
+        </button>
+      </div>
+
       {/* Pagination Controls */}
       <div className="mt-4 flex justify-center items-center space-x-2">
         <button onClick={handlePrevPage} disabled={currentPage === 1}>
@@ -201,9 +244,7 @@ export function JobApplications() {
             key={index}
             onClick={() => handlePageChange(index + 1)}
             className={`px-2 py-1 rounded ${
-              currentPage === index + 1
-                ? "bg-blue-600 text-white"
-                : "bg-gray-200"
+              currentPage === index + 1 ? "bg-blue-600 text-white" : "bg-gray-200"
             }`}
           >
             {index + 1}
