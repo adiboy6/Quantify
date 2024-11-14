@@ -3,7 +3,7 @@ import { Table, Checkbox } from "@radix-ui/themes";
 
 const ITEMS_PER_PAGE = 5;
 
-export function JobsTable() {
+export function JobApplications() {
   const [rowData, setRowData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
   const [filters, setFilters] = useState({

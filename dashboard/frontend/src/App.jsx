@@ -11,8 +11,8 @@ import "./styles/components.css";
 import "./App.css";
 import "@radix-ui/themes/styles.css";
 import { Theme } from "@radix-ui/themes";
-import SavedJobs from './Dashboard/savedJobs.jsx';
-import { JobsTable } from './Dashboard/table.jsx'; // Adjusted import
+import SavedJobs from './Dashboard/SavedJobs.jsx';
+import { JobApplications } from './Dashboard/JobApplications.jsx';
 import Dashboard from './Dashboard/Dashboard.jsx';
 
 // Protected Route Component
@@ -69,7 +69,7 @@ function App() {
                   <Route path="/login" element={<PublicRoute><Login /></PublicRoute>} />
                   <Route path="/dashboard" element={<Dashboard />}>
                     <Route path="saved-jobs" element={<SavedJobs />} />
-                    <Route path="jobs" element={<JobsTable />} /> {/* New route for JobsTable */}
+                    <Route path="jobs" element={<JobApplications />} /> {/* New route for JobApplications */}
                   </Route>
                 </Routes>
               </div>
