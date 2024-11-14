@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Box, Grid, Flex } from "@radix-ui/themes";
+import { Box, Grid, Flex, Select, Button } from "@radix-ui/themes";
 import { TrashIcon } from "@heroicons/react/24/outline";
 const keys = {
   firstName: "First Name",
@@ -15,7 +15,31 @@ const keys = {
   },
   linkedIn: "LinkedIn",
   portfolio: "Portfolio",
+  interestedRoles: "Interested Roles",
+  roleType: "Role type",
+
+  sponsorship:
+    "Will you now or in the future require sponsorship for employment work authorization to work in the United States?",
+  gender: "Gender",
+  veteranStatus: "Veteran Status",
+  disability: "Disability Status",
   resume: "Your CV/Resume",
+};
+
+const selectFields = {
+  sponsorship: ["Yes", "No"],
+  gender: ["Male", "Female", "Decline to Self Identify"],
+  disability: [
+    "Yes, I have a disability, or have had one in the past",
+    "No, I do not have a disability and have not had one in the past",
+    "I do not want to answer",
+  ],
+  roleType: ["Full time", "Part time", "Internship"],
+  veteranStatus: [
+    "I am not a protected veteran",
+    "I identify as one or more of the classifications of a protected veteran",
+    "I don't wish to answer",
+  ],
 };
 
 const initialEducationData = {
@@ -53,6 +77,21 @@ const initialData = {
   linkedIn: "",
   portfolio: "",
   resume: "",
+  sponsorship: "No",
+  gender: "",
+  disability: "",
+  interestedRoles: [],
+};
+
+const multiSelect = {
+  interestedRoles: [
+    "Software Developer",
+    "Frontend Developer",
+    "Backend Developer",
+    "Devops Engineer",
+    "Data Analyst",
+    "Cybersecurity Analyst",
+  ],
 };
 
 export function Profile() {
@@ -102,7 +141,65 @@ export function Profile() {
 
   const fields = [];
   for (let k in keys) {
-    if (k === "linkedIn" || k === "portfolio") {
+    if (Object.keys(multiSelect).includes(k)) {
+      fields.push(
+        <div style={{ margin: "3rem 0" }}>
+          <label htmlFor={k}>{keys[k]}:</label>
+          <br />
+          <Flex gap="3" style={{ maxWidth: "30rem" }} wrap="wrap">
+            {multiSelect[k].map((selectValue) => (
+              <Button
+                color={data[k].includes(selectValue) ? "iris" : "gray"}
+                key={selectValue}
+                onClick={() => {
+                  if (data[k].includes(selectValue)) {
+                    const clone = structuredClone(data);
+                    clone[k].splice(clone[k].indexOf(selectValue), 1);
+                    setData(clone);
+                  } else {
+                    const clone = structuredClone(data);
+                    clone[k].push(selectValue);
+                    setData(clone);
+                  }
+                }}
+              >
+                {selectValue}
+              </Button>
+            ))}
+          </Flex>
+        </div>
+      );
+    } else if (Object.keys(selectFields).includes(k)) {
+      fields.push(
+        <Grid key={k} columns="22rem 15rem" gap="2rem">
+          <label htmlFor={k}>{keys[k]}:</label>
+          <Select.Root
+            id={k}
+            onValueChange={(value) => {
+              const clone = structuredClone(data);
+              clone[k] = value;
+
+              setData(clone);
+            }}
+          >
+            <Select.Trigger
+              color="indigo"
+              variant="surface"
+              placeholder="Please select"
+            />
+            <Select.Content color="indigo">
+              {selectFields[k].map((option) => {
+                return (
+                  <Select.Item key={option} value={option}>
+                    {option}
+                  </Select.Item>
+                );
+              })}
+            </Select.Content>
+          </Select.Root>
+        </Grid>
+      );
+    } else if (k === "linkedIn" || k === "portfolio") {
       fields.push(
         <Grid key={k} columns="10rem 35rem">
           <label htmlFor={k}>{keys[k]}:</label>
@@ -192,7 +289,7 @@ export function Profile() {
       );
     } else if (k == "resume") {
       fields.push(
-        <Grid key={k} columns="10rem 35rem">
+        <Grid key={k} columns="10rem 35rem" style={{ marginTop: "4rem" }}>
           <label htmlFor={k}>{keys[k]}:</label>
           <input
             key={k}
