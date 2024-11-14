@@ -35,7 +35,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
       .sort((a, b) => (a.tabIndex > b.tabIndex ? -1 : 1));
 
     console.log(tabElements);
-    let count = 0;
+
     tabElements.forEach((element) => {
       if (
         element.getAttribute("role") === "button" ||
@@ -48,40 +48,39 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
         console.log(labels);
         console.log("button");
       }
-      if (element.getAttribute("id") === "s2id_autogen3") {
-        count += 1;
-        setTimeout(() => {
-          console.log("focusing on ", element);
-          const e = document.getElementById(
-            "s2id_job_application_answers_attributes_5_boolean_value"
-          );
+      // if (element.getAttribute("id") === "s2id_autogen3") {
+      //   setTimeout(() => {
+      //     console.log("focusing on ", element);
+      //     const e = document.getElementById(
+      //       "s2id_job_application_answers_attributes_5_boolean_value"
+      //     );
 
-          const aElement = e.getElementsByTagName("a")[0];
-          const event = new MouseEvent("mousedown", {
-            bubbles: true,
-            cancelable: true,
-          });
-          aElement.dispatchEvent(event);
+      //     const aElement = e.getElementsByTagName("a")[0];
+      //     const event = new MouseEvent("mousedown", {
+      //       bubbles: true,
+      //       cancelable: true,
+      //     });
+      //     aElement.dispatchEvent(event);
 
-          const path = `//div[@id="select2-drop" and not(contains(@style, "display: none"))]//ul[@class="select2-results" and @role="listbox"]//li[@role="option" and "Yes"]`;
-          const results = document.evaluate(
-            path,
-            document,
-            null,
-            XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE,
-            null
-          );
+      //     const path = `//div[@id="select2-drop" and not(contains(@style, "display: none"))]//ul[@class="select2-results" and @role="listbox"]//li[@role="option" and "Yes"]`;
+      //     const results = document.evaluate(
+      //       path,
+      //       document,
+      //       null,
+      //       XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE,
+      //       null
+      //     );
 
-          const yesEle = results.snapshotItem(1);
+      //     const yesEle = results.snapshotItem(1);
 
-          yesEle.dispatchEvent(
-            new MouseEvent("mouseup", {
-              bubbles: true,
-              cancelable: true,
-            })
-          );
-        }, 0);
-      }
+      //     yesEle.dispatchEvent(
+      //       new MouseEvent("mouseup", {
+      //         bubbles: true,
+      //         cancelable: true,
+      //       })
+      //     );
+      //   }, 0);
+      // }
     });
   }
 });
@@ -94,7 +93,6 @@ function fillSelectField(element, labels) {
   if (toFill === null) return;
 
   const matchedSite = getMatchedSite();
-  console.log(matchedSite);
   console.log(toFill);
 
   greenhouseSelect(element, toFill);
@@ -131,17 +129,31 @@ function getLabels(element) {
 }
 
 function fillField(labels, element) {
+  console.log(element);
+
   const matchedKey = getMatchingKey(labels);
+  console.log(labels);
+  console.log(matchedKey);
   if (matchedKey === null) return;
 
   const toFill = data[matchedKey];
   if (toFill === null) return;
 
-  console.log(element);
-
   if (element.type === "text") {
     element.value = toFill;
   }
+
+  // if (element.id === "gender") {
+  //   console.log(element.labels);
+  //   const labelEle = element.labels[0];
+  //   console.log(labelEle.parentNode);
+  //   labelEle.parentNode.dispatchEvent(
+  //     new MouseEvent("click", {
+  //       bubbles: true,
+  //       cancelable: true,
+  //     })
+  //   );
+  // }
 }
 
 function getMatchingKey(labels) {
@@ -178,33 +190,47 @@ function getMatchedSite() {
 // Site specific functions
 // TODO - find a way to do partial match on ids
 function greenhouseSelect(element, value) {
-  // setTimeout(() => {
-  //   console.log("focusing on ", element);
-  //   const e = document.getElementById(
-  //     "s2id_job_application_answers_attributes_5_boolean_value"
-  //   );
-  //   const aElement = e.getElementsByTagName("a")[0];
-  //   const event = new MouseEvent("mousedown", {
-  //     bubbles: true,
-  //     cancelable: true,
-  //   });
-  //   aElement.dispatchEvent(event);
-  //   const path = `//div[@id="select2-drop" and not(contains(@style, "display: none"))]//ul[@class="select2-results" and @role="listbox"]//li[@role="option" and "Yes"]`;
-  //   const results = document.evaluate(
-  //     path,
-  //     document,
-  //     null,
-  //     XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE,
-  //     null
-  //   );
-  //   const yesEle = results.snapshotItem(1);
-  //   yesEle.dispatchEvent(
-  //     new MouseEvent("mouseup", {
-  //       bubbles: true,
-  //       cancelable: true,
-  //     })
-  //   );
-  // }, 0);
+  console.log("greenhouse");
+  console.log(element.parentNode);
+  console.log(value);
+
+  element = element.parentNode;
+
+  if (element.getElementsByTagName("a").length === 0) return;
+
+  const aElement = element.getElementsByTagName("a")[0];
+  const event = new MouseEvent("mousedown", {
+    bubbles: true,
+    cancelable: true,
+  });
+  aElement.dispatchEvent(event);
+
+  const path = `//div[@id="select2-drop" and not(contains(@style, "display: none"))]//ul[@class="select2-results" and @role="listbox"]//li[@role="option"]`;
+  const results = document.evaluate(
+    path,
+    document,
+    null,
+    XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE,
+    null
+  );
+
+  let selectElement = null;
+  for (let i = 0; i < results.snapshotLength; i++) {
+    const text = results.snapshotItem(i).innerText;
+    console.log(text);
+    if (text.toLowerCase().indexOf(value.toLowerCase()) != -1) {
+      selectElement = results.snapshotItem(i);
+      break;
+    }
+  }
+
+  if (selectElement === null) return;
+  selectElement.dispatchEvent(
+    new MouseEvent("mouseup", {
+      bubbles: true,
+      cancelable: true,
+    })
+  );
 }
 
 const fields = {
@@ -215,14 +241,55 @@ const fields = {
   locationCity: { alias: ["location (city)"], match: "full" },
   linkedIn: { alias: ["linkedin profile"], match: "full" },
   salary: { alias: ["desired salary"], match: "full" },
-  sponsorship: { alias: ["will you need sponsorship"], match: "partial" },
+  sponsorship: {
+    alias: [
+      "require sponsorship",
+      "will you need sponsorship",
+      "require visa sponsorship",
+      "require visa support",
+    ],
+    match: "partial",
+  },
   authorizedToWork: {
-    alias: ["legal right to work in the united states"],
+    alias: [
+      "legal right to work in the united states",
+      "eligible to work in the country",
+      "authorized to work",
+    ],
+    match: "partial",
+  },
+  state: {
+    alias: ["state do you currently reside"],
+    match: "partial",
+  },
+  hybridOpinion: {
+    alias: ["comfortable working in a hybrid setting"],
+    match: "partial",
+  },
+  gender: {
+    alias: ["gender"],
+    match: "full",
+  },
+  country: {
+    alias: ["Where do you currently reside"],
+    match: "partial",
+  },
+  hispanicOption: {
+    alias: ["hispanic"],
+    match: "partial",
+  },
+  veteranStatus: {
+    alias: ["veteran"],
+    match: "partial",
+  },
+  disabilityStatus: {
+    alias: ["disability"],
     match: "partial",
   },
 };
 
 const siteMatch = {
+  jobBoardsGreenhouse: ["job-boards.greenhouse.io"],
   greenhouse: ["greenhouse.io"],
 };
 
@@ -234,6 +301,13 @@ const data = {
   locationCity: "Herndon, Virginia, United States",
   linkedIn: "https://linkedin.com/peter",
   salary: "$90000",
-  sponsorship: "Yes",
+  sponsorship: "No",
   authorizedToWork: "Yes",
+  state: "Virginia",
+  hybridOpinion: "Yes",
+  gender: "Male",
+  country: "United States of America",
+  hispanicOption: "No",
+  veteranStatus: "I am not a protected veteran",
+  disabilityStatus: "i do not have",
 };
