@@ -1,0 +1,1274 @@
+{
+    "status": "OK",
+    "request_id": "b0d885a2-1fc8-4a28-a99e-40b906502506",
+    "parameters": {
+        "query": "devops engineer in usa",
+        "page": 1,
+        "num_pages": 1,
+        "date_posted": "all"
+    },
+    "data": [
+        {
+            "job_id": "dptrhYERb4goPIrZAAAAAA==",
+            "employer_name": "Lockheed Martin",
+            "employer_logo": "https://www.lockheedmartin.com/content/dam/lockheed-martin/general/lm-logo.svg",
+            "employer_website": "http://www.lockheedmartin.com",
+            "employer_company_type": "Manufacturing",
+            "employer_linkedin": null,
+            "job_publisher": "Lockheed Martin",
+            "job_employment_type": "FULLTIME",
+            "job_title": "DevOps Engineer",
+            "job_apply_link": "https://www.lockheedmartinjobs.com/job/fort-meade/devops-engineer/694/71741554784?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+            "job_apply_is_direct": false,
+            "job_apply_quality_score": 0.8986,
+            "apply_options": [
+                {
+                    "publisher": "Lockheed Martin",
+                    "apply_link": "https://www.lockheedmartinjobs.com/job/fort-meade/devops-engineer/694/71741554784?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+                    "is_direct": false
+                },
+                {
+                    "publisher": "LinkedIn",
+                    "apply_link": "https://www.linkedin.com/jobs/view/devops-engineer-at-lockheed-martin-4056605780?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+                    "is_direct": false
+                },
+                {
+                    "publisher": "ZipRecruiter",
+                    "apply_link": "https://www.ziprecruiter.com/c/Precision-Solutions/Job/DevOps-Engineer/-in-Fort-Meade,MD?jid=39f4d4aaaba86d42&utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+                    "is_direct": false
+                },
+                {
+                    "publisher": "JSfirm.com",
+                    "apply_link": "https://www.jsfirm.com/Engineering/DevOps+Engineer/Fort+Meade-Maryland/jobID_1471044?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+                    "is_direct": false
+                },
+                {
+                    "publisher": "Glassdoor",
+                    "apply_link": "https://www.glassdoor.com/job-listing/devops-engineer-dci-solutions-JV_IC1165756_KO0,15_KE16,29.htm?jl=1009520910926&utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+                    "is_direct": true
+                },
+                {
+                    "publisher": "Cleared Careers",
+                    "apply_link": "https://clearedcareers.com/job/569579/devops-engineer/?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+                    "is_direct": false
+                },
+                {
+                    "publisher": "Adzuna",
+                    "apply_link": "https://www.adzuna.com/details/4610376318?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+                    "is_direct": false
+                },
+                {
+                    "publisher": "By Light HQ - ICIMS",
+                    "apply_link": "https://jobs-bylight.icims.com/jobs/9820/devops-engineer/job?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+                    "is_direct": true
+                }
+            ],
+            "job_description": "Description:This position may be eligible for a $25K sign on bonus for external hires!\n\nWHAT WE'RE DOING\nLockheed Martin, Rotary Mission Systems Cyber & Intelligence invites you to step up to one of today’s most daunting challenges: the use of advanced electronics to undermine our way of life. As a cyber security professional at Lockheed Martin, you’ll protect the networks that our citizens and the world depend upon each minute: Financial assets. Healthcare information. Critical infrastructure. Hazardous materials. The uninterrupted flow of energy that keeps modern life moving. Here, you’ll work with cybersecurity experts on the forefront of threat protection and proactive prevention. In this fast-paced, real-world environment, you’ll draw on all your education and experience as well as the resources of Lockheed Martin to keep the threats at bay.\n\nCyber | Lockheed Martin\n\nWHO WE ARE\nThe program is on fire for cyber. In support of our customer, members of the team are responsible for providing full lifecycle support including analysis, design, development, integration, testing, procurement, deployment, security, training and sustainment for collection and antenna systems.\n\nWHY JOIN US\nYour Health, Your Wealth, Your Life\nOur flexible schedules, competitive pay and comprehensive benefits enable you to live a healthy, fulfilling life at and outside of work.\nLearn more about Lockheed Martin’s competitive and comprehensive benefits package.\n\nWe support our employees, so they can support our mission.\n\nTHE WORK\nAs A DevOps Engineer you will:\n• Provide technical and engineering Tier 3 support by troubleshooting system failures or degradations\n• Restore equipment to full operational capabilities\n• Provide 24/7 call in support for operational system critical discrepancies\n• Integrate, test, and optimize systems with enterprise infrastructures, services, and databases\n• Develop technical documentation\n• Provide technical services assistance to government engineers in the creation, updating and management of system product line standards and databases\n\nThis position is participating in our External Referral Program. If you know somebody who may be a fit, click here to submit a referral. If your referral is hired, you'll receive a $3000 payment! Code extrefer.\n\n#OneLMHotJobs\nBasic Qualifications:\n• Candidate must possess active security clearance with a polygraph\n\n• Bachelor of Science in Engineering or Computer Science. May substitute four years' experience in lieu of a Bachelor's Degree. May substitute two years' experience with MS in Engineering or CS\n\n• Twelve (12) years' experience with software and system deployments, Linux system admin, containerization, cloud deployments, DevSecOps\n\n• Recent experience within the last three years in Kubernetes\n\n• Recent experience within the last three years using containerization\n\n• Recent experience within the last three years in cluster orchestration\nClearance Level: TS/SCI w/Poly SP\nOther Important Information You Should Know\nExpression of Interest: By applying to this job, you are expressing interest in this position and could be considered for other career opportunities where similar skills and requirements have been identified as a match. Should this match be identified you may be contacted for this and future openings.\nAbility to Work Remotely: Onsite Full-time: The work associated with this position will be performed onsite at a designated Lockheed Martin facility.\nWork Schedules: Lockheed Martin supports a variety of alternate work schedules that provide additional flexibility to our employees. Schedules range from standard 40 hours over a five day work week while others may be condensed. These condensed schedules provide employees with additional time away from the office and are in addition to our Paid Time off benefits.\nSchedule for this Position: 9x80 every other Friday off\nPay Rate:\nThe annual base salary range for this position in California and New York (excluding most major metropolitan areas), Colorado, Hawaii, Maryland, Washington or Washington DC is $134,300 - $257,400. For states not referenced above, the salary range for this position will reflect the candidate’s final work location. Please note that the salary information is a general guideline only. Lockheed Martin considers factors such as (but not limited to) scope and responsibilities of the position, candidate's work experience, education/ training, key skills as well as market and business considerations when extending an offer.\n\nBenefits offered: Medical, Dental, Vision, Life Insurance, Short-Term Disability, Long-Term Disability, 401(k) match, Flexible Spending Accounts, EAP, Education Assistance, Parental Leave, Paid time off, and Holidays.\n(Washington state applicants only) Non-represented full-time employees: accrue at least 10 hours per month of Paid Time Off (PTO) to be used for incidental absences and other reasons; receive at least 90 hours for holidays. Represented full time employees accrue 6.67 hours of Vacation per month; accrue up to 52 hours of sick leave annually; receive at least 96 hours for holidays. PTO, Vacation, sick leave, and holiday hours are prorated based on start date during the calendar year.\n\nThis position is incentive plan eligible.\nLockheed Martin is an Equal Opportunity/Affirmative Action Employer. All qualified applicants will receive consideration for employment without regard to race, color, religion, sex, pregnancy, sexual orientation, gender identity, national origin, age, protected veteran status, or disability status.\nThe application window will close in 90 days; applicants are encouraged to apply within 5 - 30 days of the requisition posting date in order to receive optimal consideration.\nAt Lockheed Martin, we use our passion for purposeful innovation to help keep people safe and solve the world's most complex challenges. Our people are some of the greatest minds in the industry and truly make Lockheed Martin a great place to work.\n\nWith our employees as our priority, we provide diverse career opportunities designed to propel, develop, and boost agility. Our flexible schedules, competitive pay, and comprehensive benefits enable our employees to live a healthy, fulfilling life at and outside of work. We place an emphasis on empowering our employees by fostering an inclusive environment built upon integrity and corporate responsibility.\n\nIf this sounds like a culture you connect with, you’re invited to apply for this role. Or, if you are unsure whether your experience aligns with the requirements of this position, we encourage you to search on Lockheed Martin Jobs, and apply for roles that align with your qualifications.\nExperience Level: Experienced Professional\nBusiness Unit: RMS\nRelocation Available: No\nCareer Area: Cyber Security Engineering\nType: Full-Time\nShift: First",
+            "job_is_remote": false,
+            "job_posted_at_timestamp": 1730073600,
+            "job_posted_at_datetime_utc": "2024-10-28T00:00:00.000Z",
+            "job_city": "Fort Meade",
+            "job_state": "MD",
+            "job_country": "US",
+            "job_latitude": 39.104263,
+            "job_longitude": -76.73424,
+            "job_benefits": [
+                "paid_time_off",
+                "dental_coverage",
+                "retirement_savings",
+                "health_insurance"
+            ],
+            "job_google_link": "https://www.google.com/search?gl=us&hl=en&rciv=jb&q=devops+engineer+in+usa&start=0&udm=8#vhid=vt%3D20/docid%3DdptrhYERb4goPIrZAAAAAA%3D%3D&vssid=jobs-detail-viewer",
+            "job_offer_expiration_datetime_utc": null,
+            "job_offer_expiration_timestamp": null,
+            "job_required_experience": {
+                "no_experience_required": "false",
+                "required_experience_in_months": "48",
+                "experience_mentioned": "true",
+                "experience_preferred": "false"
+            },
+            "job_required_skills": null,
+            "job_required_education": {
+                "postgraduate_degree": false,
+                "professional_certification": false,
+                "high_school": false,
+                "associates_degree": false,
+                "bachelors_degree": false,
+                "degree_mentioned": "true",
+                "degree_preferred": "false",
+                "professional_certification_mentioned": "false"
+            },
+            "job_experience_in_place_of_education": false,
+            "job_min_salary": null,
+            "job_max_salary": null,
+            "job_salary_currency": null,
+            "job_salary_period": null,
+            "job_highlights": {
+                "Qualifications": [
+                    "Candidate must possess active security clearance with a polygraph",
+                    "Bachelor of Science in Engineering or Computer Science",
+                    "May substitute four years' experience in lieu of a Bachelor's Degree",
+                    "May substitute two years' experience with MS in Engineering or CS",
+                    "Twelve (12) years' experience with software and system deployments, Linux system admin, containerization, cloud deployments, DevSecOps",
+                    "Recent experience within the last three years using containerization",
+                    "Recent experience within the last three years in cluster orchestration",
+                    "Clearance Level: TS/SCI w/Poly SP"
+                ],
+                "Responsibilities": [
+                    "Provide technical and engineering Tier 3 support by troubleshooting system failures or degradations",
+                    "Restore equipment to full operational capabilities",
+                    "Provide 24/7 call in support for operational system critical discrepancies",
+                    "Integrate, test, and optimize systems with enterprise infrastructures, services, and databases",
+                    "Develop technical documentation",
+                    "Provide technical services assistance to government engineers in the creation, updating and management of system product line standards and databases"
+                ],
+                "Benefits": [
+                    "Learn more about Lockheed Martin’s competitive and comprehensive benefits package",
+                    "If your referral is hired, you'll receive a $3000 payment!",
+                    "These condensed schedules provide employees with additional time away from the office and are in addition to our Paid Time off benefits",
+                    "Schedule for this Position: 9x80 every other Friday off",
+                    "The annual base salary range for this position in California and New York (excluding most major metropolitan areas), Colorado, Hawaii, Maryland, Washington or Washington DC is $134,300 - $257,400",
+                    "Benefits offered: Medical, Dental, Vision, Life Insurance, Short-Term Disability, Long-Term Disability, 401(k) match, Flexible Spending Accounts, EAP, Education Assistance, Parental Leave, Paid time off, and Holidays",
+                    "(Washington state applicants only) Non-represented full-time employees: accrue at least 10 hours per month of Paid Time Off (PTO) to be used for incidental absences and other reasons; receive at least 90 hours for holidays",
+                    "Represented full time employees accrue 6.67 hours of Vacation per month; accrue up to 52 hours of sick leave annually; receive at least 96 hours for holidays",
+                    "PTO, Vacation, sick leave, and holiday hours are prorated based on start date during the calendar year",
+                    "This position is incentive plan eligible",
+                    "Our flexible schedules, competitive pay, and comprehensive benefits enable our employees to live a healthy, fulfilling life at and outside of work"
+                ]
+            },
+            "job_job_title": "Devops engineer",
+            "job_posting_language": "en",
+            "job_onet_soc": "15113200",
+            "job_onet_job_zone": "4",
+            "job_occupational_categories": null,
+            "job_naics_code": "336411",
+            "job_naics_name": "Aircraft Manufacturing"
+        },
+        {
+            "job_id": "f_sujJhfe1Pr11wMAAAAAA==",
+            "employer_name": "Apex Systems",
+            "employer_logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgsBfii5beTM3mpI6cj2jFr85o5B_1Odj3e6vp&s=0",
+            "employer_website": null,
+            "employer_company_type": null,
+            "employer_linkedin": null,
+            "job_publisher": "LinkedIn",
+            "job_employment_type": "FULLTIME",
+            "job_title": "DevOps Engineer",
+            "job_apply_link": "https://www.linkedin.com/jobs/view/devops-engineer-at-apex-systems-4072065345?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+            "job_apply_is_direct": false,
+            "job_apply_quality_score": 0.6236,
+            "apply_options": [
+                {
+                    "publisher": "LinkedIn",
+                    "apply_link": "https://www.linkedin.com/jobs/view/devops-engineer-at-apex-systems-4072065345?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+                    "is_direct": false
+                },
+                {
+                    "publisher": "BeBee",
+                    "apply_link": "https://us.bebee.com/job/471fe6cb17ca7be49586507cc0206901?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+                    "is_direct": false
+                },
+                {
+                    "publisher": "Jobilize",
+                    "apply_link": "https://www.jobilize.com/job/us-pa-king-prussia-devops-engineer-genesis10-hiring-now-job-immediately?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+                    "is_direct": false
+                }
+            ],
+            "job_description": "The successful candidate should be excited about opportunities incorporating new technologies into the software development process. They should also be confident in their ability to maintain a development infrastructure and perform to customer specifications. This role will also be able to perform certain system administration functions to support development efforts.\n\n• Strong Technical Expertise: Proficient in coding, scripting, and automation tools. Knowledgeable in cloud technologies, containers, and orchestration tools like Kubernetes.\n\n• Security Knowledge: Deep understanding of security principles, practices, and tools. Familiar with threat modeling, risk assessment techniques, and security testing tools.\n\n• Collaboration and Communication: Ability to work closely with development, operations, and security teams. Excellent communication skills to articulate security concerns and solutions effectively.\n\n• Continuous Learning: Stays updated with the latest security threats, technologies, and DevSecOps trends. Demonstrates a commitment to ongoing professional development.\n\n• Problem-Solving Skills: Strong analytical skills to identify and solve security and operational challenges in a timely and effective manner.\n\n• Automation Mindset: Leverages automation to integrate security into CI/CD pipelines efficiently. Familiar with tools like Jenkins, GitLab CI, and automated security testing tools.\n\n• Risk Management: Ability to assess, prioritize, and manage security risks in alignment with business objectives.\n\n• Compliance and Governance: Understanding of legal and regulatory requirements related to information security. Ensures that DevSecOps practices comply with these standards.\n\nCertification Requirements:\n\n• Security + or CISSP Certifications or other certification that fulfills DOD 8570 requirements\n\nClearance required: TS/SCI with POLY\n\nDesired Skills:\n\n• Familiarity with Gitlab and Gitlab pipelines\n\n• Kubernetes experience\n\n• Familiarity with Linux\n\n• Security accreditation process understanding\n\n• Understanding of the ATO process\n\n• Familiarity with software architectures that rely on containerization (e.g. docker)\n\n• Experience with Nexus repositories\n\n• VMware experience\n\n• Certificate Authority and Domain Name Server experience\n\nApex Benefits Overview: Apex offers a range of supplemental benefits, including medical, dental, vision, life, disability, and other insurance plans that offer an optional layer of financial protection. We offer an ESPP (employee stock purchase program) and a 401K program which allows you to contribute typically within 30 days of starting, with a company match after 12 months of tenure. Apex also offers a HSA (Health Savings Account on the HDHP plan), a SupportLinc Employee Assistance Program (EAP) with up to 8 free counseling sessions, a corporate discount savings program and other discounts. In terms of professional development, Apex hosts an on-demand training program, provides access to certification prep and a library of technical and leadership courses/books/seminars once you have 6+ months of tenure, and certification discounts and other perks to associations that include CompTIA and IIBA. Apex has a dedicated customer service team for our Consultants that can address questions around benefits and other resources, as well as a certified Career Coach. You can access a full list of our benefits, programs, support teams and resources within our ‘Welcome Packet’ as well, which an Apex team member can provide.",
+            "job_is_remote": false,
+            "job_posted_at_timestamp": 1731364309,
+            "job_posted_at_datetime_utc": "2024-11-11T22:31:49.000Z",
+            "job_city": "King of Prussia",
+            "job_state": "PA",
+            "job_country": "US",
+            "job_latitude": 40.101284,
+            "job_longitude": -75.38355,
+            "job_benefits": [
+                "dental_coverage",
+                "retirement_savings",
+                "health_insurance"
+            ],
+            "job_google_link": "https://www.google.com/search?gl=us&hl=en&rciv=jb&q=devops+engineer+in+usa&start=0&udm=8#vhid=vt%3D20/docid%3Df_sujJhfe1Pr11wMAAAAAA%3D%3D&vssid=jobs-detail-viewer",
+            "job_offer_expiration_datetime_utc": "2024-12-11T22:31:49.000Z",
+            "job_offer_expiration_timestamp": 1733956309,
+            "job_required_experience": {
+                "no_experience_required": "false",
+                "required_experience_in_months": null,
+                "experience_mentioned": "true",
+                "experience_preferred": "false"
+            },
+            "job_required_skills": null,
+            "job_required_education": {
+                "postgraduate_degree": "false",
+                "professional_certification": "false",
+                "high_school": "false",
+                "associates_degree": "false",
+                "bachelors_degree": "true",
+                "degree_mentioned": "false",
+                "degree_preferred": "false",
+                "professional_certification_mentioned": "true"
+            },
+            "job_experience_in_place_of_education": false,
+            "job_min_salary": null,
+            "job_max_salary": null,
+            "job_salary_currency": null,
+            "job_salary_period": null,
+            "job_highlights": {
+                "Qualifications": [
+                    "Strong Technical Expertise: Proficient in coding, scripting, and automation tools",
+                    "Knowledgeable in cloud technologies, containers, and orchestration tools like Kubernetes",
+                    "Security Knowledge: Deep understanding of security principles, practices, and tools",
+                    "Familiar with threat modeling, risk assessment techniques, and security testing tools",
+                    "Excellent communication skills to articulate security concerns and solutions effectively",
+                    "Problem-Solving Skills: Strong analytical skills to identify and solve security and operational challenges in a timely and effective manner",
+                    "Automation Mindset: Leverages automation to integrate security into CI/CD pipelines efficiently",
+                    "Familiar with tools like Jenkins, GitLab CI, and automated security testing tools",
+                    "Risk Management: Ability to assess, prioritize, and manage security risks in alignment with business objectives",
+                    "Security + or CISSP Certifications or other certification that fulfills DOD 8570 requirements",
+                    "Clearance required: TS/SCI with POLY"
+                ],
+                "Responsibilities": [
+                    "They should also be confident in their ability to maintain a development infrastructure and perform to customer specifications",
+                    "This role will also be able to perform certain system administration functions to support development efforts",
+                    "Demonstrates a commitment to ongoing professional development",
+                    "Compliance and Governance: Understanding of legal and regulatory requirements related to information security",
+                    "Ensures that DevSecOps practices comply with these standards"
+                ],
+                "Benefits": [
+                    "Apex Benefits Overview: Apex offers a range of supplemental benefits, including medical, dental, vision, life, disability, and other insurance plans that offer an optional layer of financial protection",
+                    "We offer an ESPP (employee stock purchase program) and a 401K program which allows you to contribute typically within 30 days of starting, with a company match after 12 months of tenure",
+                    "Apex also offers a HSA (Health Savings Account on the HDHP plan), a SupportLinc Employee Assistance Program (EAP) with up to 8 free counseling sessions, a corporate discount savings program and other discounts",
+                    "In terms of professional development, Apex hosts an on-demand training program, provides access to certification prep and a library of technical and leadership courses/books/seminars once you have 6+ months of tenure, and certification discounts and other perks to associations that include CompTIA and IIBA. Apex has a dedicated customer service team for our Consultants that can address questions around benefits and other resources, as well as a certified Career Coach"
+                ]
+            },
+            "job_job_title": "Devops engineer",
+            "job_posting_language": "en",
+            "job_onet_soc": "15113200",
+            "job_onet_job_zone": "4",
+            "job_occupational_categories": null,
+            "job_naics_code": null,
+            "job_naics_name": null
+        },
+        {
+            "job_id": "i51OaANxSWrXT0o3AAAAAA==",
+            "employer_name": "Susquehanna International Group, LLP (SIG)",
+            "employer_logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMcGTFe52sOjNfJqqWLzpRFHpIkschndtg0bJ2&s=0",
+            "employer_website": "http://www.sig.com",
+            "employer_company_type": "Finance",
+            "employer_linkedin": null,
+            "job_publisher": "Susquehanna International Group",
+            "job_employment_type": "FULLTIME",
+            "job_title": "DevOps Engineer - AI | Experienced Hire",
+            "job_apply_link": "https://careers.sig.com/job/8594/DevOps-Engineer-AI-Experienced-Hire?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+            "job_apply_is_direct": false,
+            "job_apply_quality_score": 0.7957,
+            "apply_options": [
+                {
+                    "publisher": "Susquehanna International Group",
+                    "apply_link": "https://careers.sig.com/job/8594/DevOps-Engineer-AI-Experienced-Hire?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+                    "is_direct": false
+                },
+                {
+                    "publisher": "Susquehanna International Group, LLP",
+                    "apply_link": "https://careers-sig.icims.com/jobs/8594/devops-engineer---ai-%7C-experienced-hire/job?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+                    "is_direct": true
+                },
+                {
+                    "publisher": "Indeed",
+                    "apply_link": "https://www.indeed.com/viewjob?jk=7cb46506ace9765a&utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+                    "is_direct": false
+                },
+                {
+                    "publisher": "Monster",
+                    "apply_link": "https://www.monster.com/job-openings/devops-engineer-ai-experienced-hire-pa--40010aea-41a4-4055-bbda-4d1c9faa3de4?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+                    "is_direct": false
+                },
+                {
+                    "publisher": "Ladders",
+                    "apply_link": "https://www.theladders.com/job/devops-engineer-ai-experienced-hire-susquehannainternationalgroup-bala-cynwyd-pa_75903920?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+                    "is_direct": false
+                },
+                {
+                    "publisher": "SimplyHired",
+                    "apply_link": "https://www.simplyhired.com/job/5hpahYkyVXJFea-h7nmYw1BuyhZdrApAj0eBxtYkRyxkV9czzNyDlA?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+                    "is_direct": false
+                },
+                {
+                    "publisher": "Jora",
+                    "apply_link": "https://us.jora.com/job/Engineer-b381a85d0e539ad6e85e8e0bad6d2e3f?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+                    "is_direct": false
+                },
+                {
+                    "publisher": "Jobilize",
+                    "apply_link": "https://www.jobilize.com/job/us-pa-bala-cynwyd-devops-engineer-ai-experienced-hire-jobs-via-efinancialcareers?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+                    "is_direct": false
+                }
+            ],
+            "job_description": "Overview\n\nWe are seeking a highly skilled and passionate DevOps Engineer to join our dynamic team. The ideal candidate will possess a deep understanding of the software development and IT operational processes. You will be responsible for automating and optimizing our operations and processes, building and maintaining tools for deployment, monitoring and operations, as well as troubleshooting and resolving issues across our environments.\n\nIn this role you will:\n• Design, implement and manage our CI/CD pipelines on different platforms and environments.\n• Automate processes to gain efficiency and quality.\n• Administer and monitor different environments and systems health.\n• Manage and configure cloud infrastructure services.\n• Help create automations on version control systems and backup operations.\n• Help troubleshoot issues during testing and provide production launch support.\n\nWhat you can expect from us:\n\nReal Impact: You’ll be designing and optimizing systems that process massive amounts of data, ensuring high performance and stability. You’ll see how your contributions towards developing and supporting leading-edge hardware and software solutions make a firm-wide impact that makes us all smarter, faster, and better.\n\nCollaboration: Our systems engineers, network architects, technical analysts and software developers work together to create competitive edge through best-in-class technical solutions.\n\nGrowth: For many of our roles, we don’t expect you to have prior industry experience in proprietary trading or financial services to succeed at Susquehanna International Group. We’re looking for people who are naturally curious, relentless problem solvers, and have the desire to continuously innovate, learn, and grow.\n\nBenefits: SIG offers a wide array of competitive employee perks & benefits.\n\nWhat we're looking for\n• Experience with GIT based code repositories.\n• Experience in cloud services like Azure, AWS. GCP.\n• Knowledge of containerization and orchestration (Docker, Kubernetes)\n• Proficiency in scripting languages (e.g., Shell, Python).\n• Experience with monitoring systems (e.g., Nagios, Prometheus, ELK stack).\n\n#LI-RH1",
+            "job_is_remote": false,
+            "job_posted_at_timestamp": 1731283200,
+            "job_posted_at_datetime_utc": "2024-11-11T00:00:00.000Z",
+            "job_city": "Bala Cynwyd",
+            "job_state": "PA",
+            "job_country": "US",
+            "job_latitude": 40.008606,
+            "job_longitude": -75.21343,
+            "job_benefits": [
+                "health_insurance"
+            ],
+            "job_google_link": "https://www.google.com/search?gl=us&hl=en&rciv=jb&q=devops+engineer+in+usa&start=0&udm=8#vhid=vt%3D20/docid%3Di51OaANxSWrXT0o3AAAAAA%3D%3D&vssid=jobs-detail-viewer",
+            "job_offer_expiration_datetime_utc": null,
+            "job_offer_expiration_timestamp": null,
+            "job_required_experience": {
+                "no_experience_required": "false",
+                "required_experience_in_months": null,
+                "experience_mentioned": "true",
+                "experience_preferred": "false"
+            },
+            "job_required_skills": null,
+            "job_required_education": {
+                "postgraduate_degree": false,
+                "professional_certification": false,
+                "high_school": false,
+                "associates_degree": false,
+                "bachelors_degree": false,
+                "degree_mentioned": "false",
+                "degree_preferred": "false",
+                "professional_certification_mentioned": "false"
+            },
+            "job_experience_in_place_of_education": false,
+            "job_min_salary": null,
+            "job_max_salary": null,
+            "job_salary_currency": null,
+            "job_salary_period": null,
+            "job_highlights": {
+                "Qualifications": [
+                    "The ideal candidate will possess a deep understanding of the software development and IT operational processes",
+                    "Experience with GIT based code repositories",
+                    "Experience in cloud services like Azure, AWS",
+                    "Knowledge of containerization and orchestration (Docker, Kubernetes)",
+                    "Proficiency in scripting languages (e.g., Shell, Python)",
+                    "Experience with monitoring systems (e.g., Nagios, Prometheus, ELK stack)"
+                ],
+                "Responsibilities": [
+                    "You will be responsible for automating and optimizing our operations and processes, building and maintaining tools for deployment, monitoring and operations, as well as troubleshooting and resolving issues across our environments",
+                    "Design, implement and manage our CI/CD pipelines on different platforms and environments",
+                    "Automate processes to gain efficiency and quality",
+                    "Administer and monitor different environments and systems health",
+                    "Manage and configure cloud infrastructure services",
+                    "Help create automations on version control systems and backup operations",
+                    "Help troubleshoot issues during testing and provide production launch support",
+                    "Real Impact: You’ll be designing and optimizing systems that process massive amounts of data, ensuring high performance and stability"
+                ],
+                "Benefits": [
+                    "Benefits: SIG offers a wide array of competitive employee perks & benefits"
+                ]
+            },
+            "job_job_title": "Devops engineer",
+            "job_posting_language": "en",
+            "job_onet_soc": "15113200",
+            "job_onet_job_zone": "4",
+            "job_occupational_categories": [
+                "Technology - Infrastructure, Support + Engineering"
+            ],
+            "job_naics_code": "523920",
+            "job_naics_name": "Portfolio Management"
+        },
+        {
+            "job_id": "h7YGeg6KVpwqUpYGAAAAAA==",
+            "employer_name": "IIIIIIUS",
+            "employer_logo": null,
+            "employer_website": null,
+            "employer_company_type": null,
+            "employer_linkedin": null,
+            "job_publisher": "ICF Careers",
+            "job_employment_type": "FULLTIME",
+            "job_title": "Senior DevOps Engineer (Copado) - Remote",
+            "job_apply_link": "https://careers.icf.com/us/en/job/R2403388/Senior-DevOps-Engineer-Copado-Remote?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+            "job_apply_is_direct": false,
+            "job_apply_quality_score": 0.7842,
+            "apply_options": [
+                {
+                    "publisher": "ICF Careers",
+                    "apply_link": "https://careers.icf.com/us/en/job/R2403388/Senior-DevOps-Engineer-Copado-Remote?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+                    "is_direct": false
+                },
+                {
+                    "publisher": "SWE Career Center",
+                    "apply_link": "https://careers.swe.org/job/senior-devops-engineer-copado-remote/75731208/?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+                    "is_direct": false
+                },
+                {
+                    "publisher": "SimplyHired",
+                    "apply_link": "https://www.simplyhired.com/job/W4XEhZrJxRGItey8oG7z_7pjz0KABwg-WOheXIg1yV7kgtLWWzV5DA?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+                    "is_direct": false
+                },
+                {
+                    "publisher": "Enable America",
+                    "apply_link": "https://enableamerica.dejobs.org/reston-va/senior-devops-engineer-copado-remote/4B448560053D4DE698EB848C6972B406/job/?utm_medium=.JOBS+Universe&utm_campaign=.JOBS+XML+Feed&utm_source=.JOBS+XML+Feed-DE&utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+                    "is_direct": false
+                }
+            ],
+            "job_description": "Description\n\nICF is a mission-driven company filled with people who care deeply about improving the lives of others and making the world a better place. Our core values include Embracing Difference; we seek candidates who are passionate about building a culture that encourages, embraces, and hires dimensions of difference. \n\n \n\nOur Health Engineering Systems (HES) team works side by side with customers to articulate a vision for success, and then make it happen. We know success doesn't happen by accident. It takes the right team of people, working together on the right solutions for the customer. We are looking for a seasoned DevOps Engineer who will be a key driver to make this happen.\n\nResponsibilities: \n• Designing, developing, and maintaining Copado CI/CD pipelines for Salesforce development\n• Developing, configuring, and managing multiple Salesforce environments (development, testing, UAT (User Acceptance Testing), staging, production) using Copado, and ensuring metadata deployments are synchronized and consistent\n• Configuring quality gates including code reviews, test execution, code quality checks, and code security scans within the CI/CD pipeline\n• Promoting and applying an automation-first approach to reduce manual configurations within the Salesforce platform by writing custom scripts, configuring robotic process automation, etc.\n• Managing Salesforce releases in coordination with development, QA, and business teams\n• Implement strategies for quick data and metadata restoration in case of deployment failures or other issues\n• Leading Salesforce backup and restore strategies, including scheduling data backups and maintaining restoration runbooks\n• Leading continuous improvements and enhancements to the CI/CD pipeline and team development workflows to evolve best practices\n• Setting up monitoring and alerting on Salesforce deployments to detect and address issues\n• Documenting DevOps code promotion, back promotion, best practices, and environments\n• Providing technical support, troubleshooting, and training to the development team on continuous integration and continuous deployment best practices\n• Implementing observability tools within the Salesforce platform to gain insights into system performance, reliability, and utilization to proactively identify potential issues\n• Configuring alerts on systems issues and leading incident response in collaboration with development teams\n• Configuring security tools and Salesforce permission sets to enforce zero-trust security strategies and least-privilege access controls\n• Strong proven analytical ability and ability to solve problems independently\n• Stay abreast of new features and updates of technology\n• Other duties as assigned\n\nMinimum Qualifications: \n• Bachelor's degree computer science, engineering or related field\n• 8+ years of DevSecOps experience with cloud architectures, CI/CD pipelines, release management, and security tools\n• 5+ years managing multiple Salesforce applications and environments (e.g. development, testing, UAT, staging, production)\n• Candidate must be able to obtain and maintain a Public Trust clearance\n• Candidate must reside in the US, be authorized to work in the US, and work must be performed in the US\n• Must have lived in the United States for 3 full years out of the last 5 years\n\nPreferred Qualifications: \n• Experience with monitoring and observability tools, log aggregation, and security tools within the Salesforce Platform\n• Experience with Copado Data Deploy and Salesforce Data Loader\n• Knowledgeable of Salesforce platform capabilities, governor limits, Apex, Visualforce, Lightning Web Components, APIs, and declarative development tools\n• Knowledgeable of Salesforce testing frameworks and best practices for automated testing\n• Knowledge of infrastructure-as-code (IaC) tools including Terraform, AWS CloudFormation and configuration management tools such as Ansible\n• Familiarity with Own Backup and Restore is a plus\n• Experience with AWS Cloud is a plus\n• Copado Fundamentals I and Copado Fundamentals II\n• Copado Consultant Certification is preferred\n• Salesforce Certified Administrator is preferred\n\nJob Location: This position requires that the job be performed in the United States.  If you accept this position, you should note that ICF does monitor employee work locations and blocks access from foreign locations/foreign IP addresses, and also prohibits personal VPN connections.\n\n#DMX-HES\n\n#Li-cc1\n\n#Indeed\n\nWorking at ICF\n\nICF is a global advisory and technology services provider, but we’re not your typical consultants. We combine unmatched expertise with cutting-edge technology to help clients solve their most complex challenges, navigate change, and shape the future.\n\nWe can only solve the world's toughest challenges by building an inclusive workplace that allows everyone to thrive. We are an equal opportunity employer, committed to hiring regardless of any protected characteristic, such as race, ethnicity, national origin, color, sex, gender identity/expression, sexual orientation, religion, age, disability status, or military/veteran status. Together, our employees are empowered to share their expertise and collaborate with others to achieve personal and professional goals. For more information, please read our EEO & AA policy.\n\nReasonable Accommodations are available, including, but not limited to, for disabled veterans, individuals with disabilities, and individuals with sincerely held religious beliefs, in all phases of the application and employment process. To request an accommodation please email Candidateaccommodation@icf.com and we will be happy to assist. All information you provide will be kept confidential and will be used only to the extent required to provide needed reasonable accommodations. Read more here: Requesting an Accommodation for the ICF interview process.\n\nRead more about workplace discrimination rights, the Pay Transparency Statement, or our benefit offerings which are included in the Transparency in (Benefits) Coverage Act.\n\nPay Range - There are multiple factors that are considered in determining final pay for a position, including, but not limited to, relevant work experience, skills, certifications and competencies that align to the specified role, geographic location, education and certifications as well as contract provisions regarding labor categories that are specific to the position.\n\nThe pay range for this position based on full-time employment is:\n$92,986.00 - $158,076.00\n\nNationwide Remote Office (US99)",
+            "job_is_remote": false,
+            "job_posted_at_timestamp": 1731369600,
+            "job_posted_at_datetime_utc": "2024-11-12T00:00:00.000Z",
+            "job_city": "Reston",
+            "job_state": "VA",
+            "job_country": "US",
+            "job_latitude": 38.95863,
+            "job_longitude": -77.357,
+            "job_benefits": null,
+            "job_google_link": "https://www.google.com/search?gl=us&hl=en&rciv=jb&q=devops+engineer+in+usa&start=0&udm=8#vhid=vt%3D20/docid%3Dh7YGeg6KVpwqUpYGAAAAAA%3D%3D&vssid=jobs-detail-viewer",
+            "job_offer_expiration_datetime_utc": null,
+            "job_offer_expiration_timestamp": null,
+            "job_required_experience": {
+                "no_experience_required": "false",
+                "required_experience_in_months": "96",
+                "experience_mentioned": "true",
+                "experience_preferred": "true"
+            },
+            "job_required_skills": null,
+            "job_required_education": {
+                "postgraduate_degree": false,
+                "professional_certification": false,
+                "high_school": false,
+                "associates_degree": false,
+                "bachelors_degree": false,
+                "degree_mentioned": "false",
+                "degree_preferred": "false",
+                "professional_certification_mentioned": "true"
+            },
+            "job_experience_in_place_of_education": false,
+            "job_min_salary": null,
+            "job_max_salary": null,
+            "job_salary_currency": null,
+            "job_salary_period": null,
+            "job_highlights": {
+                "Qualifications": [
+                    "Configuring security tools and Salesforce permission sets to enforce zero-trust security strategies and least-privilege access controls",
+                    "Strong proven analytical ability and ability to solve problems independently",
+                    "Bachelor's degree computer science, engineering or related field",
+                    "8+ years of DevSecOps experience with cloud architectures, CI/CD pipelines, release management, and security tools",
+                    "5+ years managing multiple Salesforce applications and environments (e.g. development, testing, UAT, staging, production)",
+                    "Candidate must be able to obtain and maintain a Public Trust clearance",
+                    "Candidate must reside in the US, be authorized to work in the US, and work must be performed in the US",
+                    "Must have lived in the United States for 3 full years out of the last 5 years",
+                    "Job Location: This position requires that the job be performed in the United States.  If you accept this position, you should note that ICF does monitor employee work locations and blocks access from foreign locations/foreign IP addresses, and also prohibits personal VPN connections"
+                ],
+                "Responsibilities": [
+                    "Designing, developing, and maintaining Copado CI/CD pipelines for Salesforce development",
+                    "Developing, configuring, and managing multiple Salesforce environments (development, testing, UAT (User Acceptance Testing), staging, production) using Copado, and ensuring metadata deployments are synchronized and consistent",
+                    "Configuring quality gates including code reviews, test execution, code quality checks, and code security scans within the CI/CD pipeline",
+                    "Promoting and applying an automation-first approach to reduce manual configurations within the Salesforce platform by writing custom scripts, configuring robotic process automation, etc",
+                    "Managing Salesforce releases in coordination with development, QA, and business teams",
+                    "Implement strategies for quick data and metadata restoration in case of deployment failures or other issues",
+                    "Leading Salesforce backup and restore strategies, including scheduling data backups and maintaining restoration runbooks",
+                    "Leading continuous improvements and enhancements to the CI/CD pipeline and team development workflows to evolve best practices",
+                    "Setting up monitoring and alerting on Salesforce deployments to detect and address issues",
+                    "Documenting DevOps code promotion, back promotion, best practices, and environments",
+                    "Providing technical support, troubleshooting, and training to the development team on continuous integration and continuous deployment best practices",
+                    "Implementing observability tools within the Salesforce platform to gain insights into system performance, reliability, and utilization to proactively identify potential issues",
+                    "Configuring alerts on systems issues and leading incident response in collaboration with development teams",
+                    "Other duties as assigned"
+                ],
+                "Benefits": [
+                    "Pay Range - There are multiple factors that are considered in determining final pay for a position, including, but not limited to, relevant work experience, skills, certifications and competencies that align to the specified role, geographic location, education and certifications as well as contract provisions regarding labor categories that are specific to the position",
+                    "$92,986.00 - $158,076.00"
+                ]
+            },
+            "job_job_title": "Senior devops engineer",
+            "job_posting_language": "en",
+            "job_onet_soc": "15113200",
+            "job_onet_job_zone": "4",
+            "job_occupational_categories": [
+                "Information Technology"
+            ],
+            "job_naics_code": null,
+            "job_naics_name": null
+        },
+        {
+            "job_id": "-qJZpFz8-doxXx8WAAAAAA==",
+            "employer_name": "Abbott Laboratories",
+            "employer_logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4F4BqX_1FV8BDQlePPc8fnqxjFPO2We9By3gi&s=0",
+            "employer_website": "http://www.abbott.com",
+            "employer_company_type": "Manufacturing",
+            "employer_linkedin": null,
+            "job_publisher": "Abbott Jobs",
+            "job_employment_type": "FULLTIME",
+            "job_title": "Senior Mobile DevOps Engineer, Lingo",
+            "job_apply_link": "https://www.jobs.abbott/global/de/job/31103053/Senior-Mobile-DevOps-Engineer-Lingo?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+            "job_apply_is_direct": false,
+            "job_apply_quality_score": 0.7034,
+            "apply_options": [
+                {
+                    "publisher": "Abbott Jobs",
+                    "apply_link": "https://www.jobs.abbott/global/de/job/31103053/Senior-Mobile-DevOps-Engineer-Lingo?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+                    "is_direct": false
+                },
+                {
+                    "publisher": "LinkedIn",
+                    "apply_link": "https://www.linkedin.com/jobs/view/senior-mobile-devops-engineer-lingo-at-abbott-4074121384?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+                    "is_direct": false
+                },
+                {
+                    "publisher": "ZipRecruiter",
+                    "apply_link": "https://www.ziprecruiter.com/c/1282-Lingo-US-Inc/Job/Senior-Mobile-DevOps-Engineer,-Lingo/-in-Alameda,CA?jid=771c170074efbd53&utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+                    "is_direct": false
+                },
+                {
+                    "publisher": "Indeed",
+                    "apply_link": "https://www.indeed.com/viewjob?jk=341fe52310e4cfbc&utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+                    "is_direct": false
+                },
+                {
+                    "publisher": "Monster",
+                    "apply_link": "https://www.monster.com/job-openings/senior-mobile-devops-engineer-lingo-alameda-ca--c29537e7-cc3e-48ba-8e75-49cfc1f4c896?mstr_dist=true&utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+                    "is_direct": false
+                },
+                {
+                    "publisher": "SaluteMyJob",
+                    "apply_link": "https://salutemyjob.com/jobs/senior-mobile-devops-engineer-lingo-alameda-california/1495477704-2/?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+                    "is_direct": false
+                },
+                {
+                    "publisher": "Glassdoor",
+                    "apply_link": "https://www.glassdoor.com/job-listing/senior-mobile-devops-engineer-lingo-abbott-JV_IC1147323_KO0,35_KE36,42.htm?jl=1009523116748&utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+                    "is_direct": false
+                },
+                {
+                    "publisher": "Dice",
+                    "apply_link": "https://www.dice.com/job-detail/0c293b05-097e-4807-832b-c66b6e2971b8?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+                    "is_direct": false
+                }
+            ],
+            "job_description": "Abbott is a global healthcare leader that helps people live more fully at all stages of life. Our portfolio of life-changing technologies spans the spectrum of healthcare, with leading businesses and products in diagnostics, medical devices, nutritionals and branded generic medicines. Our 114,000 colleagues serve people in more than 160 countries.\n\nWorking at Abbott\n\nAt Abbott, you can do work that matters, grow, and learn, care for yourself and your family, be your true self, and live a full life. You’ll also have access to:\n• Career development with an international company where you can grow the career you dream of.\n• Free medical coverage for employees* via the Health Investment Plan (HIP) PPO\n• An excellent retirement savings plan with a high employer contribution\n• Tuition reimbursement, the Freedom 2 Save student debt program, and FreeU education benefit - an affordable and convenient path to getting a bachelor’s degree.\n• A company recognized as a great place to work in dozens of countries worldwide and named one of the most admired companies in the world by Fortune.\n• A company that is recognized as one of the best big companies to work for as well as the best place to work for diversity, working mothers, female executives, and scientists.\n\nThe Opportunity\n\nThis position works onsite at our Alameda, CA location in the Lingo Division. Working on Lingo, you will help build a next-generation technology that enables individuals to make decisions about how to improve energy, lose weight or enhance athletic performance. The Lingo team embodies a start-up culture and mindset with the backing of Abbott, a company with a rich history of healthcare innovation. The Sr. Mobile DevOps Engineer to handle DevOps activities for mobile applications and backend services, including iOS and Android build pipelines. You will set up configuration management, continuous integration, and DevOps best practices to ensure a secure and scalable release of mobile applications. You’ll work closely with software engineering, cybersecurity, product management, and cloud engineering teams, and partner with the software quality assurance team to build compliance-ready CI/CD pipelines.\n\nWhat You’ll Work On\n• Design, test, and deploy secure, scalable CI/CD pipelines for mobile apps on the Apple App Store and Google Play Console.\n• Ensure the security, scalability, and performance of the mobile infrastructure.\n• Participate in all stages of the software development life cycle.\n• Automate security testing (SAST and DAST) through the DevSecOps pipelines.\n• Manage Apple and Google Developer Accounts and ensure app store compliance of mobile applications at all times.\n• Optimize development and release processes through automation.\n• Maintain build infrastructure and IDE integrations (e.g., Apple Xcode, Android Studio).\n• Define branching, merging, and source code management strategies.\n• Build CI/CD pipelines using mobile apps deployment platforms such as Fastlane, Firebase or Bitrise\n• Stay updated with industry trends and best practices, especially in the medical device sector.\n\nRequired Qualifications\n• Bachelor's degree in computer science, software engineering or related field.\n• Minimum of 8 years of relevant experience.\n• Proven experience as a DevOps Engineer, focusing on mobile applications.\n• Strong experience with CI/CD tools like GitHub Actions and Harness.\n• Proficient in at least one of the scripting languages (e.g., Bash, Python, Go) and configuration driven automation technologies (e.g., YAML, JSON).\n• Experience building CI/CD pipelines and automating release processes for iOS and Android apps.\n• Experience with internal and external test management of mobile applications (Google Play Console, Apple Store).\n\nPreferred Qualifications\n• Experience with Azure Cloud and Azure PaaS services.\n• Familiarity with healthcare data security and privacy regulations.\n\nApply Now\n• Participants who complete a short wellness assessment qualify for FREE coverage in our HIP PPO medical plan. Free coverage applies in the next calendar year. Learn more about our health and wellness benefits, which provide the security to help you and your family live full lives: www.abbottbenefits.com\n\nFollow your career aspirations to Abbott for diverse opportunities with a company that can help you build your future and live your best life. Abbott is an Equal Opportunity Employer, committed to employee diversity.\n\nConnect with us at www.abbott.com, on Facebook at www.facebook.com/Abbott, and on X @AbbottNews.",
+            "job_is_remote": false,
+            "job_posted_at_timestamp": 1731283200,
+            "job_posted_at_datetime_utc": "2024-11-11T00:00:00.000Z",
+            "job_city": "Alameda",
+            "job_state": "CA",
+            "job_country": "US",
+            "job_latitude": 37.779873,
+            "job_longitude": -122.28219,
+            "job_benefits": [
+                "retirement_savings",
+                "health_insurance"
+            ],
+            "job_google_link": "https://www.google.com/search?gl=us&hl=en&rciv=jb&q=devops+engineer+in+usa&start=0&udm=8#vhid=vt%3D20/docid%3D-qJZpFz8-doxXx8WAAAAAA%3D%3D&vssid=jobs-detail-viewer",
+            "job_offer_expiration_datetime_utc": null,
+            "job_offer_expiration_timestamp": null,
+            "job_required_experience": {
+                "no_experience_required": "false",
+                "required_experience_in_months": "96",
+                "experience_mentioned": "true",
+                "experience_preferred": "false"
+            },
+            "job_required_skills": null,
+            "job_required_education": {
+                "postgraduate_degree": false,
+                "professional_certification": false,
+                "high_school": false,
+                "associates_degree": false,
+                "bachelors_degree": false,
+                "degree_mentioned": "true",
+                "degree_preferred": "true",
+                "professional_certification_mentioned": "false"
+            },
+            "job_experience_in_place_of_education": false,
+            "job_min_salary": null,
+            "job_max_salary": null,
+            "job_salary_currency": null,
+            "job_salary_period": null,
+            "job_highlights": {
+                "Qualifications": [
+                    "Bachelor's degree in computer science, software engineering or related field",
+                    "Minimum of 8 years of relevant experience",
+                    "Proven experience as a DevOps Engineer, focusing on mobile applications",
+                    "Strong experience with CI/CD tools like GitHub Actions and Harness",
+                    "Proficient in at least one of the scripting languages (e.g., Bash, Python, Go) and configuration driven automation technologies (e.g., YAML, JSON)",
+                    "Experience building CI/CD pipelines and automating release processes for iOS and Android apps",
+                    "Experience with internal and external test management of mobile applications (Google Play Console, Apple Store)"
+                ],
+                "Responsibilities": [
+                    "Mobile DevOps Engineer to handle DevOps activities for mobile applications and backend services, including iOS and Android build pipelines",
+                    "You will set up configuration management, continuous integration, and DevOps best practices to ensure a secure and scalable release of mobile applications",
+                    "You’ll work closely with software engineering, cybersecurity, product management, and cloud engineering teams, and partner with the software quality assurance team to build compliance-ready CI/CD pipelines",
+                    "Design, test, and deploy secure, scalable CI/CD pipelines for mobile apps on the Apple App Store and Google Play Console",
+                    "Ensure the security, scalability, and performance of the mobile infrastructure",
+                    "Participate in all stages of the software development life cycle",
+                    "Automate security testing (SAST and DAST) through the DevSecOps pipelines",
+                    "Manage Apple and Google Developer Accounts and ensure app store compliance of mobile applications at all times",
+                    "Optimize development and release processes through automation",
+                    "Maintain build infrastructure and IDE integrations (e.g., Apple Xcode, Android Studio)",
+                    "Define branching, merging, and source code management strategies",
+                    "Build CI/CD pipelines using mobile apps deployment platforms such as Fastlane, Firebase or Bitrise",
+                    "Stay updated with industry trends and best practices, especially in the medical device sector"
+                ],
+                "Benefits": [
+                    "Career development with an international company where you can grow the career you dream of",
+                    "Free medical coverage for employees* via the Health Investment Plan (HIP) PPO",
+                    "An excellent retirement savings plan with a high employer contribution",
+                    "Tuition reimbursement, the Freedom 2 Save student debt program, and FreeU education benefit - an affordable and convenient path to getting a bachelor’s degree",
+                    "Participants who complete a short wellness assessment qualify for FREE coverage in our HIP PPO medical plan",
+                    "Free coverage applies in the next calendar year"
+                ]
+            },
+            "job_job_title": "Devops engineer",
+            "job_posting_language": "en",
+            "job_onet_soc": "15113300",
+            "job_onet_job_zone": "4",
+            "job_occupational_categories": [
+                "Forschung und Entwicklung"
+            ],
+            "job_naics_code": "325412",
+            "job_naics_name": "Pharmaceutical Preparation Manufacturing"
+        },
+        {
+            "job_id": "2YrpFH9L7U4QueuoAAAAAA==",
+            "employer_name": "Capital One",
+            "employer_logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Capital_One_logo.svg/1280px-Capital_One_logo.svg.png",
+            "employer_website": "http://www.capitalone.com",
+            "employer_company_type": "Finance",
+            "employer_linkedin": null,
+            "job_publisher": "Capital One Careers",
+            "job_employment_type": "FULLTIME",
+            "job_title": "Lead Software Engineer, DevOps (Remote-Eligible)",
+            "job_apply_link": "https://www.capitalonecareers.com/en/job/mclean/lead-software-engineer-devops-remote-eligible/1732/72537610720?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+            "job_apply_is_direct": false,
+            "job_apply_quality_score": 0.8916,
+            "apply_options": [
+                {
+                    "publisher": "Capital One Careers",
+                    "apply_link": "https://www.capitalonecareers.com/en/job/mclean/lead-software-engineer-devops-remote-eligible/1732/72537610720?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+                    "is_direct": false
+                },
+                {
+                    "publisher": "SimplyHired",
+                    "apply_link": "https://www.simplyhired.com/job/-pWimSYOd6vlDQ8_Vryo6_cd3qjg7bL5Jqilt73-ALNcV9kQdaQkMw?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+                    "is_direct": false
+                },
+                {
+                    "publisher": "LinkedIn",
+                    "apply_link": "https://www.linkedin.com/jobs/view/lead-software-engineer-devops-remote-eligible-at-capital-one-4071920105?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+                    "is_direct": false
+                },
+                {
+                    "publisher": "Dice",
+                    "apply_link": "https://www.dice.com/job-detail/58468174-b132-4dd9-ae77-27ca3a99ca06?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+                    "is_direct": false
+                },
+                {
+                    "publisher": "Washington Post Jobs",
+                    "apply_link": "https://jobs.washingtonpost.com/job/250742685/lead-software-engineer-devops-remote-eligible/?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+                    "is_direct": false
+                },
+                {
+                    "publisher": "The HBCU Career Center",
+                    "apply_link": "https://jobs.thehbcucareercenter.com/job/lead-software-engineer-devops-remote-eligible/75818533/?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+                    "is_direct": false
+                },
+                {
+                    "publisher": "Diversity Jobs",
+                    "apply_link": "https://diversityjobs.com/career/10147780/Lead-Software-Engineer-Devops-Remote-Eligible-Virginia-Mclean?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+                    "is_direct": false
+                },
+                {
+                    "publisher": "SaluteMyJob",
+                    "apply_link": "https://salutemyjob.com/jobs/lead-software-engineer-devops-remote-eligible-mc-lean-virginia/1495124679-2/?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+                    "is_direct": false
+                }
+            ],
+            "job_description": "Center 3 (19075), United States of America, McLean, Virginia\n\nLead Software Engineer, DevOps (Remote-Eligible)\n\nDo you love building and pioneering in the technology space? Do you enjoy solving complex business problems in a fast-paced, collaborative, inclusive, and iterative delivery environment? At Capital One, you'll be part of a big group of makers, breakers, doers and disruptors, who love to solve real problems and meet real customer needs. We are seeking DevOps Engineers who are passionate about marrying data with emerging technologies to join our team. As a DevOps Engineer, you’ll have the opportunity to be on the forefront of driving a major transformation within Capital One.\n\nWhat You’ll Do:\n• Lead a portfolio of diverse technology projects and a team of developers with deep experience in machine learning, distributed microservices, and full stack systems to create solutions that help meet regulatory needs for the company\n• Share your passion for staying on top of tech trends, experimenting with and learning new technologies, participating in internal & external technology communities, and mentoring other members of the engineering community\n• Collaborate with digital product managers, and deliver robust cloud-based solutions that drive powerful experiences to help millions of Americans achieve financial empowerment\n• Utilize programming languages like Java, Python, SQL, Ruby and Go, Container Orchestration services including Docker and Kubernetes, CM tools including Ansible and Terraform, and a variety of AWS tools and services\n\nCapital One is open to hiring a Remote Employee for this opportunity.\n\nBasic Qualifications:\n• Bachelor’s degree\n• At least 4 years of experience in DevOps Engineering (Internship experience does not apply)\n• At least 3 years of experience in Cloud Native technologies (Amazon Web Services, Microsoft Azure, Google Cloud Platform)\n• At least 4 years of Unix or Linux system administration experience\n\nPreferred Qualifications:\n• 7+ years of DevOps Engineering experience\n• 4+ experience with coding and scripting (Python, SQL, Java, JavaScript, Golang, Bash, Perl or Ruby)\n• 4+ Experience with technologies Apache Mesos, Marathon, or Apache Spark\n• 4+ Experience using build and deployment tools (Jenkins, Docker)\n• 2+ Experience with distributed database systems (Cassandra, ElasticSearch)\n• 2+ Experience with deploying clustered web services\n• 2+ years experience working within Agile Development Practices\n\nAt this time, Capital One will not sponsor a new applicant for employment authorization, or offer any immigration related support for this position (i.e. H1B, F-1 OPT, F-1 STEM OPT, F-1 CPT, J-1, TN, or another type of work authorization).\n\nThe minimum and maximum full-time annual salaries for this role are listed below, by location. Please note that this salary information is solely for candidates hired to perform work within one of these locations, and refers to the amount Capital One is willing to pay at the time of this posting. Salaries for part-time roles will be prorated based upon the agreed upon number of hours to be regularly worked.\n\nRemote (Regardless of Location): $170,700 - $194,800 for Lead Software Engineer\n\nCandidates hired to work in other locations will be subject to the pay range associated with that location, and the actual annualized salary amount offered to any candidate at the time of hire will be reflected solely in the candidate’s offer letter.\n\nThis role is also eligible to earn performance based incentive compensation, which may include cash bonus(es) and/or long term incentives (LTI). Incentives could be discretionary or non discretionary depending on the plan.\n\nCapital One offers a comprehensive, competitive, and inclusive set of health, financial and other benefits that support your total well-being. Learn more at the Capital One Careers website. Eligibility varies based on full or part-time status, exempt or non-exempt status, and management level.\n\nThis role is expected to accept applications for a minimum of 5 business days.\n\nNo agencies please. Capital One is an equal opportunity employer committed to diversity and inclusion in the workplace. All qualified applicants will receive consideration for employment without regard to sex (including pregnancy, childbirth or related medical conditions), race, color, age, national origin, religion, disability, genetic information, marital status, sexual orientation, gender identity, gender reassignment, citizenship, immigration status, protected veteran status, or any other basis prohibited under applicable federal, state or local law. Capital One promotes a drug-free workplace. Capital One will consider for employment qualified applicants with a criminal history in a manner consistent with the requirements of applicable laws regarding criminal background inquiries, including, to the extent applicable, Article 23-A of the New York Correction Law; San Francisco, California Police Code Article 49, Sections 4901-4920; New York City’s Fair Chance Act; Philadelphia’s Fair Criminal Records Screening Act; and other applicable federal, state, and local laws and regulations regarding criminal background inquiries.\n\nIf you have visited our website in search of information on employment opportunities or to apply for a position, and you require an accommodation, please contact Capital One Recruiting at 1-800-304-9102 or via email at RecruitingAccommodation@capitalone.com. All information you provide will be kept confidential and will be used only to the extent required to provide needed reasonable accommodations.\n\nFor technical support or questions about Capital One's recruiting process, please send an email to Careers@capitalone.com\n\nCapital One does not provide, endorse nor guarantee and is not liable for third-party products, services, educational tools or other information available through this site.\n\nCapital One Financial is made up of several different entities. Please note that any position posted in Canada is for Capital One Canada, any position posted in the United Kingdom is for Capital One Europe and any position posted in the Philippines is for Capital One Philippines Service Corp. (COPSSC).",
+            "job_is_remote": false,
+            "job_posted_at_timestamp": 1730851200,
+            "job_posted_at_datetime_utc": "2024-11-06T00:00:00.000Z",
+            "job_city": "McLean",
+            "job_state": "VA",
+            "job_country": "US",
+            "job_latitude": 38.93387,
+            "job_longitude": -77.17726,
+            "job_benefits": [
+                "health_insurance"
+            ],
+            "job_google_link": "https://www.google.com/search?gl=us&hl=en&rciv=jb&q=devops+engineer+in+usa&start=0&udm=8#vhid=vt%3D20/docid%3D2YrpFH9L7U4QueuoAAAAAA%3D%3D&vssid=jobs-detail-viewer",
+            "job_offer_expiration_datetime_utc": null,
+            "job_offer_expiration_timestamp": null,
+            "job_required_experience": {
+                "no_experience_required": "false",
+                "required_experience_in_months": "84",
+                "experience_mentioned": "true",
+                "experience_preferred": "false"
+            },
+            "job_required_skills": null,
+            "job_required_education": {
+                "postgraduate_degree": false,
+                "professional_certification": false,
+                "high_school": false,
+                "associates_degree": false,
+                "bachelors_degree": false,
+                "degree_mentioned": "true",
+                "degree_preferred": "false",
+                "professional_certification_mentioned": "false"
+            },
+            "job_experience_in_place_of_education": false,
+            "job_min_salary": null,
+            "job_max_salary": null,
+            "job_salary_currency": null,
+            "job_salary_period": null,
+            "job_highlights": {
+                "Qualifications": [
+                    "Bachelor’s degree",
+                    "At least 4 years of experience in DevOps Engineering (Internship experience does not apply)",
+                    "At least 3 years of experience in Cloud Native technologies (Amazon Web Services, Microsoft Azure, Google Cloud Platform)",
+                    "At least 4 years of Unix or Linux system administration experience",
+                    "At this time, Capital One will not sponsor a new applicant for employment authorization, or offer any immigration related support for this position (i.e. H1B, F-1 OPT, F-1 STEM OPT, F-1 CPT, J-1, TN, or another type of work authorization)"
+                ],
+                "Responsibilities": [
+                    "Lead a portfolio of diverse technology projects and a team of developers with deep experience in machine learning, distributed microservices, and full stack systems to create solutions that help meet regulatory needs for the company",
+                    "Share your passion for staying on top of tech trends, experimenting with and learning new technologies, participating in internal & external technology communities, and mentoring other members of the engineering community",
+                    "Collaborate with digital product managers, and deliver robust cloud-based solutions that drive powerful experiences to help millions of Americans achieve financial empowerment",
+                    "Utilize programming languages like Java, Python, SQL, Ruby and Go, Container Orchestration services including Docker and Kubernetes, CM tools including Ansible and Terraform, and a variety of AWS tools and services"
+                ],
+                "Benefits": [
+                    "Salaries for part-time roles will be prorated based upon the agreed upon number of hours to be regularly worked",
+                    "Remote (Regardless of Location): $170,700 - $194,800 for Lead Software Engineer",
+                    "Candidates hired to work in other locations will be subject to the pay range associated with that location, and the actual annualized salary amount offered to any candidate at the time of hire will be reflected solely in the candidate’s offer letter",
+                    "This role is also eligible to earn performance based incentive compensation, which may include cash bonus(es) and/or long term incentives (LTI)",
+                    "Incentives could be discretionary or non discretionary depending on the plan",
+                    "Capital One offers a comprehensive, competitive, and inclusive set of health, financial and other benefits that support your total well-being"
+                ]
+            },
+            "job_job_title": "Software engineer",
+            "job_posting_language": "en",
+            "job_onet_soc": "15113200",
+            "job_onet_job_zone": "4",
+            "job_occupational_categories": null,
+            "job_naics_code": "522120",
+            "job_naics_name": "Savings Institutions"
+        },
+        {
+            "job_id": "BwqKgMr0LB98cWyiAAAAAA==",
+            "employer_name": "Jobs via Dice",
+            "employer_logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQ655rHqQwI0u8U3lEthx_ixaJmT38PRydPBo4&s=0",
+            "employer_website": null,
+            "employer_company_type": null,
+            "employer_linkedin": null,
+            "job_publisher": "LinkedIn",
+            "job_employment_type": "FULLTIME",
+            "job_title": "Azure DevOps Engineer",
+            "job_apply_link": "https://www.linkedin.com/jobs/view/azure-devops-engineer-at-jobs-via-dice-4072907492?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+            "job_apply_is_direct": false,
+            "job_apply_quality_score": 0.638,
+            "apply_options": [
+                {
+                    "publisher": "LinkedIn",
+                    "apply_link": "https://www.linkedin.com/jobs/view/azure-devops-engineer-at-jobs-via-dice-4072907492?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+                    "is_direct": false
+                },
+                {
+                    "publisher": "Dice.com",
+                    "apply_link": "https://www.dice.com/job-detail/957a1eae-feff-4158-9f28-9873ae47e513?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+                    "is_direct": true
+                },
+                {
+                    "publisher": "Ladders",
+                    "apply_link": "https://www.theladders.com/job/azure-devops-engineer-cc-pace-systems-inc-vienna-va_72765885?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+                    "is_direct": false
+                },
+                {
+                    "publisher": "Ejob.bz",
+                    "apply_link": "https://ejob.bz/PortalViewRequirement.do?reqGK=27714255&utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+                    "is_direct": false
+                },
+                {
+                    "publisher": "Intonenetworks.jobs.net",
+                    "apply_link": "https://intonenetworks.jobs.net/job/J3T1SL6BS68RZM04H12?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+                    "is_direct": true
+                }
+            ],
+            "job_description": "Azure DevOps Engineer\n\nDesign & manage CICD pipelines, templates, and workflows providing a self-service and seamless developer experience. Provide guidance on CI/CD Toolchain, frameworks, strategies, and processes. Must be subject matter expert on container orchestration, Kubernetes, Docker.\n\nResponsibilities:\n• Design & architect CI/CD pipelines and workflows in accordance with standardized toolchain and frameworks\n• Build, publish, manage, and enhance internal common libraries, templates, and workflows in support of CICD frameworks\n• Onboard product teams to CI/CD framework simplifying the developer experience, promoting standards & methodologies\n• Actively participate in the DevOps Center of Excellence (COE) to drive the creation of good governance and standards for CI/CD adoption across product and platforms teams\n• Establish operational CI/CD Pipeline Quality Gates based on best practices and maturity level to which the software engineers are required to adhere to\n• Review and enhance guardrails and best practices required to transform to a CICD framework\n• Perform analysis of CI/CD practices, identify gaps and impediments for continuous improvement\n• Support developers through source control, build automation, merge resolution, CI, test automation, and deployment based on CICD framework\n• Provide thought leadership on DevSecOps architecture and technology matters\n• Evaluate the quality of existing pipelines and provide recommendations\n• Ensure compliance with ISD standards, practices, and processes\n• Perform other related duties as assigned\n\nQualifications:\n• Advanced experience with container orchestration, Kubernetes, Docker\n• Hands on experience with Microsoft Azure\n• Strong knowledge of CI/CD framework and DevOps methodologies\n• hands on experience in designing and building pipelines\n• Experience with agile delivery, SAFe, and DevOps frameworks\n• Desired - Microsoft Certified: Azure DevOps Engineer\n• Desired Certified Kubernetes Administrator\n\nAn Equal Opportunity Employer. All qualified applicants will receive consideration for employment without regard to race, color, religion, sex, sexual orientation, gender identity, national origin, or protected veteran status and will not be discriminated against based on disability. EEO IS THE LAW CC Pace invites any applicant and/or employee to review the Company s written Affirmative Action Plan. This plan is available for inspection upon request. If you are an individual with a disability and would like to request a reasonable accommodation as part of the employment selection process, please contact us.",
+            "job_is_remote": false,
+            "job_posted_at_timestamp": 1731437687,
+            "job_posted_at_datetime_utc": "2024-11-12T18:54:47.000Z",
+            "job_city": "Vienna",
+            "job_state": "VA",
+            "job_country": "US",
+            "job_latitude": 38.901222,
+            "job_longitude": -77.26526,
+            "job_benefits": null,
+            "job_google_link": "https://www.google.com/search?gl=us&hl=en&rciv=jb&q=devops+engineer+in+usa&start=0&udm=8#vhid=vt%3D20/docid%3DBwqKgMr0LB98cWyiAAAAAA%3D%3D&vssid=jobs-detail-viewer",
+            "job_offer_expiration_datetime_utc": "2024-12-12T18:54:47.000Z",
+            "job_offer_expiration_timestamp": 1734029687,
+            "job_required_experience": {
+                "no_experience_required": "false",
+                "required_experience_in_months": null,
+                "experience_mentioned": "true",
+                "experience_preferred": "false"
+            },
+            "job_required_skills": null,
+            "job_required_education": {
+                "postgraduate_degree": "false",
+                "professional_certification": "false",
+                "high_school": "false",
+                "associates_degree": "false",
+                "bachelors_degree": "true",
+                "degree_mentioned": "false",
+                "degree_preferred": "false",
+                "professional_certification_mentioned": "true"
+            },
+            "job_experience_in_place_of_education": false,
+            "job_min_salary": null,
+            "job_max_salary": null,
+            "job_salary_currency": null,
+            "job_salary_period": null,
+            "job_highlights": {
+                "Qualifications": [
+                    "Advanced experience with container orchestration, Kubernetes, Docker",
+                    "Hands on experience with Microsoft Azure",
+                    "Strong knowledge of CI/CD framework and DevOps methodologies",
+                    "hands on experience in designing and building pipelines",
+                    "Experience with agile delivery, SAFe, and DevOps frameworks"
+                ],
+                "Responsibilities": [
+                    "Design & manage CICD pipelines, templates, and workflows providing a self-service and seamless developer experience",
+                    "Provide guidance on CI/CD Toolchain, frameworks, strategies, and processes",
+                    "Design & architect CI/CD pipelines and workflows in accordance with standardized toolchain and frameworks",
+                    "Build, publish, manage, and enhance internal common libraries, templates, and workflows in support of CICD frameworks",
+                    "Onboard product teams to CI/CD framework simplifying the developer experience, promoting standards & methodologies",
+                    "Actively participate in the DevOps Center of Excellence (COE) to drive the creation of good governance and standards for CI/CD adoption across product and platforms teams",
+                    "Establish operational CI/CD Pipeline Quality Gates based on best practices and maturity level to which the software engineers are required to adhere to",
+                    "Review and enhance guardrails and best practices required to transform to a CICD framework",
+                    "Perform analysis of CI/CD practices, identify gaps and impediments for continuous improvement",
+                    "Support developers through source control, build automation, merge resolution, CI, test automation, and deployment based on CICD framework",
+                    "Provide thought leadership on DevSecOps architecture and technology matters",
+                    "Evaluate the quality of existing pipelines and provide recommendations",
+                    "Ensure compliance with ISD standards, practices, and processes",
+                    "Perform other related duties as assigned"
+                ]
+            },
+            "job_job_title": "Devops engineer",
+            "job_posting_language": "en",
+            "job_onet_soc": "15113200",
+            "job_onet_job_zone": "4",
+            "job_occupational_categories": null,
+            "job_naics_code": null,
+            "job_naics_name": null
+        },
+        {
+            "job_id": "XXuSjAQNIPxWg38mAAAAAA==",
+            "employer_name": "DISH Network",
+            "employer_logo": "http://filecache.mediaroom.com/mr5mr_dish/179201/dish_logomid2.0.png",
+            "employer_website": "http://www.dish.com",
+            "employer_company_type": "Information",
+            "employer_linkedin": null,
+            "job_publisher": "Dice",
+            "job_employment_type": "FULLTIME",
+            "job_title": "Sr DevOps Engineer",
+            "job_apply_link": "https://www.dice.com/job-detail/41162527-6176-4528-8888-a297f8f843ac?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+            "job_apply_is_direct": false,
+            "job_apply_quality_score": 0.611,
+            "apply_options": [
+                {
+                    "publisher": "Dice",
+                    "apply_link": "https://www.dice.com/job-detail/41162527-6176-4528-8888-a297f8f843ac?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+                    "is_direct": false
+                },
+                {
+                    "publisher": "Snagajob",
+                    "apply_link": "https://www.snagajob.com/jobs/1024535963?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+                    "is_direct": false
+                },
+                {
+                    "publisher": "BeBee",
+                    "apply_link": "https://us.bebee.com/job/76c9240b9c04168dd744ab8f98f3df71?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+                    "is_direct": false
+                },
+                {
+                    "publisher": "Adzuna",
+                    "apply_link": "https://www.adzuna.com/details/4934656117?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+                    "is_direct": false
+                },
+                {
+                    "publisher": "LazyApply",
+                    "apply_link": "https://lazyapply.com/jobpreview/FSnZ2cB_ZuhNLGHlj_y9F33YYVjXm0QSbL3NQxPVQeIyKykpfKEkHg?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+                    "is_direct": false
+                },
+                {
+                    "publisher": "Jooble",
+                    "apply_link": "https://jooble.org/jdp/6482321231046009719?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+                    "is_direct": false
+                },
+                {
+                    "publisher": "Jobg8",
+                    "apply_link": "https://jobs.jobg8.com/jobs/sr-devops-engineer-in-germantown-maryland-united-states/5673-2848442287AF?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+                    "is_direct": false
+                },
+                {
+                    "publisher": "Jobs Trabajo.org",
+                    "apply_link": "https://us.trabajo.org/job-2402-4a63e1bee951d96d2511c53cb559f09e?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+                    "is_direct": false
+                }
+            ],
+            "job_description": "Echostar is looking for experienced Sr DevOps Engineer to drive operations of our Enterprise business in our Hughes Network Systems division. We are looking to build and manage services that comprehensively provision, scale, and operate Hughes Business Solutions. This position will be located at our office in Germantown, MD.\n\nResponsibilities:\n• Write efficient, reusable, and reliable Python code, with a specific focus on developing web applications.\n• Design, implement, and maintain data workflows and pipelines using Apache Airflow. Schedule and monitor tasks for data processing and orchestration.\n• Work comfortably in a Linux environment, demonstrating proficiency in system administration tasks, shell scripting, and troubleshooting.\n• Participate actively in code reviews, analyze, and troubleshoot issues, and provide constructive feedback to peers.\n• Work closely with product managers, designers, and other developers to understand project requirements and deliver high-quality software.\n• Utilize version control systems (e.g., Git) effectively, ensuring collaborative and efficient development workflows.\n• Create and maintain clear, detailed, and comprehensive technical documentation.\n• Actively seek opportunities to enhance skills and share knowledge within the team\n\nBasic Requirements:\n• Bachelor's degree in computer science, engineering, or a related technical field\n• 5 years of professional experience in Python development, with a strong focus on Flask/ReactJS, Apache Airflow, networking, databases, and Linux.\n\nQualifications:\n• Master's degree in computer science, engineering, or a related technical field\n• Knowledge of containerization and orchestration tools (e.g., Docker, Kubernetes).\n• Ability to adapt to evolving project requirements and priorities in a dynamic work force.\n• Strong understanding of networking concepts and experience with Fortinet, VeloCloud, Cisco Meraki, Cradlepoint, Juniper, Aruba vendor platforms.\n• Proficiency with RESTful API development and familiarity with FastAPI or Litestar Python API frameworks preferred (experience with Flask or DRF also ok).\n• Demonstrate a deep understanding of ReactJS for web application development.\n• Familiarity with relational databases (e.g., PostgreSQL, MySQL) and non-relational databases (e.g., MongoDB).\n• Familiarity with cloud platforms (e.g., AWS, Azure, Google Cloud).\n• Understanding of DevOps practices, performance benchmarking and tools.\n\nWill be eligible for discretionary bonus, with funding based on company performance.\n\n#LI-EM1\n\n#M",
+            "job_is_remote": false,
+            "job_posted_at_timestamp": 1731328597,
+            "job_posted_at_datetime_utc": "2024-11-11T12:36:37.000Z",
+            "job_city": "Germantown",
+            "job_state": "MD",
+            "job_country": "US",
+            "job_latitude": 39.17316,
+            "job_longitude": -77.27165,
+            "job_benefits": null,
+            "job_google_link": "https://www.google.com/search?gl=us&hl=en&rciv=jb&q=devops+engineer+in+usa&start=0&udm=8#vhid=vt%3D20/docid%3DXXuSjAQNIPxWg38mAAAAAA%3D%3D&vssid=jobs-detail-viewer",
+            "job_offer_expiration_datetime_utc": "2024-12-12T12:36:37.000Z",
+            "job_offer_expiration_timestamp": 1734006997,
+            "job_required_experience": {
+                "no_experience_required": "false",
+                "required_experience_in_months": "60",
+                "experience_mentioned": "true",
+                "experience_preferred": "false"
+            },
+            "job_required_skills": [
+                "Operations",
+                "Network",
+                "Management",
+                "ProVision",
+                "Web applications",
+                "Design",
+                "Data",
+                "Data processing",
+                "System administration",
+                "Shell scripting",
+                "Version control",
+                "Git",
+                "Workflow",
+                "Technical writing",
+                "FOCUS",
+                "Apache Airflow",
+                "Database",
+                "Linux",
+                "Computer science",
+                "Orchestration",
+                "Docker",
+                "Kubernetes",
+                "Computer networking",
+                "Fortinet",
+                "Cisco",
+                "Meraki",
+                "Juniper",
+                "Aruba",
+                "RESTful",
+                "Python",
+                "API",
+                "Flask",
+                "React.js",
+                "Web development",
+                "PostgreSQL",
+                "MySQL",
+                "Relational databases",
+                "MongoDB",
+                "Cloud computing",
+                "Amazon Web Services",
+                "Microsoft Azure",
+                "Google Cloud",
+                "Google Cloud Platform",
+                "DevOps",
+                "Benchmarking"
+            ],
+            "job_required_education": {
+                "postgraduate_degree": false,
+                "professional_certification": false,
+                "high_school": false,
+                "associates_degree": false,
+                "bachelors_degree": false,
+                "degree_mentioned": "true",
+                "degree_preferred": "true",
+                "professional_certification_mentioned": "false"
+            },
+            "job_experience_in_place_of_education": false,
+            "job_min_salary": null,
+            "job_max_salary": null,
+            "job_salary_currency": null,
+            "job_salary_period": null,
+            "job_highlights": {
+                "Qualifications": [
+                    "Bachelor's degree in computer science, engineering, or a related technical field",
+                    "5 years of professional experience in Python development, with a strong focus on Flask/ReactJS, Apache Airflow, networking, databases, and Linux",
+                    "Knowledge of containerization and orchestration tools (e.g., Docker, Kubernetes)",
+                    "Ability to adapt to evolving project requirements and priorities in a dynamic work force",
+                    "Strong understanding of networking concepts and experience with Fortinet, VeloCloud, Cisco Meraki, Cradlepoint, Juniper, Aruba vendor platforms",
+                    "Demonstrate a deep understanding of ReactJS for web application development",
+                    "Familiarity with relational databases (e.g., PostgreSQL, MySQL) and non-relational databases (e.g., MongoDB)",
+                    "Familiarity with cloud platforms (e.g., AWS, Azure, Google Cloud)",
+                    "Understanding of DevOps practices, performance benchmarking and tools"
+                ],
+                "Responsibilities": [
+                    "Write efficient, reusable, and reliable Python code, with a specific focus on developing web applications",
+                    "Design, implement, and maintain data workflows and pipelines using Apache Airflow",
+                    "Schedule and monitor tasks for data processing and orchestration",
+                    "Work comfortably in a Linux environment, demonstrating proficiency in system administration tasks, shell scripting, and troubleshooting",
+                    "Participate actively in code reviews, analyze, and troubleshoot issues, and provide constructive feedback to peers",
+                    "Work closely with product managers, designers, and other developers to understand project requirements and deliver high-quality software",
+                    "Utilize version control systems (e.g., Git) effectively, ensuring collaborative and efficient development workflows",
+                    "Create and maintain clear, detailed, and comprehensive technical documentation",
+                    "Actively seek opportunities to enhance skills and share knowledge within the team"
+                ],
+                "Benefits": [
+                    "Will be eligible for discretionary bonus, with funding based on company performance"
+                ]
+            },
+            "job_job_title": "Devops engineer",
+            "job_posting_language": "en",
+            "job_onet_soc": "15113200",
+            "job_onet_job_zone": "4",
+            "job_occupational_categories": null,
+            "job_naics_code": "517110",
+            "job_naics_name": "Wired Telecommunications Carriers"
+        },
+        {
+            "job_id": "Z_Ud2kMrd5MalMUaAAAAAA==",
+            "employer_name": "Parsons Corporation",
+            "employer_logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWoeHM7rt-U37K1_ab3N5lIK6QuMuDbepnStZr&s=0",
+            "employer_website": "http://www.parsons.com",
+            "employer_company_type": "Construction",
+            "employer_linkedin": null,
+            "job_publisher": "Careers At Parsons Corporation",
+            "job_employment_type": "FULLTIME",
+            "job_title": "DevOps Engineer",
+            "job_apply_link": "https://jobs.parsons.com/jobs/dev-ops-engineer-herndon-virginia-jobs?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+            "job_apply_is_direct": false,
+            "job_apply_quality_score": 0.9009,
+            "apply_options": [
+                {
+                    "publisher": "Careers At Parsons Corporation",
+                    "apply_link": "https://jobs.parsons.com/jobs/dev-ops-engineer-herndon-virginia-jobs?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+                    "is_direct": false
+                },
+                {
+                    "publisher": "Peraton Careers",
+                    "apply_link": "https://www.careers.peraton.com/jobs/dev-ops-engineer-herndon-virginia-150061-jobs?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+                    "is_direct": false
+                },
+                {
+                    "publisher": "Peraton - ICIMS",
+                    "apply_link": "https://careers-peraton.icims.com/jobs/150061/devops-engineer/job?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+                    "is_direct": true
+                },
+                {
+                    "publisher": "Lever",
+                    "apply_link": "https://jobs.lever.co/rgi/3a03eef3-8247-45c3-9c03-b57febe8f52e?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+                    "is_direct": false
+                },
+                {
+                    "publisher": "ZipRecruiter",
+                    "apply_link": "https://www.ziprecruiter.com/c/The-Custom-Group-of-Companies/Job/DevOps-Engineer/-in-Herndon,VA?jid=5b77da5a41bed741&utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+                    "is_direct": true
+                },
+                {
+                    "publisher": "ClearedJobs.Net",
+                    "apply_link": "https://clearedjobs.net/job/devops-engineer-herndon-virginia-1659202?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+                    "is_direct": false
+                },
+                {
+                    "publisher": "Dice.com",
+                    "apply_link": "https://www.dice.com/job-detail/654d74f3-1ac9-4e9c-b182-fa2ee4f75d58?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+                    "is_direct": false
+                },
+                {
+                    "publisher": "The Josef Group",
+                    "apply_link": "https://thejosefgroup.com/jobs/?JOBSHARECETJXOWGQYT2WOU3XJIIDSB664U67I6GSEFRPCRXPTSXCQVWTKFSJHA6SIQHNEZW2SUGWXE5GHZM2Z4HK5TD2TX3U4DEBWAU&utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+                    "is_direct": true
+                }
+            ],
+            "job_description": "In a world of possibilities, pursue one with endless opportunities. Imagine Next!\n\nWhen it comes to what you want in your career, if you can imagine it, you can do it at Parsons. Imagine a career working with intelligent, diverse people sharing a common quest. Imagine a workplace where you can be yourself. Where you can thrive. Where you can find your next, right now. We’ve got what you’re looking for.\n\nJob Description:\n\nParsons is looking for an experienced Senior DevOps Engineer to join our team! In this role you will get to be part of a fun agile team working on Cyber solutions across multiple programs that directly impact offensive operational missions.\n\nWhat You'll Be Doing:\n• Join a specialized team that develops and supports multiple projects and platforms that integrate and work together to provide operational support for a larger offensive cyber framework.\n• Apply deep knowledge of Docker, Kubernetes and various Linux distributions (Rocky, RHEL, Ubuntu) to manage, deploy, and scale applications and solutions across both cloud and on-premise development and enterprise environments.\n• Assist in driving the development of new tools and solutions tailored to meet evolving customer needs, leveraging expertise in code and other DevOps technologies\n• Collaborate in agile scrum cycles, contributing to design sessions, conducting peer reviews, and providing support for testing and documentation\n• Employ a broad range of DevOps tools including Gitlab, Atlassian suite, SonarQube, etc. to ensure continuous improvement and high-quality application delivery\n• Optimize CI/CD pipelines for efficiency and security while proactively identifying and addressing software vulnerabilities to maintain a robust and secure environment.\n• Integrating with other projects on multiple Agile Release Trains (ART’s) to enable automated operations.\n\nWhat Required Skills You'll Bring:\n• Must have a Bachelor of Science in Computer Science, Cybersecurity, Information Systems, or related field\n• 5+ years of experience working within DevOps environment\n• Expertise in Docker and Kubernetes\n• Python or relevant coding experience\n• Experience with cloud-based platforms including deploying and managing applications in cloud environments\n• Proficiency with DevOps tools and CI/CD: Atlassian suite, GitLab, SonarQube\n• Experience with vulnerability management and patching\n• Familiarity with Agile and SAFE methodologies\n• Proficient with multiple UNIX/Linux distributions (Rocky, RHEL, Ubuntu) and able to troubleshoot across various operating systems.\n• Experience in leveraging virtualization technologies and familiar with the deployment and management of virtual infrastructures (VMware/vCenter)\n• Strong understanding of networking concepts\n• U.S. Citizenship\n• Active TS (SCI eligible) security clearance\n\nWhat Desired Skills You'll Bring:\n• Strong ability to grasp new technologies and acquire new skills through independent study, professional training, and interaction with other team members\n• Ability to communicate with technical team members, managers, and customers\n• Ability to automate workflows and processes using scripts and tools\n• Knowledge of best practices in cybersecurity particularly as they apply to DevOps environments to ensure the security of applications and infrastructure\n\nMinimum Clearance Required to Start:\nTop Secret\n\nThis position is part of our Federal Solutions team.\n\nOur Federal Solutions segment delivers resources to our US government customers that ensure the success of missions around the globe. Our diverse, intelligent employees drive the state of the art as they provide services and solutions in the areas of defense, security, intelligence, infrastructure, and environmental. We promote a culture of excellence and close-knit teams that take pride in delivering, protecting, and sustaining our nation's most critical assets, from Earth to cyberspace. Throughout the company, our people are anticipating what’s next to deliver the solutions our customers need now.\n\nSalary Range:\n$117,000.00 - $210,600.00\n\nWe value our employees and want our employees to take care of their overall wellbeing, which is why we offer best-in-class benefits such as medical, dental, vision, paid time off, 401(k), life insurance, flexible work schedules, and holidays to fit your busy lifestyle!\n\nParsons is an equal opportunity employer committed to diversity, equity, inclusion, and accessibility in the workplace. Diversity is ingrained in who we are, how we do business, and is one of our company’s core values. Parsons equally employs representation at all job levels for minority, female, disabled, protected veteran and LGBTQ+.\n\nWe truly invest and care about our employee’s wellbeing and provide endless growth opportunities as the sky is the limit, so aim for the stars! Imagine next and join the Parsons quest—APPLY TODAY!",
+            "job_is_remote": false,
+            "job_posted_at_timestamp": 1724630400,
+            "job_posted_at_datetime_utc": "2024-08-26T00:00:00.000Z",
+            "job_city": "Herndon",
+            "job_state": "VA",
+            "job_country": "US",
+            "job_latitude": 38.969555,
+            "job_longitude": -77.3861,
+            "job_benefits": [
+                "paid_time_off",
+                "health_insurance",
+                "dental_coverage",
+                "retirement_savings"
+            ],
+            "job_google_link": "https://www.google.com/search?gl=us&hl=en&rciv=jb&q=devops+engineer+in+usa&start=0&udm=8#vhid=vt%3D20/docid%3DZ_Ud2kMrd5MalMUaAAAAAA%3D%3D&vssid=jobs-detail-viewer",
+            "job_offer_expiration_datetime_utc": null,
+            "job_offer_expiration_timestamp": null,
+            "job_required_experience": {
+                "no_experience_required": "false",
+                "required_experience_in_months": "60",
+                "experience_mentioned": "true",
+                "experience_preferred": "false"
+            },
+            "job_required_skills": null,
+            "job_required_education": {
+                "postgraduate_degree": false,
+                "professional_certification": false,
+                "high_school": false,
+                "associates_degree": false,
+                "bachelors_degree": false,
+                "degree_mentioned": "true",
+                "degree_preferred": "false",
+                "professional_certification_mentioned": "false"
+            },
+            "job_experience_in_place_of_education": false,
+            "job_min_salary": null,
+            "job_max_salary": null,
+            "job_salary_currency": null,
+            "job_salary_period": null,
+            "job_highlights": {
+                "Qualifications": [
+                    "Must have a Bachelor of Science in Computer Science, Cybersecurity, Information Systems, or related field",
+                    "5+ years of experience working within DevOps environment",
+                    "Expertise in Docker and Kubernetes",
+                    "Python or relevant coding experience",
+                    "Experience with cloud-based platforms including deploying and managing applications in cloud environments",
+                    "Proficiency with DevOps tools and CI/CD: Atlassian suite, GitLab, SonarQube",
+                    "Experience with vulnerability management and patching",
+                    "Familiarity with Agile and SAFE methodologies",
+                    "Proficient with multiple UNIX/Linux distributions (Rocky, RHEL, Ubuntu) and able to troubleshoot across various operating systems",
+                    "Experience in leveraging virtualization technologies and familiar with the deployment and management of virtual infrastructures (VMware/vCenter)",
+                    "Strong understanding of networking concepts",
+                    "U.S. Citizenship",
+                    "Active TS (SCI eligible) security clearance"
+                ],
+                "Responsibilities": [
+                    "In this role you will get to be part of a fun agile team working on Cyber solutions across multiple programs that directly impact offensive operational missions",
+                    "Join a specialized team that develops and supports multiple projects and platforms that integrate and work together to provide operational support for a larger offensive cyber framework",
+                    "Apply deep knowledge of Docker, Kubernetes and various Linux distributions (Rocky, RHEL, Ubuntu) to manage, deploy, and scale applications and solutions across both cloud and on-premise development and enterprise environments",
+                    "Assist in driving the development of new tools and solutions tailored to meet evolving customer needs, leveraging expertise in code and other DevOps technologies",
+                    "Collaborate in agile scrum cycles, contributing to design sessions, conducting peer reviews, and providing support for testing and documentation",
+                    "Employ a broad range of DevOps tools including Gitlab, Atlassian suite, SonarQube, etc",
+                    "to ensure continuous improvement and high-quality application delivery",
+                    "Optimize CI/CD pipelines for efficiency and security while proactively identifying and addressing software vulnerabilities to maintain a robust and secure environment",
+                    "Integrating with other projects on multiple Agile Release Trains (ART’s) to enable automated operations"
+                ],
+                "Benefits": [
+                    "$117,000.00 - $210,600.00",
+                    "We value our employees and want our employees to take care of their overall wellbeing, which is why we offer best-in-class benefits such as medical, dental, vision, paid time off, 401(k), life insurance, flexible work schedules, and holidays to fit your busy lifestyle!"
+                ]
+            },
+            "job_job_title": "Devops engineer",
+            "job_posting_language": "en",
+            "job_onet_soc": "15113200",
+            "job_onet_job_zone": "4",
+            "job_occupational_categories": null,
+            "job_naics_code": "237",
+            "job_naics_name": "Heavy and Civil Engineering Construction"
+        },
+        {
+            "job_id": "DJ-ricr83zkODk8-AAAAAA==",
+            "employer_name": "Schneider Electric",
+            "employer_logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUO3e2d-Y4YaXBR8CU2ops9FML0THUqawkFCvd&s=0",
+            "employer_website": "http://www.se.com",
+            "employer_company_type": "Manufacturing",
+            "employer_linkedin": null,
+            "job_publisher": "Schneider Electric",
+            "job_employment_type": "FULLTIME",
+            "job_title": "DevOps Engineer",
+            "job_apply_link": "https://www.se.com/ww/en/about-us/careers/job-details/devops-engineer/79096?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+            "job_apply_is_direct": false,
+            "job_apply_quality_score": 0.6852,
+            "apply_options": [
+                {
+                    "publisher": "Schneider Electric",
+                    "apply_link": "https://www.se.com/ww/en/about-us/careers/job-details/devops-engineer/79096?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+                    "is_direct": false
+                },
+                {
+                    "publisher": "SimplyHired",
+                    "apply_link": "https://www.simplyhired.com/job/p6s_SedU46epsvMxuKMjBOGI3r14U__v_BlTaxUdmmUTRUEAH8twAA?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+                    "is_direct": false
+                },
+                {
+                    "publisher": "Fairygodboss",
+                    "apply_link": "https://fairygodboss.com/jobs/schneider-electric/devops-engineer-af620e964bd0cfa5edbe28670a5dbddf?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+                    "is_direct": false
+                },
+                {
+                    "publisher": "BeBee",
+                    "apply_link": "https://us.bebee.com/job/6dc642e964fde437addd024305f133c2?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+                    "is_direct": false
+                },
+                {
+                    "publisher": "Jobilize",
+                    "apply_link": "https://www.jobilize.com/job/us-co-fort-collins-devops-engineer-signify-technology-hiring-now-job?utm_campaign=google_jobs_apply&utm_source=google_jobs_apply&utm_medium=organic",
+                    "is_direct": false
+                }
+            ],
+            "job_description": "For this U.S. based position, the expected compensation range is $66,000 - $99,000 per year, which includes base pay and short-term incentive.\n\nThe compensation range for this full-time position applies to candidates located within the United States. Our salary ranges are determined by reviewing roles of similar responsibility and level. Within the salary range, individual pay is determined by several factors including performance, knowledge, job-related skills, experience, and relevant education or training. Schneider Electric also offers a comprehensive benefits package to support our employees, inclusive of medical (with member reward points), dental, vision, and basic life insurance, Benefit Bucks (credits to apply towards your benefits) flexible work arrangements, paid family leaves, 401(k) + match, well-being and recognition (including service anniversary) programs, 12 holidays per year, 15 days of paid time off per year (pro-rated in the first year of employment based on start date), opportunity to purchase company stock (eligibility depends on start date), and military leave benefits.\n\nYou must submit an online application to be considered for the position. The Company will accept applications on an ongoing basis until the position is filled.\n\nAt Schneider, we believe access to energy is a basic human right. We provide energy and digital solutions for efficiency and sustainability. We combine world-leading energy technologies, real-time automation, software, and services into integrated solutions for Homes, Buildings, Data Centers, Infrastructure, and Industries.\n\nSchneider Electric GIS currently has an outstanding opportunity for a hardworking and motivated individual to assume the role of DevOps Engineer!\n\nSchneider Electric is an equal opportunity employer.\n\nAbout The Role\n\nYour daily routine here at Schneider Electric will include participation on an Agile team deploying Azure based solutions. You will collaborate with other engineers, scrum masters, product owners and others to help develop and deploy our solutions for our utility industry customers. We build cloud hosted applications using micro-services in the Microsoft Azure cloud.\n\nIn your role as an DevOps Engineer, you would participate in the following activities:\n• Support cloud and enterprise deployment of software products and components\n• Analyze, diagnose, and troubleshoot network configuration and cloud connectivity\n• Contribute to the best practices for cloud and enterprise software deployment, configuration, and troubleshooting\n• Perform routine monitoring and support of cloud-based services infrastructure to ensure its reliable operation\n• Develop and utilize automated deployment and monitoring tools and scripts\n\nAbout You\n\nDo you have a degree in Computer Science, Information Technologies, Electrical Engineering, or a related field with computer emphasis? Do you have knowledge of network protocols and the TCP/IP stack? Do you know (or want to learn) about network security such as SSL, TLS, PKI? If you have strong interpersonal, written, and oral communication skills, and are excited to be part of a dynamic development team focused on delivering top notch service to our customers, then we want you!\n\nLet us learn about you! Apply today.\n\nYou must submit an online application to be considered for any position with us. This position will be posted until filled.\n\nLooking to make an IMPACT with your career?\n\nWhen you are thinking about joining a new team, culture matters. At Schneider Electric, our values and behaviors are the foundation for creating a great culture to support business success. We believe that our IMPACT values – Inclusion, Mastery, Purpose, Action, Curiosity, Teamwork – starts with us.\n\nIMPACT is also your invitation to join Schneider Electric where you can contribute to turning sustainability ambition into actions, no matter what role you play. It is a call to connect your career with the ambition of achieving a more resilient, efficient, and sustainable world.\n\nWe are looking for IMPACT Makers; exceptional people who turn sustainability ambitions into actions at the intersection of automation, electrification, and digitization. We celebrate IMPACT Makers and believe everyone has the potential to be one.\n\nBecome an IMPACT Maker with Schneider Electric – apply today!\n\n€36 billion global revenue\n+13% organic growth\n150 000+ employees in 100+ countries\n#1 on the Global 100 World’s most sustainable corporations\n\nYou must submit an online application to be considered for any position with us. This position will be posted until filled.\n\nSchneider Electric aspires to be the most inclusive and caring company in the world, by providing equitable opportunities to everyone, everywhere, and ensuring all employees feel uniquely valued and safe to contribute their best. We mirror the diversity of the communities in which we operate, and ‘inclusion’ is one of our core values. We believe our differences make us stronger as a company and as individuals and we are committed to championing inclusivity in everything we do. This extends to our Candidates and is embedded in our Hiring Practices.\n\nYou can find out more about our commitment to Diversity, Equity and Inclusion here and our DEI Policy here\n\nAt Schneider Electric, we uphold the highest standards of ethics and compliance, and we believe that trust is a foundational value. Our Trust Charter is our Code of Conduct and demonstrates our commitment to ethics, safety, sustainability, quality and cybersecurity, underpinning every aspect of our business and our willingness to behave and respond respectfully and in good faith to all our stakeholders. You can find out more about our Trust Charter here\n\nSchneider Electric is an Equal Opportunity Employer. It is our policy to provide equal employment and advancement opportunities in the areas of recruiting, hiring, training, transferring, and promoting all qualified individuals regardless of race, religion, color, gender, disability, national origin, ancestry, age, military status, sexual orientation, marital status, or any other legally protected characteristic or conduct.",
+            "job_is_remote": false,
+            "job_posted_at_timestamp": 1730392800,
+            "job_posted_at_datetime_utc": "2024-10-31T16:40:00.000Z",
+            "job_city": "Fort Collins",
+            "job_state": "CO",
+            "job_country": "US",
+            "job_latitude": 40.58526,
+            "job_longitude": -105.08442,
+            "job_benefits": [
+                "retirement_savings",
+                "health_insurance",
+                "paid_time_off",
+                "dental_coverage"
+            ],
+            "job_google_link": "https://www.google.com/search?gl=us&hl=en&rciv=jb&q=devops+engineer+in+usa&start=0&udm=8#vhid=vt%3D20/docid%3DDJ-ricr83zkODk8-AAAAAA%3D%3D&vssid=jobs-detail-viewer",
+            "job_offer_expiration_datetime_utc": "2026-10-31T16:40:00.000Z",
+            "job_offer_expiration_timestamp": 1793464800,
+            "job_required_experience": {
+                "no_experience_required": "false",
+                "required_experience_in_months": null,
+                "experience_mentioned": "true",
+                "experience_preferred": "false"
+            },
+            "job_required_skills": [
+                "UNAVAILABLE"
+            ],
+            "job_required_education": {
+                "postgraduate_degree": false,
+                "professional_certification": false,
+                "high_school": false,
+                "associates_degree": false,
+                "bachelors_degree": false,
+                "degree_mentioned": "false",
+                "degree_preferred": "true",
+                "professional_certification_mentioned": "false"
+            },
+            "job_experience_in_place_of_education": false,
+            "job_min_salary": 0,
+            "job_max_salary": 0,
+            "job_salary_currency": null,
+            "job_salary_period": null,
+            "job_highlights": {
+                "Qualifications": [
+                    "If you have strong interpersonal, written, and oral communication skills, and are excited to be part of a dynamic development team focused on delivering top notch service to our customers, then we want you!"
+                ],
+                "Responsibilities": [
+                    "Your daily routine here at Schneider Electric will include participation on an Agile team deploying Azure based solutions",
+                    "You will collaborate with other engineers, scrum masters, product owners and others to help develop and deploy our solutions for our utility industry customers",
+                    "We build cloud hosted applications using micro-services in the Microsoft Azure cloud",
+                    "Support cloud and enterprise deployment of software products and components",
+                    "Analyze, diagnose, and troubleshoot network configuration and cloud connectivity",
+                    "Contribute to the best practices for cloud and enterprise software deployment, configuration, and troubleshooting",
+                    "Perform routine monitoring and support of cloud-based services infrastructure to ensure its reliable operation",
+                    "Develop and utilize automated deployment and monitoring tools and scripts"
+                ],
+                "Benefits": [
+                    "For this U.S. based position, the expected compensation range is $66,000 - $99,000 per year, which includes base pay and short-term incentive",
+                    "Schneider Electric also offers a comprehensive benefits package to support our employees, inclusive of medical (with member reward points), dental, vision, and basic life insurance, Benefit Bucks (credits to apply towards your benefits) flexible work arrangements, paid family leaves, 401(k) + match, well-being and recognition (including service anniversary) programs, 12 holidays per year, 15 days of paid time off per year (pro-rated in the first year of employment based on start date), opportunity to purchase company stock (eligibility depends on start date), and military leave benefits"
+                ]
+            },
+            "job_job_title": "Devops engineer",
+            "job_posting_language": "en",
+            "job_onet_soc": "15113200",
+            "job_onet_job_zone": "4",
+            "job_occupational_categories": null,
+            "job_naics_code": "33429",
+            "job_naics_name": "Other Communications Equipment Manufacturing"
+        }
+    ]
+}

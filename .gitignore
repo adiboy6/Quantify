@@ -2,3 +2,6 @@
 .DS_Store
 dashboard/frontend/pnpm-lock.yaml
 dashboard/backend/new_env
+.venv*
+scraper/.env
+dashboard/backend/.env
