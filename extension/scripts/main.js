@@ -12,7 +12,6 @@ async function startAutoFill() {
     key: "FETCH_PROFILE_INFO",
   });
 
-  console.log(data);
 
   // Process all form elements
   const allForms = document.querySelectorAll("form");
@@ -34,54 +33,43 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
       .reverse()
       .sort((a, b) => (a.tabIndex > b.tabIndex ? -1 : 1));
 
-    console.log(tabElements);
 
     tabElements.forEach((element) => {
       if (
         element.getAttribute("role") === "button" ||
         element.getAttribute("type") === "button"
       ) {
-        console.log(element);
         const labels = getLabels(element);
 
         fillSelectField(element, labels);
-        console.log(labels);
-        console.log("button");
       }
-      // if (element.getAttribute("id") === "s2id_autogen3") {
-      //   setTimeout(() => {
-      //     console.log("focusing on ", element);
-      //     const e = document.getElementById(
-      //       "s2id_job_application_answers_attributes_5_boolean_value"
-      //     );
-
-      //     const aElement = e.getElementsByTagName("a")[0];
-      //     const event = new MouseEvent("mousedown", {
-      //       bubbles: true,
-      //       cancelable: true,
-      //     });
-      //     aElement.dispatchEvent(event);
-
-      //     const path = `//div[@id="select2-drop" and not(contains(@style, "display: none"))]//ul[@class="select2-results" and @role="listbox"]//li[@role="option" and "Yes"]`;
-      //     const results = document.evaluate(
-      //       path,
-      //       document,
-      //       null,
-      //       XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE,
-      //       null
-      //     );
-
-      //     const yesEle = results.snapshotItem(1);
-
-      //     yesEle.dispatchEvent(
-      //       new MouseEvent("mouseup", {
-      //         bubbles: true,
-      //         cancelable: true,
-      //       })
-      //     );
-      //   }, 0);
-      // }
     });
+  const resumeEle = document.getElementById("resume_fieldset");
+		  console.log(resumeEle);
+
+		  const dt = new DataTransfer();
+		dt.items.add(new File(
+			["hello, world!"], "hello_world.txt"
+		  ));
+
+
+  const path = `.//form[@id="s3_upload_for_resume"]//input[@type="file"]`
+  const results = document.evaluate(
+    path,
+    document,
+    null,
+    XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE,
+    null
+  );
+
+  let selectElement = null;
+  for (let i = 0; i < results.snapshotLength; i++) {
+    const text = results.snapshotItem(i).innerText;
+    console.log(results.snapshotItem(i));
+		  results.snapshotItem(i).files = dt.files
+		  results.snapshotItem(i).dispatchEvent(new Event("change", { bubbles: true }))
+  }
+
   }
 });
 
@@ -93,7 +81,6 @@ function fillSelectField(element, labels) {
   if (toFill === null) return;
 
   const matchedSite = getMatchedSite();
-  console.log(toFill);
 
   greenhouseSelect(element, toFill);
 }
@@ -129,11 +116,8 @@ function getLabels(element) {
 }
 
 function fillField(labels, element) {
-  console.log(element);
 
   const matchedKey = getMatchingKey(labels);
-  console.log(labels);
-  console.log(matchedKey);
   if (matchedKey === null) return;
 
   const toFill = data[matchedKey];
@@ -142,18 +126,6 @@ function fillField(labels, element) {
   if (element.type === "text") {
     element.value = toFill;
   }
-
-  // if (element.id === "gender") {
-  //   console.log(element.labels);
-  //   const labelEle = element.labels[0];
-  //   console.log(labelEle.parentNode);
-  //   labelEle.parentNode.dispatchEvent(
-  //     new MouseEvent("click", {
-  //       bubbles: true,
-  //       cancelable: true,
-  //     })
-  //   );
-  // }
 }
 
 function getMatchingKey(labels) {
@@ -190,9 +162,6 @@ function getMatchedSite() {
 // Site specific functions
 // TODO - find a way to do partial match on ids
 function greenhouseSelect(element, value) {
-  console.log("greenhouse");
-  console.log(element.parentNode);
-  console.log(value);
 
   element = element.parentNode;
 
@@ -217,7 +186,6 @@ function greenhouseSelect(element, value) {
   let selectElement = null;
   for (let i = 0; i < results.snapshotLength; i++) {
     const text = results.snapshotItem(i).innerText;
-    console.log(text);
     if (text.toLowerCase().indexOf(value.toLowerCase()) != -1) {
       selectElement = results.snapshotItem(i);
       break;
