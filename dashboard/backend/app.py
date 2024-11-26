@@ -10,7 +10,8 @@ from pymongo.server_api import ServerApi
 from schema.job_schema import job_schema
 from datetime import datetime
 
-app = Flask(__name__)
+app = Flask(__name__,static_url_path='',static_folder='static/') 
+            
 CORS(app)
 
 uri = "mongodb+srv://jab-admin:t3nM4nhzWu8f4kJ6@devcluster.3ih32.mongodb.net/?retryWrites=true&w=majority&appName=DevCluster"
