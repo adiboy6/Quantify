@@ -12,7 +12,6 @@ async function startAutoFill() {
     key: "FETCH_PROFILE_INFO",
   });
 
-
   // Process all form elements
   const allForms = document.querySelectorAll("form");
   allForms.forEach(processForm);
@@ -33,7 +32,6 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
       .reverse()
       .sort((a, b) => (a.tabIndex > b.tabIndex ? -1 : 1));
 
-
     tabElements.forEach((element) => {
       if (
         element.getAttribute("role") === "button" ||
@@ -44,32 +42,34 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
         fillSelectField(element, labels);
       }
     });
-  const resumeEle = document.getElementById("resume_fieldset");
-		  console.log(resumeEle);
+    const resumeEle = document.getElementById("resume_fieldset");
+    console.log(resumeEle);
 
-		  const dt = new DataTransfer();
-		dt.items.add(new File(
-			["hello, world!"], "hello_world.txt"
-		  ));
+    fetch("http://127.0.0.1:5000/resume/resume.pdf")
+      .then((response) => response.blob())
+      .then((blob) => {
+        const dt = new DataTransfer();
+        dt.items.add(new File([blob], "resume.pdf"));
 
+        const path = `.//form[@id="s3_upload_for_resume"]//input[@type="file"]`;
+        const results = document.evaluate(
+          path,
+          document,
+          null,
+          XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE,
+          null
+        );
 
-  const path = `.//form[@id="s3_upload_for_resume"]//input[@type="file"]`
-  const results = document.evaluate(
-    path,
-    document,
-    null,
-    XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE,
-    null
-  );
-
-  let selectElement = null;
-  for (let i = 0; i < results.snapshotLength; i++) {
-    const text = results.snapshotItem(i).innerText;
-    console.log(results.snapshotItem(i));
-		  results.snapshotItem(i).files = dt.files
-		  results.snapshotItem(i).dispatchEvent(new Event("change", { bubbles: true }))
-  }
-
+        let selectElement = null;
+        for (let i = 0; i < results.snapshotLength; i++) {
+          const text = results.snapshotItem(i).innerText;
+          console.log(results.snapshotItem(i));
+          results.snapshotItem(i).files = dt.files;
+          results
+            .snapshotItem(i)
+            .dispatchEvent(new Event("change", { bubbles: true }));
+        }
+      });
   }
 });
 
@@ -116,7 +116,6 @@ function getLabels(element) {
 }
 
 function fillField(labels, element) {
-
   const matchedKey = getMatchingKey(labels);
   if (matchedKey === null) return;
 
@@ -162,7 +161,6 @@ function getMatchedSite() {
 // Site specific functions
 // TODO - find a way to do partial match on ids
 function greenhouseSelect(element, value) {
-
   element = element.parentNode;
 
   if (element.getElementsByTagName("a").length === 0) return;
