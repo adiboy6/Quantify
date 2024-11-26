@@ -12,7 +12,6 @@ async function startAutoFill() {
     key: "FETCH_PROFILE_INFO",
   });
 
-  console.log(data);
 
   // Process all form elements
   const allForms = document.querySelectorAll("form");
@@ -30,85 +29,61 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
           "a, button, input, textarea, select, details, [tabindex]"
         )
     )
-
-      // remove any that have a tabIndex of -1
       .filter((element) => element.tabIndex > -1)
-
-      // reverse, then sort by tabIndex descending to put 0s last but maintain original order
       .reverse()
       .sort((a, b) => (a.tabIndex > b.tabIndex ? -1 : 1));
 
-    console.log(tabElements);
-    let count = 0;
+
     tabElements.forEach((element) => {
-      if (element.getAttribute("id") === "s2id_autogen3") {
-        count += 1;
-        setTimeout(() => {
-          console.log("focusing on ", element);
-          const e = document.getElementById(
-            "s2id_job_application_answers_attributes_5_boolean_value"
-          );
+      if (
+        element.getAttribute("role") === "button" ||
+        element.getAttribute("type") === "button"
+      ) {
+        const labels = getLabels(element);
 
-          const aElement = e.getElementsByTagName("a")[0];
-          const event = new MouseEvent("mousedown", {
-            bubbles: true,
-            cancelable: true,
-          });
-          aElement.dispatchEvent(event);
-
-          const path = `//div[@id="select2-drop" and not(contains(@style, "display: none"))]//ul[@class="select2-results" and @role="listbox"]//li[@role="option" and "Yes"]`;
-
-          setTimeout(() => {
-            const results = document.evaluate(
-              path,
-              document,
-              null,
-              XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE,
-              null
-            );
-            const yesEle = results.snapshotItem(1);
-            console.log(yesEle);
-            yesEle.dispatchEvent(new MouseEvent("mousemove"), {
-              bubbles: true,
-              cancelable: true,
-            });
-            yesEle.dispatchEvent(
-              new Event("click", {
-                bubbles: true,
-                cancelable: true,
-              })
-            );
-          }, 3e3);
-
-          // element.focus();
-          // element.click();
-          // element.dispatchEvent(
-          //   new KeyboardEvent("keydown", { key: "ArrowDown" })
-          // );
-          // element.dispatchEvent(
-          //   new KeyboardEvent("keyup", { key: "ArrowDown" })
-          // );
-
-          // document.getElementById("select2-drop").click();
-          // document
-          //   .getElementById("job_application_answers_attributes_5_priority")
-          //   .focus();
-          // document
-          //   .getElementById(
-          //     "s2id_job_application_answers_attributes_5_boolean_value"
-          //   )
-          //   .focus();
-          // document
-          //   .getElementById(
-          //     "job_application_answers_attributes_5_boolean_value"
-          //   )
-          //   .focus();
-          // document.getElementById("select2-chosen-3").focus();
-        }, 5000);
+        fillSelectField(element, labels);
       }
     });
+  const resumeEle = document.getElementById("resume_fieldset");
+		  console.log(resumeEle);
+
+		  const dt = new DataTransfer();
+		dt.items.add(new File(
+			["hello, world!"], "hello_world.txt"
+		  ));
+
+
+  const path = `.//form[@id="s3_upload_for_resume"]//input[@type="file"]`
+  const results = document.evaluate(
+    path,
+    document,
+    null,
+    XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE,
+    null
+  );
+
+  let selectElement = null;
+  for (let i = 0; i < results.snapshotLength; i++) {
+    const text = results.snapshotItem(i).innerText;
+    console.log(results.snapshotItem(i));
+		  results.snapshotItem(i).files = dt.files
+		  results.snapshotItem(i).dispatchEvent(new Event("change", { bubbles: true }))
+  }
+
   }
 });
+
+function fillSelectField(element, labels) {
+  const matchedKey = getMatchingKey(labels);
+  if (matchedKey === null) return;
+
+  const toFill = data[matchedKey];
+  if (toFill === null) return;
+
+  const matchedSite = getMatchedSite();
+
+  greenhouseSelect(element, toFill);
+}
 
 function processForm(form) {
   // Process all the children of a form element
@@ -116,32 +91,37 @@ function processForm(form) {
     // Skip processing if the element is hidden
     if (element.getAttribute("type") !== "hidden") {
       // Get Label of the element
-      const labelNodes = element.labels ?? [];
-      let labels = [];
-
-      labelNodes.forEach((label) => labels.push(label.innerText));
-
-      const ariaLabelledBy = element.getAttribute("aria-labelledby");
-      if (ariaLabelledBy !== null) {
-        labels.push(document.getElementById(ariaLabelledBy).innerText);
-      }
-      labels = labels
-        .map((label) => label.replaceAll("\n", "").replaceAll(/[\*]/g, ""))
-        .map((label) => label.trim());
+      const labels = getLabels(element);
 
       fillField(labels, element);
     }
   });
 }
 
+function getLabels(element) {
+  const labelNodes = element.labels ?? [];
+  let labels = [];
+
+  labelNodes.forEach((label) => labels.push(label.innerText));
+
+  const ariaLabelledBy = element.getAttribute("aria-labelledby");
+  if (ariaLabelledBy !== null) {
+    labels.push(document.getElementById(ariaLabelledBy).innerText);
+  }
+  labels = labels
+    .map((label) => label.replaceAll("\n", "").replaceAll(/[\*]/g, ""))
+    .map((label) => label.trim());
+
+  return labels;
+}
+
 function fillField(labels, element) {
+
   const matchedKey = getMatchingKey(labels);
   if (matchedKey === null) return;
 
   const toFill = data[matchedKey];
   if (toFill === null) return;
-
-  console.log(element);
 
   if (element.type === "text") {
     element.value = toFill;
@@ -168,6 +148,59 @@ function getMatchingKey(labels) {
   return null;
 }
 
+function getMatchedSite() {
+  const url = document.URL;
+  for (let key in siteMatch) {
+    for (let siteUrl of siteMatch[key]) {
+      if (url.indexOf(siteUrl) != -1) return key;
+    }
+  }
+
+  return null;
+}
+
+// Site specific functions
+// TODO - find a way to do partial match on ids
+function greenhouseSelect(element, value) {
+
+  element = element.parentNode;
+
+  if (element.getElementsByTagName("a").length === 0) return;
+
+  const aElement = element.getElementsByTagName("a")[0];
+  const event = new MouseEvent("mousedown", {
+    bubbles: true,
+    cancelable: true,
+  });
+  aElement.dispatchEvent(event);
+
+  const path = `//div[@id="select2-drop" and not(contains(@style, "display: none"))]//ul[@class="select2-results" and @role="listbox"]//li[@role="option"]`;
+  const results = document.evaluate(
+    path,
+    document,
+    null,
+    XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE,
+    null
+  );
+
+  let selectElement = null;
+  for (let i = 0; i < results.snapshotLength; i++) {
+    const text = results.snapshotItem(i).innerText;
+    if (text.toLowerCase().indexOf(value.toLowerCase()) != -1) {
+      selectElement = results.snapshotItem(i);
+      break;
+    }
+  }
+
+  if (selectElement === null) return;
+  selectElement.dispatchEvent(
+    new MouseEvent("mouseup", {
+      bubbles: true,
+      cancelable: true,
+    })
+  );
+}
+
 const fields = {
   firstName: { alias: ["first name"], match: "full" },
   lastName: { alias: ["last name"], match: "full" },
@@ -176,11 +209,56 @@ const fields = {
   locationCity: { alias: ["location (city)"], match: "full" },
   linkedIn: { alias: ["linkedin profile"], match: "full" },
   salary: { alias: ["desired salary"], match: "full" },
-  sponsorship: { alias: ["will you need sponsorship"], match: "partial" },
-  authorizedToWork: {
-    alias: ["legal right to work in the united states"],
+  sponsorship: {
+    alias: [
+      "require sponsorship",
+      "will you need sponsorship",
+      "require visa sponsorship",
+      "require visa support",
+    ],
     match: "partial",
   },
+  authorizedToWork: {
+    alias: [
+      "legal right to work in the united states",
+      "eligible to work in the country",
+      "authorized to work",
+    ],
+    match: "partial",
+  },
+  state: {
+    alias: ["state do you currently reside"],
+    match: "partial",
+  },
+  hybridOpinion: {
+    alias: ["comfortable working in a hybrid setting"],
+    match: "partial",
+  },
+  gender: {
+    alias: ["gender"],
+    match: "full",
+  },
+  country: {
+    alias: ["Where do you currently reside"],
+    match: "partial",
+  },
+  hispanicOption: {
+    alias: ["hispanic"],
+    match: "partial",
+  },
+  veteranStatus: {
+    alias: ["veteran"],
+    match: "partial",
+  },
+  disabilityStatus: {
+    alias: ["disability"],
+    match: "partial",
+  },
+};
+
+const siteMatch = {
+  jobBoardsGreenhouse: ["job-boards.greenhouse.io"],
+  greenhouse: ["greenhouse.io"],
 };
 
 const data = {
@@ -191,6 +269,13 @@ const data = {
   locationCity: "Herndon, Virginia, United States",
   linkedIn: "https://linkedin.com/peter",
   salary: "$90000",
-  sponsorship: "Yes",
+  sponsorship: "No",
   authorizedToWork: "Yes",
+  state: "Virginia",
+  hybridOpinion: "Yes",
+  gender: "Male",
+  country: "United States of America",
+  hispanicOption: "No",
+  veteranStatus: "I am not a protected veteran",
+  disabilityStatus: "i do not have",
 };
