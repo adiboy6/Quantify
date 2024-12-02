@@ -1,0 +1,19 @@
+{
+    "_id": ObjectId("6535a4c8a8cbbf4c98d7f123"),
+    "job_title": "Software Engineer",
+    "company": "Tech Solutions Inc.",
+    "location": "San Francisco, CA",
+    "experience_level": ["Mid-level", "3-5 years"],
+    "category": ["Engineering", "Full-time"],
+    "salary_range": [70000, 100000],
+    "posted_on": ISODate("2024-11-01T00:00:00Z"),
+    "last_availability_check": ISODate("2024-11-09T00:00:00Z"),
+    "status": "active",
+    "skills": ["JavaScript", "Node.js", "MongoDB", "React"],
+    "job_category": ["dev"],
+    "job_description": {
+      "basic_req": "Bachelor’s degree in Computer Science or related field, proficiency in JavaScript.",
+      "preferred_req": "Experience with cloud platforms, knowledge of DevOps tools."
+    }
+  }
+  

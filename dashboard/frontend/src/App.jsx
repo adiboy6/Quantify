@@ -1,4 +1,3 @@
-// src/App.jsx
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { AuthProvider } from "./contexts/AuthContext";
 import { useAuth } from "./contexts/AuthContext";
@@ -12,6 +11,9 @@ import "./styles/components.css";
 import "./App.css";
 import "@radix-ui/themes/styles.css";
 import { Theme } from "@radix-ui/themes";
+import SavedJobs from './Dashboard/SavedJobs.jsx';
+import { JobApplications } from './Dashboard/JobApplications.jsx';
+import Dashboard from './Dashboard/Dashboard.jsx';
 
 // Protected Route Component
 const ProtectedRoute = ({ children }) => {
@@ -61,38 +63,14 @@ function App() {
             <main className="flex-grow">
               <div className="container mx-auto px-4 py-8">
                 <Routes>
-                  <Route
-                    path="/"
-                    element={
-                      //<ProtectedRoute>
-                      <Home />
-                      //</ProtectedRoute>
-                    }
-                  />
-                  <Route
-                    path="/profile"
-                    element={
-                      <ProtectedRoute>
-                        <Profile />
-                      </ProtectedRoute>
-                    }
-                  />
-                  <Route
-                    path="/create-account"
-                    element={
-                      <PublicRoute>
-                        <CreateAccount />
-                      </PublicRoute>
-                    }
-                  />
-                  <Route
-                    path="/login"
-                    element={
-                      <PublicRoute>
-                        <Login />
-                      </PublicRoute>
-                    }
-                  />
+                  <Route path="/" element={<Home />} />
+                  <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
+                  <Route path="/create-account" element={<PublicRoute><CreateAccount /></PublicRoute>} />
+                  <Route path="/login" element={<PublicRoute><Login /></PublicRoute>} />
+                  <Route path="/dashboard" element={<Dashboard />}>
+                    <Route path="saved-jobs" element={<SavedJobs />} />
+                    <Route path="jobs" element={<JobApplications />} /> {/* New route for JobApplications */}
+                  </Route>
                 </Routes>
               </div>
             </main>

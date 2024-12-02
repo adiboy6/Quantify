@@ -1,0 +1,61 @@
+{
+    "_id": ObjectId("unique_user_id"),
+    "email": "johndoe@example.com",
+    "username": "johndoe",
+    "personals": {
+      "first_name": "John",
+      "middle_name": "M",              // Optional
+      "last_name": "Doe",
+      "dob": ISODate("1990-05-15")
+    },
+    "address": {
+      "address_line_1": "123 Main St",
+      "address_line_2": "Apt 4B",      // Optional
+      "city": "New York",
+      "state": "NY",
+      "postal_code": "10001",
+      "country": "USA"
+    },
+    "contact": {
+      "email": "johndoe@example.com",
+      "extension": "+1",               // Optional
+      "phone_number": "1234567890"
+    },
+    "work_experience": [
+      {
+        "job_title": "Software Engineer",
+        "company": "Tech Corp",
+        "location": "New York, NY",
+        "currently_working_here": true,
+        "from_date": ISODate("2018-01-01"),
+        "to_date": null,               // Null if currently working
+        "role_description": "Developing web applications and APIs", // Optional
+        "skills_used": ["JavaScript", "Node.js", "MongoDB"] // Optional
+      }
+    ],
+    "education": [
+      {
+        "school_or_university_name": "State University",
+        "degree": "Bachelor of Science",
+        "field_of_study": ["Computer Science"],
+        "GPA": "3.8",
+        "currently_studying_here": false,
+        "from_date": ISODate("2012-08-15"),
+        "to_date": ISODate("2016-05-15")
+      }
+    ],
+    "projects": [
+      {
+        "project_name": "E-commerce Platform",
+        "project_description": "Developed a full-stack e-commerce platform", // Optional
+        "skills_used": ["React", "Node.js", "MongoDB"],                      // Optional
+        "currently_working_on_it": false,
+        "from_date": ISODate("2020-03-01"),
+        "to_date": ISODate("2021-03-01")
+      }
+    ],
+    "skills": ["JavaScript", "Node.js", "React", "MongoDB"],
+    "certifications": ["AWS Certified Solutions Architect", "Certified Kubernetes Administrator"],
+    "resume": "https://storage.example.com/resume/johndoe_resume.pdf"
+  }
+  

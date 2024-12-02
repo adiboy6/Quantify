@@ -1,4 +1,3 @@
-// src/components/Header.jsx
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { getAuth, signOut } from "firebase/auth";
@@ -30,7 +29,7 @@ const Header = () => {
           </div>
 
           {/* Navigation */}
-          <nav className="flex space-x-4">
+          <nav className="flex items-center space-x-4">
             <Link
               to="/"
               className="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md"
@@ -41,20 +40,29 @@ const Header = () => {
             {user ? (
               <>
                 <Link
+                  to="/dashboard"
+                  className="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md"
+                >
+                  Dashboard
+                </Link>
+                <Link
                   to="/profile"
                   className="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md"
                 >
                   Profile
                 </Link>
-                <button
-                  onClick={handleLogout}
-                  className="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md"
-                >
-                  Logout
-                </button>
-                <span className="text-gray-600 px-3 py-2">
-                  Welcome, {user.displayName || user.email}
-                </span>
+                {/* Welcome message and user info */}
+                <div className="flex items-center space-x-4">
+                  <span className="text-gray-600 px-3 py-2">
+                    Welcome, {user.displayName || user.email}
+                  </span>
+                  <button
+                    onClick={handleLogout}
+                    className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors"
+                  >
+                    Logout
+                  </button>
+                </div>
               </>
             ) : (
               <>
@@ -66,7 +74,7 @@ const Header = () => {
                 </Link>
                 <Link
                   to="/create-account"
-                  className="bg-blue-600 text-white px-4 py-2 rounded-md"
+                  className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors"
                 >
                   Sign Up
                 </Link>

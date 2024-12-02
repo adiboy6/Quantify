@@ -1,7 +1,9 @@
 *node_modules*
 .DS_Store
+**/__pycache__/
 dashboard/frontend/pnpm-lock.yaml
 dashboard/backend/new_env
+dashboard/frontend/package-lock.json
 .venv*
 scraper/.env
 dashboard/backend/.env
