@@ -4,4 +4,6 @@
 dashboard/frontend/pnpm-lock.yaml
 dashboard/backend/new_env
 dashboard/frontend/package-lock.json
-dashboard/frontend/pnpm-lock.yaml
+.venv*
+scraper/.env
+dashboard/backend/.env

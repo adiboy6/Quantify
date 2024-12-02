@@ -1,6 +1,10 @@
 from flask import Flask, request, jsonify
 from flask_pymongo import PyMongo
 from flask_cors import CORS
+from werkzeug.local import LocalProxy
+from pymongo.errors import DuplicateKeyError, OperationFailure
+from bson.objectid import ObjectId
+from bson.errors import InvalidId
 from bson import ObjectId
 import bcrypt
 import os
@@ -9,6 +13,9 @@ from pymongo import MongoClient
 from pymongo.server_api import ServerApi
 from schema.job_schema import job_schema
 from datetime import datetime
+from dotenv import load_dotenv
+
+load_dotenv()
 
 app = Flask(__name__,static_url_path='',static_folder='static/') 
             
