@@ -7,3 +7,4 @@ dashboard/frontend/package-lock.json
 .venv*
 scraper/.env
 dashboard/backend/.env
+dashboard/backend/static/resume/*
