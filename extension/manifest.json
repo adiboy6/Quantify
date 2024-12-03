@@ -16,5 +16,6 @@
   "background": {
     "service_worker": "scripts/service_worker.js"
   },
-  "permissions": ["storage"]
+  "permissions": ["storage", "cookies"],
+  "host_permissions": ["<all_urls>"]
 }

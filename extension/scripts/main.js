@@ -12,6 +12,11 @@ async function startAutoFill() {
     key: "FETCH_PROFILE_INFO",
   });
 
+  const cookieData = await chrome.runtime.sendMessage({
+    key: "FETCH_COOKIES",
+  });
+  console.log(cookieData);
+
   // Process all form elements
   const allForms = document.querySelectorAll("form");
   allForms.forEach(processForm);

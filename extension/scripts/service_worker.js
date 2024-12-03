@@ -1,4 +1,5 @@
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+  console.log(chrome.cookies);
   console.log(message);
   if (message.key === "FETCH_PROFILE_INFO") {
     chrome.storage.session.get(["lastName"]).then((result) => {
@@ -17,6 +18,13 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
           sendResponse({ last: data["results"][0]["name"]["last"] });
         });
       }
+    });
+  }
+
+  if (message.key === "FETCH_COOKIES") {
+    const domain = "http://localhost:5173/";
+    chrome.cookies.getAll({ url: domain }, function (data) {
+      sendResponse({ data: data });
     });
   }
 
