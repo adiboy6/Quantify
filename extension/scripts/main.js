@@ -171,7 +171,7 @@ function greenhouseSelect(element, value) {
   });
   aElement.dispatchEvent(event);
 
-  const path = `//div[@id="select2-drop" and not(contains(@style, "display: none"))]//ul[@class="select2-results" and @role="listbox"]//li[@role="option"]`;
+  const path = `//div[@id="select2-drop"]//ul[@role="listbox"]//li[@role="option"]`;
   const results = document.evaluate(
     path,
     document,
