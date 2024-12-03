@@ -57,6 +57,13 @@ const Login = () => {
       );
 
       console.log("Login successful:", userCredential.user);
+      const expiryDate = new Date();
+      expiryDate.setDate(expiryDate.getDate() + 1);
+
+      document.cookie = `email=${
+        formData.email
+      };expires=${expiryDate.toUTCString()}`;
+
       navigate("/"); // Redirect to home page after successful login
     } catch (error) {
       console.error("Login error:", error);
