@@ -64,6 +64,8 @@ async function startAutoFill() {
     });
 }
 
+startAutoFill();
+
 chrome.runtime.onMessage.addListener(async (message, sender, sendResponse) => {
   if (message.key === "START_AUTO_FILL") {
     await startAutoFill();
