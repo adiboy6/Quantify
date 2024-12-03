@@ -1,80 +1,72 @@
-(async () => {
-  // Sends a message to the service worker and receives a tip in response
-  await chrome.runtime.sendMessage({
-    key: "FETCH_PROFILE_INFO",
-  });
-})();
-
+let data = {};
 async function startAutoFill() {
   console.log("starting autofill");
 
-  const data = await chrome.runtime.sendMessage({
+  data = await chrome.runtime.sendMessage({
     key: "FETCH_PROFILE_INFO",
   });
+  data = data["data"];
 
-  const cookieData = await chrome.runtime.sendMessage({
-    key: "FETCH_COOKIES",
-  });
-  console.log(cookieData);
+  console.log(data);
 
   // Process all form elements
   const allForms = document.querySelectorAll("form");
   allForms.forEach(processForm);
-}
 
-chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-  if (message.key === "START_AUTO_FILL") {
-    startAutoFill();
+  const tabElements = Array.from(
+    document
+      // Get all elements that can be focusable
+      .querySelectorAll(
+        "a, button, input, textarea, select, details, [tabindex]"
+      )
+  )
+    .filter((element) => element.tabIndex > -1)
+    .reverse()
+    .sort((a, b) => (a.tabIndex > b.tabIndex ? -1 : 1));
 
-    const tabElements = Array.from(
-      document
-        // Get all elements that can be focusable
-        .querySelectorAll(
-          "a, button, input, textarea, select, details, [tabindex]"
-        )
-    )
-      .filter((element) => element.tabIndex > -1)
-      .reverse()
-      .sort((a, b) => (a.tabIndex > b.tabIndex ? -1 : 1));
+  tabElements.forEach((element) => {
+    if (
+      element.getAttribute("role") === "button" ||
+      element.getAttribute("type") === "button"
+    ) {
+      const labels = getLabels(element);
 
-    tabElements.forEach((element) => {
-      if (
-        element.getAttribute("role") === "button" ||
-        element.getAttribute("type") === "button"
-      ) {
-        const labels = getLabels(element);
+      fillSelectField(element, labels);
+    }
+  });
+  const resumeEle = document.getElementById("resume_fieldset");
+  console.log(resumeEle);
 
-        fillSelectField(element, labels);
+  fetch(`http://127.0.0.1:5000/resume/${data["resumePath"]}`)
+    .then((response) => response.blob())
+    .then((blob) => {
+      const dt = new DataTransfer();
+      dt.items.add(new File([blob], "resume.pdf"));
+
+      const path = `.//form[@id="s3_upload_for_resume"]//input[@type="file"]`;
+      const results = document.evaluate(
+        path,
+        document,
+        null,
+        XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE,
+        null
+      );
+
+      let selectElement = null;
+      for (let i = 0; i < results.snapshotLength; i++) {
+        const text = results.snapshotItem(i).innerText;
+        console.log(results.snapshotItem(i));
+        results.snapshotItem(i).files = dt.files;
+        results
+          .snapshotItem(i)
+          .dispatchEvent(new Event("change", { bubbles: true }));
       }
     });
-    const resumeEle = document.getElementById("resume_fieldset");
-    console.log(resumeEle);
+}
 
-    fetch("http://127.0.0.1:5000/resume/resume.pdf")
-      .then((response) => response.blob())
-      .then((blob) => {
-        const dt = new DataTransfer();
-        dt.items.add(new File([blob], "resume.pdf"));
-
-        const path = `.//form[@id="s3_upload_for_resume"]//input[@type="file"]`;
-        const results = document.evaluate(
-          path,
-          document,
-          null,
-          XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE,
-          null
-        );
-
-        let selectElement = null;
-        for (let i = 0; i < results.snapshotLength; i++) {
-          const text = results.snapshotItem(i).innerText;
-          console.log(results.snapshotItem(i));
-          results.snapshotItem(i).files = dt.files;
-          results
-            .snapshotItem(i)
-            .dispatchEvent(new Event("change", { bubbles: true }));
-        }
-      });
+chrome.runtime.onMessage.addListener(async (message, sender, sendResponse) => {
+  if (message.key === "START_AUTO_FILL") {
+    await startAutoFill();
   }
 });
 
@@ -264,21 +256,22 @@ const siteMatch = {
   greenhouse: ["greenhouse.io"],
 };
 
-const data = {
-  firstName: "Peter",
-  lastName: "Parker",
-  email: "peter@gmail.com",
-  phone: "7118082143",
-  locationCity: "Herndon, Virginia, United States",
-  linkedIn: "https://linkedin.com/peter",
-  salary: "$90000",
-  sponsorship: "No",
-  authorizedToWork: "Yes",
-  state: "Virginia",
-  hybridOpinion: "Yes",
-  gender: "Male",
-  country: "United States of America",
-  hispanicOption: "No",
-  veteranStatus: "I am not a protected veteran",
-  disabilityStatus: "i do not have",
-};
+// const data = {
+//   firstName: "Peter",
+//   lastName: "Parker",
+//   email: "peter@gmail.com",
+//   phone: "7118082143",
+//   locationCity: "Herndon, Virginia, United States",
+//   linkedIn: "https://linkedin.com/peter",
+//   salary: "$90000",
+//   sponsorship: "No",
+//   authorizedToWork: "Yes",
+//   state: "Virginia",
+//   hybridOpinion: "Yes",
+//   gender: "Male",
+//   country: "United States of America",
+//   hispanicOption: "No",
+//   veteranStatus: "I am not a protected veteran",
+//   disabilityStatus: "i do not have",
+//   resumePath: "peter_resume.pdf",
+// };

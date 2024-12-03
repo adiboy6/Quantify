@@ -1,30 +1,30 @@
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-  console.log(chrome.cookies);
-  console.log(message);
+  const domain = "http://localhost:5173/";
+
   if (message.key === "FETCH_PROFILE_INFO") {
-    chrome.storage.session.get(["lastName"]).then((result) => {
-      if (result["lastName"] !== undefined) {
-        console.log("data cached... returning");
-        sendResponse({ last: result["lastName"] });
-      } else {
-        fetch("https://randomuser.me/api").then(async (response) => {
-          const data = await response.json();
-          const lastName = data["results"][0]["name"]["last"];
+    chrome.cookies.getAll({ url: domain }, function (cookies) {
+      let loggedInUserEmail = null;
 
-          chrome.storage.session.set({ lastName }).then(() => {
-            console.log("Value was set");
-          });
+      cookies.forEach((cookie) => {
+        if (cookie.name === "email" && cookie.value.length > 0) {
+          loggedInUserEmail = cookie.value;
+        }
+      });
 
-          sendResponse({ last: data["results"][0]["name"]["last"] });
-        });
-      }
+      if (loggedInUserEmail === null) sendResponse({ data: null });
+
+      const url = `http://127.0.0.1:5000/api/getUserProfile?email=${loggedInUserEmail}`;
+      fetch(url).then(async (response) => {
+        console.log(response);
+        const data = await response.json();
+        sendResponse({ data: data });
+      });
     });
   }
 
   if (message.key === "FETCH_COOKIES") {
-    const domain = "http://localhost:5173/";
     chrome.cookies.getAll({ url: domain }, function (data) {
-      sendResponse({ data: data });
+      sendResponse(data);
     });
   }
 
