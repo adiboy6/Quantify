@@ -1,35 +1,30 @@
-version: "3"
+version: "3.8"
 
 services:
-  backend:
+  api:
+    image: quantify.azurecr.io/dashboard-api:v1
+    container_name: dashboard-api
     build:
-      context: .
-      dockerfile: backend/Dockerfile
+      context: ./backend
+      dockerfile: Dockerfile
     ports:
-      - "8080:5000"
-    environment:
-      - FLASK_ENV=production
-    volumes:
-      - ./backend:/app
+      - "5000:5000"
     networks:
-      - app-network
+      - dashboard-network
 
-  frontend:
+  ui:
+    image: quantify.azurecr.io/dashboard-ui:v1
+    container_name: dashboard-ui
     build:
-      context: .
-      dockerfile: frontend/Dockerfile
-      args:
-        - VITE_API_URL=http://backend:8080 # Ensure it's passed to the build
-    environment:
-      - VITE_API_URL=http://backend:8080 # Backend API URL for the frontend
+      context: ./frontend
+      dockerfile: Dockerfile
     ports:
-      - "3000:80" # Map port 80 in the container to 3000 locally
+      - "80:80"
+    environment:
+      REACT_APP_VITE_API_URL: "http://api:5000" # Using the service name `api` to link the backend
     networks:
-      - app-network
-    depends_on:
-      - backend
-
+      - dashboard-network
 
 networks:
-  app-network:
+  dashboard-network:
     driver: bridge
