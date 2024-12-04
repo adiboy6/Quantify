@@ -1,0 +1,35 @@
+version: "3"
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    ports:
+      - "8080:5000"
+    environment:
+      - FLASK_ENV=production
+    volumes:
+      - ./backend:/app
+    networks:
+      - app-network
+
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+      args:
+        - VITE_API_URL=http://backend:8080 # Ensure it's passed to the build
+    environment:
+      - VITE_API_URL=http://backend:8080 # Backend API URL for the frontend
+    ports:
+      - "3000:80" # Map port 80 in the container to 3000 locally
+    networks:
+      - app-network
+    depends_on:
+      - backend
+
+
+networks:
+  app-network:
+    driver: bridge

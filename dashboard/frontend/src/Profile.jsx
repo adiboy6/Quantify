@@ -127,7 +127,8 @@ export function Profile() {
     }
 
     try {
-      const result = await fetch("http://localhost:8000/createProfile", {
+      //const result = await fetch("http://localhost:8000/createProfile", {
+      const result = await fetch(`${import.meta.env.VITE_API_URL}/createProfile`, {
         method: "POST",
         body: formData,
       });

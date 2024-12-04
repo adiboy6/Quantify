@@ -11,7 +11,6 @@ import os
 import json
 from pymongo import MongoClient
 from pymongo.server_api import ServerApi
-from schema.job_schema import job_schema
 from datetime import datetime
 from dotenv import load_dotenv
 
@@ -19,7 +18,7 @@ load_dotenv()
 
 app = Flask(__name__,static_url_path='',static_folder='static/') 
             
-CORS(app)
+CORS(app, resources={r"/api/*": {"origins": "*", "allow_headers": ["Content-Type", "Authorization"]}})
 
 uri = os.getenv("MONGO_URI")
 # Create a new client and connect to the server
@@ -33,20 +32,6 @@ except Exception as e:
 
 db = client['JAB']
 collection = db['jobApplications']
-
-# with open('./schema/sample_data.json', 'r') as file:
-#     job_data = json.load(file)
-
-# for job in job_data:
-#     job['posted_on'] = datetime.strptime(job['posted_on'], "%Y-%m-%dT%H:%M:%SZ")
-#     job['last_availability_check'] = datetime.strptime(job['last_availability_check'], "%Y-%m-%dT%H:%M:%SZ")
-    
-
-# try:
-#     collection.insert_many(job_data)
-#     print("Jobs inserted successfully.")
-# except Exception as e:
-#     print(f"Error inserting jobs: {e}")
 
 @app.route('/api/jobs', methods=['GET'])
 def get_jobs():
@@ -105,5 +90,5 @@ def login():
         return jsonify({"error": "Invalid password"}), 401
 
 if __name__ == "__main__":
-    app.run(port=5000, debug=True)
+    app.run(host="0.0.0.0", port=5000, debug=True)
 
