@@ -49,6 +49,37 @@ def get_jobs():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
     
+@app.route('/api/getUserProfile', methods=['GET'])
+def get_profile():
+    try:
+        userEmail = request.args.get('email')
+        print("User Email: "+userEmail)
+
+        # TODO - The user profile should be fetched from mongodb
+        userProfile = {
+            "firstName": "Norman",
+            "lastName": "Osborn",
+            "email": "peter@gmail.com",
+            "phone": "7118082143",
+            "locationCity": "Dulles, Virginia, United States",
+            "linkedIn": "https://linkedin.com/peter",
+            "salary": "$90000",
+            "sponsorship": "No",
+            "authorizedToWork": "No",
+            "state": "Florida",
+            "hybridOpinion": "Yes",
+            "gender": "Male",
+            "country": "United States of America",
+            "hispanicOption": "No",
+            "veteranStatus": "I am not a protected veteran",
+            "disabilityStatus": "i do not have",
+            "resumePath": "peter_resume.pdf"
+        }
+
+        return jsonify(userProfile), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+    
 @app.route('/register', methods=['POST'])
 def register():
     data = request.json
