@@ -200,11 +200,15 @@ export function JobApplications() {
                 <Table.RowHeaderCell>
                   <Checkbox
                     defaultChecked={false}
-                    onChange={(e) => handleCheckboxChange(job, e.target.checked)}
+                    onCheckedChange={(e) => handleCheckboxChange(job, e)}
                   />
                 </Table.RowHeaderCell>
                 <Table.Cell>
-                  <a href={job.job_apply_link} target="_blank" rel="noopener noreferrer">
+                  <a
+                    href={job.job_apply_link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     {job.job_title}
                   </a>
                 </Table.Cell>
@@ -244,7 +248,9 @@ export function JobApplications() {
             key={index}
             onClick={() => handlePageChange(index + 1)}
             className={`px-2 py-1 rounded ${
-              currentPage === index + 1 ? "bg-blue-600 text-white" : "bg-gray-200"
+              currentPage === index + 1
+                ? "bg-blue-600 text-white"
+                : "bg-gray-200"
             }`}
           >
             {index + 1}
