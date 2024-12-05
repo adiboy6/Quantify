@@ -33,6 +33,7 @@ except Exception as e:
 
 db = client['JAB']
 collection = db['jobApplications']
+user_profile_collection = db['userProfiles']
 
 # with open('./schema/sample_data.json', 'r') as file:
 #     job_data = json.load(file)
@@ -68,33 +69,58 @@ def get_jobs():
 def get_profile():
     try:
         userEmail = request.args.get('email')
-        print("User Email: "+userEmail)
+        query = {"email": userEmail}
+
+        response = user_profile_collection.find(query)
+        userProfile = {}
+
+        for entry in response:
+            userProfile = json.dumps(entry, default=str)
 
         # TODO - The user profile should be fetched from mongodb
-        userProfile = {
-            "firstName": "Norman",
-            "lastName": "Osborn",
-            "email": "peter@gmail.com",
-            "phone": "7118082143",
-            "locationCity": "Dulles, Virginia, United States",
-            "linkedIn": "https://linkedin.com/peter",
-            "salary": "$90000",
-            "sponsorship": "No",
-            "authorizedToWork": "No",
-            "state": "Florida",
-            "hybridOpinion": "Yes",
-            "gender": "Male",
-            "country": "United States of America",
-            "hispanicOption": "No",
-            "veteranStatus": "I am not a protected veteran",
-            "disabilityStatus": "i do not have",
-            "resumePath": "peter_resume.pdf"
-        }
+        # userProfile = {
+        #     "firstName": "Norman",
+        #     "lastName": "Osborn",
+        #     "email": "peter@gmail.com",
+        #     "phone": "7118082143",
+        #     "city": "Dulles, Virginia, United States",
+        #     "linkedIn": "https://linkedin.com/peter",
+        #     "salary": "$90000",
+        #     "sponsorship": "No",
+        #     "authorizedToWork": "No",
+        #     "state": "Florida",
+        #     "hybridOpinion": "Yes",
+        #     "gender": "Male",
+        #     "country": "United States of America",
+        #     "hispanicOption": "No",
+        #     "veteranStatus": "I am not a protected veteran",
+        #     "disabilityStatus": "i do not have",
+        #     "resumePath": "peter_resume.pdf"
+        # }
 
-        return jsonify(userProfile), 200
+        return userProfile, 200
     except Exception as e:
         return jsonify({"error": str(e)}), 500
-    
+
+@app.route('/createProfile', methods=['POST'])
+def createProfile():
+    resume_saved_name = ""
+
+    try:
+        resume = request.files['resume']
+        if resume:
+            resume_saved_name = request.form["email"].replace("@","_").replace(".","_")+".pdf"
+            resume.save(os.path.join("./static/resume/", resume_saved_name))
+    except:
+        print("No resume found")
+
+    userProfile = request.form.to_dict()
+    userProfile["resume"] = resume_saved_name
+
+    user_profile_collection.insert_one(userProfile)
+
+    return jsonify({"message": "User profile created successfully"}), 201
+
 @app.route('/register', methods=['POST'])
 def register():
     data = request.json

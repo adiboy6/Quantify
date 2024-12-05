@@ -203,7 +203,7 @@ const fields = {
   lastName: { alias: ["last name"], match: "full" },
   email: { alias: ["email"], match: "full" },
   phone: { alias: ["phone"], match: "full" },
-  locationCity: { alias: ["location (city)"], match: "full" },
+  city: { alias: ["location (city)"], match: "full" },
   linkedIn: { alias: ["linkedin profile"], match: "full" },
   salary: { alias: ["desired salary"], match: "full" },
   sponsorship: {
@@ -247,7 +247,7 @@ const fields = {
     alias: ["veteran"],
     match: "partial",
   },
-  disabilityStatus: {
+  disability: {
     alias: ["disability"],
     match: "partial",
   },

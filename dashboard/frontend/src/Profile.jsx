@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { useAuth } from "./contexts/AuthContext";
 import { Box, Grid, Flex, Select, Button } from "@radix-ui/themes";
 import { TrashIcon } from "@heroicons/react/24/outline";
+
 const keys = {
   firstName: "First Name",
   lastName: "Last Name",
@@ -17,9 +19,10 @@ const keys = {
   portfolio: "Portfolio",
   interestedRoles: "Interested Roles",
   roleType: "Role type",
-
+  hispanicOption: "Are you Hispanic/Latino?",
   sponsorship:
     "Will you now or in the future require sponsorship for employment work authorization to work in the United States?",
+  authorizedToWork: "Are you authorized to work in the United States?",
   gender: "Gender",
   veteranStatus: "Veteran Status",
   disability: "Disability Status",
@@ -28,7 +31,9 @@ const keys = {
 
 const selectFields = {
   sponsorship: ["Yes", "No"],
+  authorizedToWork: ["Yes", "No"],
   gender: ["Male", "Female", "Decline to Self Identify"],
+  hispanicOption: ["Yes", "No", "Decline to Self Identify"],
   disability: [
     "Yes, I have a disability, or have had one in the past",
     "No, I do not have a disability and have not had one in the past",
@@ -78,6 +83,7 @@ const initialData = {
   portfolio: "",
   resume: "",
   sponsorship: "No",
+  authorizedToWork: "No",
   gender: "",
   disability: "",
   interestedRoles: [],
@@ -95,8 +101,10 @@ const multiSelect = {
 };
 
 export function Profile() {
+  const { user } = useAuth();
   const [data, setData] = useState(initialData);
   const [submitDisabled, setSubmitDisabled] = useState(false);
+  const [profileCreated, setProfileCreated] = useState(false);
 
   function handleChange(e, k, addressKey = null) {
     const clone = structuredClone(data);
@@ -126,24 +134,46 @@ export function Profile() {
       }
     }
 
+    formData.append("email", user.email);
+
     try {
-      const result = await fetch("http://localhost:8000/createProfile", {
+      const response = await fetch("http://127.0.0.1:5000/createProfile", {
         method: "POST",
         body: formData,
       });
 
-      const data = await result.json();
+      const data = await response.json();
+      if (response.status === 201) {
+        setProfileCreated(true);
+      }
       console.log(data);
     } catch (e) {
       console.log(e);
     }
   }
 
+  if (profileCreated) {
+    return (
+      <Box
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <h2 className="md:text-4xl mb-16 font-bold leading-tight text-blue-600">
+          Your Profile is created
+        </h2>
+      </Box>
+    );
+  }
+
   const fields = [];
   for (let k in keys) {
     if (Object.keys(multiSelect).includes(k)) {
       fields.push(
-        <div style={{ margin: "3rem 0" }}>
+        <div key={k} style={{ margin: "3rem 0" }}>
           <label htmlFor={k}>{keys[k]}:</label>
           <br />
           <Flex gap="3" style={{ maxWidth: "30rem" }} wrap="wrap">
