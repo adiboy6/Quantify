@@ -51,6 +51,7 @@ user_profile_collection = db['userProfiles']
 
 @app.route('/api/jobs', methods=['GET'])
 def get_jobs():
+    domains_to_filter = ["boards.greenhouse.io"]
     try:
         jobs = list(collection.find({}, {
             "job_title": 1,
@@ -61,7 +62,15 @@ def get_jobs():
             "posted_on": 1,
             "_id": 0
         }))
-        return jsonify(jobs), 200
+
+        filtered_jobs = []
+        for job in jobs:
+            for domain in domains_to_filter:
+                if job["job_apply_link"].find(domain) != -1:
+                    filtered_jobs.append(job)
+                    break
+        
+        return jsonify(filtered_jobs), 200
     except Exception as e:
         return jsonify({"error": str(e)}), 500
     
