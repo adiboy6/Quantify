@@ -128,7 +128,6 @@ export function JobApplications() {
 
   return (
     <>
-      {/* Filter Section */}
       <div className="mb-4 flex space-x-4">
         <select
           name="company"
@@ -180,7 +179,6 @@ export function JobApplications() {
         </button>
       </div>
 
-      {/* Table Section */}
       <Table.Root variant="surface">
         <Table.Header>
           <Table.Row className="text-blue-600">
@@ -230,7 +228,6 @@ export function JobApplications() {
         </Table.Body>
       </Table.Root>
 
-      {/* Apply Selected Jobs Button */}
       <div className="mt-4 flex justify-center">
         <button
           className="bg-green-600 text-white px-4 py-2 rounded-md"
@@ -240,7 +237,6 @@ export function JobApplications() {
         </button>
       </div>
 
-      {/* Pagination Controls */}
       <div className="mt-4 flex justify-center items-center space-x-2">
         <button onClick={handlePrevPage} disabled={currentPage === 1}>
           ◀

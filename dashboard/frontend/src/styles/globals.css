@@ -1,9 +1,7 @@
-/* src/styles/globals.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Custom base styles */
 @layer base {
   html {
     scroll-behavior: smooth;
@@ -13,12 +11,16 @@
     @apply text-gray-800 antialiased;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-bold;
   }
 }
 
-/* Custom component classes */
 @layer components {
   .btn {
     @apply inline-flex items-center justify-center px-6 py-3 rounded-full font-medium transition-all duration-200;
@@ -48,8 +50,6 @@
     @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
   }
 }
-
-/* Custom animations */
 @layer utilities {
   .animation-delay-200 {
     animation-delay: 200ms;

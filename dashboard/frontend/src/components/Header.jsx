@@ -22,14 +22,12 @@ const Header = () => {
     <header className="bg-white shadow-sm">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          {/* Logo */}
           <div className="flex-shrink-0">
             <Link to="/" className="text-2xl font-bold text-blue-600">
               Quantify
             </Link>
           </div>
 
-          {/* Navigation */}
           <nav className="flex items-center space-x-4">
             <Link
               to="/"
@@ -52,7 +50,7 @@ const Header = () => {
                 >
                   Profile
                 </Link>
-                {/* Welcome message and user info */}
+
                 <div className="flex items-center space-x-4">
                   <span className="text-gray-600 px-3 py-2">
                     Welcome, {user.displayName || user.email}

@@ -28,7 +28,6 @@ const features = [
 export function Home() {
   return (
     <div>
-      {/* Hero Section */}
       <div className="max-w-6xl mx-auto px-6 py-16">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-8">
@@ -73,7 +72,6 @@ export function Home() {
         </div>
       </div>
 
-      {/* Features Section */}
       <div className="bg-gray-50 py-20">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-16">
@@ -102,7 +100,6 @@ export function Home() {
         </div>
       </div>
 
-      {/* How it Works Section */}
       <div className="max-w-6xl mx-auto px-6 py-20">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -146,7 +143,6 @@ export function Home() {
         </div>
       </div>
 
-      {/* CTA Section */}
       {/* <div className="bg-blue-600 py-16">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
