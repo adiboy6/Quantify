@@ -141,10 +141,13 @@ export function Profile() {
     formData.append("email", user.email);
 
     try {
-      const response = await fetch("http://127.0.0.1:5000/createProfile", {
-        method: "POST",
-        body: formData,
-      });
+      const response = await fetch(
+        `${import.meta.env.VITE_BACKEND_HOST}/createProfile`,
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
 
       const data = await response.json();
       if (response.status === 201) {

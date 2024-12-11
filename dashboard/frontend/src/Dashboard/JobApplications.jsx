@@ -24,7 +24,9 @@ export function JobApplications() {
   useEffect(() => {
     async function fetchJobs() {
       try {
-        const response = await fetch("http://localhost:5000/api/jobs");
+        const response = await fetch(
+          `${import.meta.env.VITE_BACKEND_HOST}/api/jobs`
+        );
         if (response.ok) {
           const data = await response.json();
           setRowData(data);
