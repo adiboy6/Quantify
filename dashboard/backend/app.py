@@ -14,6 +14,7 @@ from pymongo.server_api import ServerApi
 from schema.job_schema import job_schema
 from datetime import datetime
 from dotenv import load_dotenv
+from cover_letter import generate_cover_letter
 
 load_dotenv()
 
@@ -108,6 +109,32 @@ def get_profile():
         # }
 
         return userProfile, 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+    
+@app.route('/generate_cover_letter/<job_id>', methods=['GET'])
+def generate_cover_letter_api(job_id):
+    try:
+        # Fetch user profile
+        user_email = request.args.get("email")
+        user = user_profile_collection.find_one({"email": user_email})
+        if not user:
+            return jsonify({"error": "User not found"}), 404
+
+        # Get resume 
+        resume_path = user.get("resume")
+
+        # Fetch job details 
+        job = collection.find_one({"_id": job_id})
+
+        job_role = job["title"]
+        company_name = job["company"]
+        company_context = job["description"]
+
+        # Generate cover letter
+        cover_letter = generate_cover_letter(resume_path, job_role, company_name, company_context)
+        return jsonify({"cover_letter": cover_letter}), 200
+
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
