@@ -8,6 +8,8 @@ const keys = {
   lastName: "Last Name",
   education: "Education",
   experience: "Experience",
+  phone: "Phone",
+  salary: "Expected Salary",
   address: {
     street: "Street",
     apt: "Apt",
@@ -72,6 +74,8 @@ const initialData = {
   lastName: "",
   education: [initialEducationData],
   experience: [initialProfessionalExperience],
+  phone: "",
+  salary: "",
   address: {
     street: "",
     apt: "",
