@@ -5,9 +5,11 @@ async function startAutoFill() {
   data = await chrome.runtime.sendMessage({
     key: "FETCH_PROFILE_INFO",
   });
+
   data = data["data"];
 
   console.log(data);
+  const config = await chrome.runtime.sendMessage({ key: "FETCH_CONFIG" });
 
   // Process all form elements
   const allForms = document.querySelectorAll("form");
@@ -37,7 +39,7 @@ async function startAutoFill() {
   const resumeEle = document.getElementById("resume_fieldset");
   console.log(resumeEle);
 
-  fetch(`http://127.0.0.1:5000/resume/${data["resumePath"]}`)
+  fetch(`${config["backend_url"]}/resume/${data["resumePath"]}`)
     .then((response) => response.blob())
     .then((blob) => {
       const dt = new DataTransfer();

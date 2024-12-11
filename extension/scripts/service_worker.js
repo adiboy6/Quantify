@@ -1,8 +1,11 @@
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-  const domain = "http://localhost:5173/";
+  const config = {
+    dashboard_url: "http://localhost:5173",
+    backend_url: "http://127.0.0.1:5000",
+  };
 
   if (message.key === "FETCH_PROFILE_INFO") {
-    chrome.cookies.getAll({ url: domain }, function (cookies) {
+    chrome.cookies.getAll({ url: config["dashboard_url"] }, function (cookies) {
       let loggedInUserEmail = null;
 
       cookies.forEach((cookie) => {
@@ -13,7 +16,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 
       if (loggedInUserEmail === null) sendResponse({ data: null });
 
-      const url = `http://127.0.0.1:5000/api/getUserProfile?email=${loggedInUserEmail}`;
+      const url = `${config["backend_url"]}/api/getUserProfile?email=${loggedInUserEmail}`;
       fetch(url).then(async (response) => {
         console.log(response);
         const data = await response.json();
@@ -22,8 +25,12 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     });
   }
 
+  if (message.key === "FETCH_CONFIG") {
+    sendResponse(config);
+  }
+
   if (message.key === "FETCH_COOKIES") {
-    chrome.cookies.getAll({ url: domain }, function (data) {
+    chrome.cookies.getAll({ url: config["dashboard_url"] }, function (data) {
       sendResponse(data);
     });
   }
