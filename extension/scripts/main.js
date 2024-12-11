@@ -5,9 +5,11 @@ async function startAutoFill() {
   data = await chrome.runtime.sendMessage({
     key: "FETCH_PROFILE_INFO",
   });
+
   data = data["data"];
 
   console.log(data);
+  const config = await chrome.runtime.sendMessage({ key: "FETCH_CONFIG" });
 
   // Process all form elements
   const allForms = document.querySelectorAll("form");
@@ -37,7 +39,7 @@ async function startAutoFill() {
   const resumeEle = document.getElementById("resume_fieldset");
   console.log(resumeEle);
 
-  fetch(`http://127.0.0.1:5000/resume/${data["resumePath"]}`)
+  fetch(`${config["backend_url"]}/resume/${data["resumePath"]}`)
     .then((response) => response.blob())
     .then((blob) => {
       const dt = new DataTransfer();
@@ -203,7 +205,7 @@ const fields = {
   lastName: { alias: ["last name"], match: "full" },
   email: { alias: ["email"], match: "full" },
   phone: { alias: ["phone"], match: "full" },
-  locationCity: { alias: ["location (city)"], match: "full" },
+  city: { alias: ["location (city)"], match: "full" },
   linkedIn: { alias: ["linkedin profile"], match: "full" },
   salary: { alias: ["desired salary"], match: "full" },
   sponsorship: {
@@ -247,7 +249,7 @@ const fields = {
     alias: ["veteran"],
     match: "partial",
   },
-  disabilityStatus: {
+  disability: {
     alias: ["disability"],
     match: "partial",
   },

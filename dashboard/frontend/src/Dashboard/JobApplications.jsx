@@ -129,7 +129,6 @@ export function JobApplications() {
 
   return (
     <>
-      {/* Filter Section */}
       <div className="mb-4 flex space-x-4">
         <select
           name="company"
@@ -181,7 +180,6 @@ export function JobApplications() {
         </button>
       </div>
 
-      {/* Table Section */}
       <Table.Root variant="surface">
         <Table.Header>
           <Table.Row className="text-blue-600">
@@ -203,11 +201,15 @@ export function JobApplications() {
                 <Table.RowHeaderCell>
                   <Checkbox
                     defaultChecked={false}
-                    onChange={(e) => handleCheckboxChange(job, e.target.checked)}
+                    onCheckedChange={(e) => handleCheckboxChange(job, e)}
                   />
                 </Table.RowHeaderCell>
                 <Table.Cell>
-                  <a href={job.job_apply_link} target="_blank" rel="noopener noreferrer">
+                  <a
+                    href={job.job_apply_link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     {job.job_title}
                   </a>
                 </Table.Cell>
@@ -227,7 +229,6 @@ export function JobApplications() {
         </Table.Body>
       </Table.Root>
 
-      {/* Apply Selected Jobs Button */}
       <div className="mt-4 flex justify-center">
         <button
           className="bg-green-600 text-white px-4 py-2 rounded-md"
@@ -237,7 +238,6 @@ export function JobApplications() {
         </button>
       </div>
 
-      {/* Pagination Controls */}
       <div className="mt-4 flex justify-center items-center space-x-2">
         <button onClick={handlePrevPage} disabled={currentPage === 1}>
           ◀
@@ -247,7 +247,9 @@ export function JobApplications() {
             key={index}
             onClick={() => handlePageChange(index + 1)}
             className={`px-2 py-1 rounded ${
-              currentPage === index + 1 ? "bg-blue-600 text-white" : "bg-gray-200"
+              currentPage === index + 1
+                ? "bg-blue-600 text-white"
+                : "bg-gray-200"
             }`}
           >
             {index + 1}

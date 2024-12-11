@@ -1,5 +1,5 @@
-import React from 'react';
-import { Outlet, Link, useLocation } from 'react-router-dom';
+import React from "react";
+import { Outlet, Link, useLocation } from "react-router-dom";
 
 const Dashboard = () => {
   const location = useLocation();
@@ -16,7 +16,6 @@ const Dashboard = () => {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-        {/* Sidebar */}
         <div className="lg:col-span-3">
           <div className="bg-white p-6 rounded-lg shadow-sm">
             <h2 className="font-semibold text-gray-900 mb-4">Quick Links</h2>
@@ -24,7 +23,9 @@ const Dashboard = () => {
               <Link
                 to="/dashboard/saved-jobs"
                 className={`block text-gray-600 hover:text-blue-600 ${
-                  location.pathname.includes('/saved-jobs') ? 'text-blue-600' : ''
+                  location.pathname.includes("/saved-jobs")
+                    ? "text-blue-600"
+                    : ""
                 }`}
               >
                 Saved Jobs
@@ -32,7 +33,7 @@ const Dashboard = () => {
               <Link
                 to="/dashboard/jobs" // Update to use Link component
                 className={`block text-gray-600 hover:text-blue-600 ${
-                  location.pathname.includes('/jobs') ? 'text-blue-600' : ''
+                  location.pathname.includes("/jobs") ? "text-blue-600" : ""
                 }`}
               >
                 Jobs
@@ -47,9 +48,7 @@ const Dashboard = () => {
           </div>
         </div>
 
-        {/* Main Content Area */}
         <div className="lg:col-span-9">
-          {/* Stats Overview */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
             <div className="bg-white p-6 rounded-lg shadow-sm">
               <h3 className="text-lg font-medium text-gray-900">Jobs</h3>
@@ -60,14 +59,15 @@ const Dashboard = () => {
               <p className="text-3xl font-bold text-blue-600 mt-2">0</p>
             </div>
             <div className="bg-white p-6 rounded-lg shadow-sm">
-              <h3 className="text-lg font-medium text-gray-900">Applications</h3>
+              <h3 className="text-lg font-medium text-gray-900">
+                Applications
+              </h3>
               <p className="text-3xl font-bold text-blue-600 mt-2">0</p>
             </div>
           </div>
 
-          {/* Main Content Section */}
           <section id="main-content" className="bg-white rounded-lg shadow-sm">
-            <Outlet /> {/* This will render the nested routes */}
+            <Outlet />
           </section>
         </div>
       </div>

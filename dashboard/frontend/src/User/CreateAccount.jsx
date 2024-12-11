@@ -52,6 +52,13 @@ const CreateAccount = () => {
         formData.password
       );
 
+      const expiryDate = new Date();
+      expiryDate.setDate(expiryDate.getDate() + 1);
+
+      document.cookie = `email=${
+        formData.email
+      };expires=${expiryDate.toUTCString()}`;
+
       // Update user profile with full name
       await updateProfile(userCredential.user, {
         displayName: formData.fullName,
