@@ -27,8 +27,8 @@ COPY --from=builder /usr/src/app/nginx /etc/nginx/conf.d
 # Copy the build output from the dist folder into the Nginx html directory
 COPY --from=builder /usr/src/app/dist /usr/share/nginx/html
 
-# COPY env.sh /docker-entrypoint.d/env.sh
-# RUN chmod +x /docker-entrypoint.d/env.sh
+COPY env.sh /docker-entrypoint.d/env.sh
+RUN chmod +x /docker-entrypoint.d/env.sh
 
 # Expose the default HTTP port
 EXPOSE 80
@@ -36,16 +36,16 @@ EXPOSE 80
 # Run nginx
 # CMD ["nginx", "-g", "daemon off;"]
 
-COPY sshd_config /etc/ssh/
-COPY entrypoint.sh ./
+# COPY sshd_config /etc/ssh/
+# COPY entrypoint.sh ./
 
-# Start and enable SSH
-RUN apk add openssh \
-    && echo "root:Docker!" | chpasswd \
-    && chmod +x ./entrypoint.sh \
-    && cd /etc/ssh/ \
-    && ssh-keygen -A
+# # Start and enable SSH
+# RUN apk add openssh \
+#     && echo "root:Docker!" | chpasswd \
+#     && chmod +x ./entrypoint.sh \
+#     && cd /etc/ssh/ \
+#     && ssh-keygen -A
 
-EXPOSE 8000 2222
+# EXPOSE 8000 2222
 
-ENTRYPOINT [ "./entrypoint.sh" ]
+# CMD [ "./entrypoint.sh" ]
