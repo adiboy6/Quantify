@@ -27,7 +27,7 @@ HEADERS = {
     "x-rapidapi-host": "jsearch.p.rapidapi.com"
 }
 
-# Route to fetch and store jobs from external API
+# Route to fetch from external API(Rapid API) and store in MongoDB
 @app.route('/api/collect_jobs', methods=['POST'])
 def collect_jobs():
     query = request.args.get("query", "Tech jobs in USA")
@@ -43,7 +43,7 @@ def collect_jobs():
     
     # Transform data for MongoDB
     for job in data["data"]:
-        posted_on = datetime.fromtimestamp(job["job_posted_at_timestamp"], tz=pytz.UTC) if job.get("job_posted_at_timestamp") else None
+        posted_on = datetime.fromtimestamp(job["job_posted_at_timestamp_utc"], tz=pytz.UTC) if job.get("job_posted_at_timestamp_utc") else None
         last_availability_check = datetime.utcnow().replace(tzinfo=pytz.UTC)
         
         transformed_job = {
