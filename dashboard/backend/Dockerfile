@@ -1,7 +1,9 @@
-FROM python:3.12.6
+FROM python:3.10-slim-bullseye
 
 # Set the working directory
 WORKDIR /app
+
+RUN apt-get update && apt-get install
 
 COPY requirements.txt .
 
